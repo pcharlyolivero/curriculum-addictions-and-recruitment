@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elementos a considerar para tejer la estrategia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..600,0..100&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #EEE4CE;
+  --paper: #F6EFDD;
+  --ink: #2B1F17;
+  --ink-soft: #6B5D4E;
+  --rule: #C9BFA8;
+
+  --doctrina: #2E4E6F;
+  --territorio: #B04A26;
+  --tiempo: #C08A2C;
+  --organizacion: #3E6647;
+  --liderazgo: #7B2E3F;
+
+  --active-color: var(--rule);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "opsz" 14, "SOFT" 50, "wght" 400;
+  line-height: 1.55;
+  min-height: 100vh;
+  padding: clamp(1.25rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem) 3rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 4.5vw, 3.5rem);
+  padding-top: clamp(0.5rem, 3vw, 2rem);
+}
+
+h1 {
+  font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 500;
+  font-size: clamp(2rem, 5.2vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  max-width: 18ch;
+  margin: 0 auto 1.5rem;
+}
+
+.subtitle {
+  font-variation-settings: "opsz" 24, "SOFT" 80, "wght" 400;
+  font-style: italic;
+  font-size: clamp(1rem, 1.55vw, 1.15rem);
+  color: var(--ink-soft);
+  max-width: 58ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ---------- Logos ---------- */
+.logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto clamp(1.5rem, 3vw, 2.5rem);
+  padding: 0 1rem clamp(1.25rem, 2.5vw, 1.75rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.logos img {
+  height: clamp(38px, 5vw, 52px);
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+  display: block;
+}
+
+.logos a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.logos img:hover {
+  opacity: 1;
+}
+
+/* ---------- Pentagon ---------- */
+.pentagon-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.5rem, 2vw, 1.5rem) 0;
+  margin-bottom: 1.5rem;
+}
+
+.pentagon {
+  width: min(540px, 90vw);
+  height: min(540px, 90vw);
+  filter: drop-shadow(0 10px 24px rgba(43, 31, 23, 0.14));
+  overflow: visible;
+}
+
+#pentagon-rotator {
+  transform-box: view-box;
+  transform-origin: 250px 250px;
+  transform: rotate(0deg);
+  transition: transform 0.85s cubic-bezier(0.65, 0.02, 0.28, 1);
+  will-change: transform;
+}
+
+.wedge {
+  cursor: pointer;
+  transition: opacity 0.35s ease,
+              filter 0.35s ease;
+}
+
+.wedge polygon {
+  transition: fill 0.3s ease;
+}
+
+.wedge:hover {
+  filter: brightness(1.08) saturate(1.05);
+}
+
+.pentagon.has-selection .wedge:not(.active) {
+  opacity: 0.38;
+}
+
+.wedge.active {
+  filter: brightness(1.06) saturate(1.08);
+}
+
+.wedge-label {
+  fill: #F5EDD9;
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "opsz" 24, "wght" 500;
+  font-size: 18px;
+  text-anchor: middle;
+  pointer-events: none;
+  letter-spacing: 0.04em;
+}
+
+.wedge-icon {
+  fill: #F5EDD9;
+  opacity: 0.32;
+  pointer-events: none;
+}
+
+/* ---------- Hint ---------- */
+.hint {
+  text-align: center;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin: 0.5rem auto 2rem;
+  max-width: 40ch;
+  opacity: 1;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  font-variation-settings: "opsz" 14;
+}
+
+.hint.hidden {
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* ---------- Panel ---------- */
+.panel {
+  background: var(--paper);
+  border-top: 5px solid var(--active-color);
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s ease;
+  opacity: 0;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px rgba(43, 31, 23, 0.06);
+}
+
+.panel.open {
+  max-height: 8000px;
+  padding-top: clamp(1.75rem, 4vw, 3rem);
+  padding-bottom: clamp(1.75rem, 4vw, 3rem);
+  opacity: 1;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.4s ease 0.15s,
+              border-color 0.4s ease;
+}
+
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.panel-number {
+  font-variation-settings: "opsz" 144, "wght" 300;
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  color: var(--ink-soft);
+  line-height: 1;
+  font-feature-settings: "onum";
+  opacity: 0.7;
+}
+
+.panel-title {
+  font-variation-settings: "opsz" 144, "wght" 500, "SOFT" 40;
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  flex: 1;
+}
+
+.back-button {
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "opsz" 14, "wght" 500, "SOFT" 40;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.95rem 0.55rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+  align-self: center;
+  letter-spacing: 0.01em;
+}
+
+.back-button:hover {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+  background: rgba(43, 31, 23, 0.03);
+}
+
+.back-button:active {
+  transform: translateX(-2px);
+}
+
+.back-button svg {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-button:hover svg {
+  transform: translateX(-3px);
+}
+
+.back-button:focus-visible {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
+}
+
+.panel-body {
+  transition: opacity 0.25s ease;
+}
+
+.panel-body.fading {
+  opacity: 0;
+}
+
+.panel-section {
+  margin-bottom: 1.75rem;
+  break-inside: avoid;
+}
+
+.panel-section:last-child {
+  margin-bottom: 0;
+}
+
+.panel-section h3 {
+  font-variation-settings: "opsz" 24, "wght" 600, "SOFT" 30;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: 0.55rem;
+  letter-spacing: 0.002em;
+}
+
+.panel-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.panel-section li {
+  font-variation-settings: "opsz" 14, "wght" 400, "SOFT" 60;
+  font-size: 1.02rem;
+  line-height: 1.62;
+  color: var(--ink);
+  padding-left: 1.4rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  max-width: 68ch;
+}
+
+.panel-section li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.85em;
+  width: 0.7rem;
+  height: 1.5px;
+  background: var(--active-color);
+  opacity: 0.6;
+}
+
+.panel-section li em {
+  font-style: italic;
+  font-variation-settings: "opsz" 14, "wght" 500;
+}
+
+/* Two-column layout for the very long panels on wide screens */
+@media (min-width: 900px) {
+  .panel-body.columns {
+    column-count: 2;
+    column-gap: 3rem;
+  }
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 3rem 1rem 0;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-variation-settings: "opsz" 14, "SOFT" 80;
+  opacity: 0.7;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 640px) {
+  .wedge-label { font-size: 14px; letter-spacing: 0.03em; }
+  .panel-head {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+  .panel-title { flex: 1 1 100%; order: 3; }
+  .panel-number { order: 1; }
+  .back-button { order: 2; margin-left: auto; }
+  .panel-body.columns { column-count: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Keyboard focus */
+.wedge:focus { outline: none; }
+.wedge:focus-visible polygon {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!--
+    ═══════════════════════════════════════════════════════════════
+    LOGOS — Reemplazá las cuatro imágenes por tus archivos.
+      · Cambiá  src="..."  por la ruta de tu logo (relativa
+        al archivo, ej. "logo-plapa.png", o URL completa).
+      · Actualizá  alt="..."  con el nombre de la institución
+        (importante para accesibilidad y para lectores de pantalla).
+      · Para QUITAR un logo, borrá esa línea entera.
+      · Para hacer un logo CLICKEABLE, envolvelo así:
+            <a href="https://..." target="_blank" rel="noopener">
+              <img src="..." alt="...">
+            </a>
+    ═══════════════════════════════════════════════════════════════
+  -->
+  <div class="logos">
+    <img src="logo-1.png" alt="Logo 1">
+    <img src="logo-2.png" alt="Logo 2">
+    <img src="logo-3.png" alt="Logo 3">
+    <img src="logo-4.png" alt="Logo 4">
+  </div>
+
+  <header>
+    <h1>Elementos a considerar para tejer la estrategia</h1>
+    <p class="subtitle">Los entrenadores del <em>curriculum</em> de adicciones para líderes en la fe, no son solo entrenadores sino tejedores de la red, artesanos de una respuesta de comunión.</p>
+  </header>
+
+  <div class="pentagon-stage">
+    <svg class="pentagon" id="pentagon" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Pentágono con los cinco elementos de la estrategia">
+      <g id="pentagon-rotator">
+
+        <!-- W0 TOP – La Doctrina (edge horizontal, text at 0°) -->
+        <g class="wedge" data-element="doctrina" tabindex="0" role="button" aria-label="La Doctrina">
+          <polygon points="250,250 132.44,88.20 367.56,88.20" fill="#2E4E6F"/>
+          <text class="wedge-label" x="250" y="120.20" transform="rotate(0 250 120.20)">Doctrina</text>
+        </g>
+
+        <!-- W1 UPPER RIGHT – El Territorio (text parallel to edge v0→v1, rotation 72°) -->
+        <g class="wedge" data-element="territorio" tabindex="0" role="button" aria-label="El Territorio">
+          <polygon points="250,250 367.56,88.20 440.21,311.80" fill="#B04A26"/>
+          <text class="wedge-label" x="373.46" y="209.89" transform="rotate(72 373.46 209.89)">Territorio</text>
+        </g>
+
+        <!-- W2 LOWER RIGHT – El Tiempo (text parallel to edge v1→v2, rotation 144°) -->
+        <g class="wedge" data-element="tiempo" tabindex="0" role="button" aria-label="El Tiempo">
+          <polygon points="250,250 440.21,311.80 250,450" fill="#C08A2C"/>
+          <text class="wedge-label" x="326.29" y="355.01" transform="rotate(144 326.29 355.01)">Tiempo</text>
+        </g>
+
+        <!-- W3 LOWER LEFT – La Organización (text parallel to edge v2→v3, rotation -144°) -->
+        <g class="wedge" data-element="organizacion" tabindex="0" role="button" aria-label="La Organización">
+          <polygon points="250,250 250,450 59.79,311.80" fill="#3E6647"/>
+          <text class="wedge-label" x="173.72" y="355.01" transform="rotate(-144 173.72 355.01)">Organización</text>
+        </g>
+
+        <!-- W4 UPPER LEFT – El Liderazgo (text parallel to edge v3→v4, rotation -72°) -->
+        <g class="wedge" data-element="liderazgo" tabindex="0" role="button" aria-label="El Liderazgo">
+          <polygon points="250,250 59.79,311.80 132.44,88.20" fill="#7B2E3F"/>
+          <text class="wedge-label" x="126.54" y="209.89" transform="rotate(-72 126.54 209.89)">Liderazgo</text>
+        </g>
+
+      </g>
+    </svg>
+  </div>
+
+  <p class="hint" id="hint">Haz clic en cualquiera de los cinco elementos para desplegar su contenido.</p>
+
+  <section class="panel" id="panel" aria-live="polite">
+    <div class="panel-head">
+      <div class="panel-number" id="panel-number"></div>
+      <h2 class="panel-title" id="panel-title"></h2>
+      <button class="back-button" id="back-button" type="button" aria-label="Volver al pentágono">
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+          <path d="M15 6l-6 6 6 6" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Volver</span>
+      </button>
+    </div>
+    <div class="panel-body columns" id="panel-body"></div>
+  </section>
+
+  <footer>tejedores de la red · artesanos de una respuesta de comunión</footer>
+
+</div>
+
+<script>
+const content = {
+  doctrina: {
+    number: "01",
+    title: "La Doctrina",
+    color: "#2E4E6F",
+    sections: [
+      {
+        h: "Discernimiento interno",
+        items: [
+          "Da criterios permanentes que trascienden la coyuntura y evita que la estrategia se vuelva puro cálculo o reacción.",
+          "Ayuda a <em>juzgar</em> dentro del Ver–Juzgar–Actuar; sin doctrina, el análisis se desliza al activismo o al pragmatismo.",
+          "Ordena prioridades: dignidad, bien común, opción por los pobres, subsidiariedad, solidaridad, ecología integral."
+        ]
+      },
+      {
+        h: "Legitimidad institucional",
+        items: [
+          "Hablar desde una doctrina que evita reduccionismos protege de ser leído como opinión personal o facción.",
+          "Permite pedir y proponer ante autoridades eclesiales y civiles desde un lugar sólido.",
+          "Blinda a los equipos ante acusaciones de &laquo;politización&raquo;."
+        ]
+      },
+      {
+        h: "Articulación y alianzas",
+        items: [
+          "Es condición para la unidad en la diversidad.",
+          "Genera lenguaje común entre actores muy distintos (iglesias, autoridades civiles, organismos, academia).",
+          "Habilita alianzas por principios compartidos sin exigir acuerdo pleno.",
+          "Es piso mínimo para la formación de agentes: sin él, cada red funciona con marcos propios y no acumula."
+        ]
+      },
+      {
+        h: "Análisis de la realidad",
+        items: [
+          "Provee categorías densas: estructuras de pecado, cultura del descarte, colonización ideológica, tecnocracia, economía que mata.",
+          "Ayuda a nombrar sin caer en jergas prestadas que desgastan el discurso pastoral."
+        ]
+      },
+      {
+        h: "Fuerza profética pública",
+        items: [
+          "Bien invocada, tiene autoridad moral más allá de lo eclesial: interpela a Estados, mercados y organismos.",
+          "Protege del doble riesgo ideológico: incomoda a izquierdas y derechas, y por eso da libertad de maniobra."
+        ]
+      },
+      {
+        h: "Sostenibilidad en el tiempo",
+        items: [
+          "Conecta la acción presente con una tradición larga y evita que cada gestión reinvente los fundamentos.",
+          "Permite que la estrategia sobreviva a los cambios de personas, gobiernos y ciclos eclesiales."
+        ]
+      }
+    ]
+  },
+
+  territorio: {
+    number: "02",
+    title: "El Territorio",
+    color: "#B04A26",
+    sections: [
+      {
+        h: "Territorio como lo permanente",
+        items: [
+          "El territorio son los elementos estables que estructuran el suelo sobre el que se actúa.",
+          "Iglesias y comunidades de fe: tradiciones, teologías, autoridades, estructuras, relaciones históricas entre sí.",
+          "Cultura: cosmovisión, religiosidad popular, lenguas, símbolos, memoria colectiva.",
+          "País: geografía humana y física, sistema político estructural, actores sociales, economía real, geografía de la pobreza."
+        ]
+      },
+      {
+        h: "Conocimiento previo obligatorio",
+        items: [
+          "El territorio precede a toda estrategia y la sobrevive. Ignorarlo garantiza fracaso.",
+          "No hay estrategia pastoral seria sin cartografía previa del terreno.",
+          "El mapa nunca es neutral: cada tradición y actor lee el mismo territorio de modo distinto."
+        ]
+      },
+      {
+        h: "Determinación del terreno",
+        items: [
+          "Define lo posible y lo imposible: hay territorios de denuncia, otros de mediación, otros de testimonio silencioso.",
+          "Impone el lenguaje: palabras y símbolos que abren puertas en un lugar las cierran en otro.",
+          "Marca qué tipo de liderazgo es reconocible: institucional, comunitario, carismático o profético."
+        ]
+      },
+      {
+        h: "Ecumenismo e interreligiosidad como dato",
+        items: [
+          "Ningún territorio es confesionalmente homogéneo.",
+          "Los equilibrios y tensiones entre tradiciones son parte del terreno, no ruido a evitar.",
+          "Estrategias que suponen un solo interlocutor confesional fracasan donde el territorio es plural."
+        ]
+      },
+      {
+        h: "Alianzas y adversarios",
+        items: [
+          "Cada territorio tiene su mapa de aliados, adversarios y ambiguos. No es transferible.",
+          "El peso real de un actor no se mide por su rango formal sino por su arraigo territorial."
+        ]
+      },
+      {
+        h: "Memoria del terreno",
+        items: [
+          "Cada comunidad y cultura carga heridas y esperanzas que condicionan toda propuesta.",
+          "Los errores históricos siguen operando aunque nadie los nombre.",
+          "Los símbolos, mártires y referentes propios son capital estratégico: se integran, no se inventan."
+        ]
+      },
+      {
+        h: "Contra la exportación de estrategias",
+        items: [
+          "Lo que funcionó en un país no funciona automáticamente en otro; no hay un modelo, hay un método.",
+          "Traducir no es transferir: exige rehacer la estrategia desde las categorías del territorio de destino."
+        ]
+      },
+      {
+        h: "Ventaja del arraigo",
+        items: [
+          "Quien conoce y respeta su terreno gana credibilidad y anticipación.",
+          "Los actores desanclados —gestiones foráneas, agendas descontextualizadas— se agotan solos.",
+          "La formación de agentes locales es más estratégica que cualquier despliegue externo."
+        ]
+      }
+    ]
+  },
+
+  tiempo: {
+    number: "03",
+    title: "El Tiempo",
+    color: "#C08A2C",
+    sections: [
+      {
+        h: "Tiempo como lo cambiante",
+        items: [
+          "Si el territorio es lo permanente, el tiempo es lo que se mueve: coyunturas, ciclos, oportunidades y clausuras.",
+          "Ciclos institucionales: asambleas, elecciones internas, cambios de autoridades, agendas de organismos.",
+          "Ciclos políticos y sociales: elecciones, cambios de gobierno, ciclos económicos, movilizaciones.",
+          "Ciclos litúrgicos, festivos y cívicos: tiempos fuertes, fechas patrias, aniversarios.",
+          "Ciclos generacionales: recambio de liderazgos, entrada de nuevas generaciones."
+        ]
+      },
+      {
+        h: "Kairós y cronos",
+        items: [
+          "Hay tiempo cronológico —el que corre parejo— y tiempo oportuno —el que se abre y hay que tomar—.",
+          "El kairós no se fabrica: se discierne. Perderlo es más costoso que perder recursos.",
+          "Hay momentos en que una acción pequeña rinde mucho, y otros en que un gran esfuerzo no mueve nada."
+        ]
+      },
+      {
+        h: "Lectura de la coyuntura",
+        items: [
+          "¿Qué se está abriendo?, ¿qué se está cerrando?, ¿qué está madurando?, ¿qué está en disputa?",
+          "Los signos del tiempo incluyen los desplazamientos silenciosos: humor social, lenguaje, agenda mediática.",
+          "Confundir actores emergentes con actores en retirada es un error caro."
+        ]
+      },
+      {
+        h: "Anticipación",
+        items: [
+          "Quien llega cuando el tema ya explotó llega tarde.",
+          "Anticipar exige leer tendencias, no solo hechos.",
+          "Preparar cuadros, documentos y alianzas antes de que se necesiten."
+        ]
+      },
+      {
+        h: "Ritmo propio",
+        items: [
+          "Cada proceso tiene su tiempo interno: forzarlo lo rompe, abandonarlo lo diluye.",
+          "Distinguir urgencia real de urgencia inducida es tarea permanente."
+        ]
+      },
+      {
+        h: "Sincronización",
+        items: [
+          "Coordinar tiempos entre actores distintos es tan importante como coordinar contenidos.",
+          "Una buena propuesta llega mal si llega desincronizada.",
+          "Los procesos internacionales tienen ritmos propios que no se acomodan a las agendas locales."
+        ]
+      },
+      {
+        h: "Memoria y horizonte",
+        items: [
+          "Sin memoria, cada gestión reinicia; sin horizonte, cada acción se agota en sí misma.",
+          "Las estrategias serias trabajan en tres tiempos: corto plazo (coyuntura), mediano (ciclo institucional), largo (proceso histórico)."
+        ]
+      },
+      {
+        h: "Ventana de oportunidad",
+        items: [
+          "Toda oportunidad tiene apertura, pico y cierre. Actuar en la apertura es más barato; después del cierre, puro desgaste.",
+          "Reconocer cuándo se cerró una ventana es tan importante como reconocer cuándo se abrió."
+        ]
+      },
+      {
+        h: "Tiempo de siembra y tiempo de cosecha",
+        items: [
+          "Hay tiempos de sembrar sin ver frutos: formación, vínculos, presencia, documentos disponibles para después.",
+          "Hay tiempos de cosechar lo sembrado por otros. Reconocerlo evita atribuirse lo que no se hizo."
+        ]
+      }
+    ]
+  },
+
+  organizacion: {
+    number: "04",
+    title: "La Organización",
+    color: "#3E6647",
+    sections: [
+      {
+        h: "Organización como cuerpo de la estrategia",
+        items: [
+          "Sin organización, la mejor estrategia queda en papel.",
+          "La organización no es neutra: la forma es contenido.",
+          "Toda estrategia que no piensa su organización es ejecutada por la que hay, no por la que se necesita."
+        ]
+      },
+      {
+        h: "Participación",
+        items: [
+          "La participación real —no formal— define la calidad del proceso y su sostenibilidad.",
+          "Participar es incidir en decisiones, recursos y evaluaciones; sin eso, se vuelve ritual.",
+          "La participación amplia hace más lento el arranque y más sólida la ejecución."
+        ]
+      },
+      {
+        h: "Subsidiariedad",
+        items: [
+          "Lo que puede resolverse en el nivel más cercano no debe subir.",
+          "Exige confianza en las bases y disciplina para no invadir lo que les corresponde.",
+          "Quien está más cerca del terreno decide mejor y más rápido, si tiene recursos y respaldo."
+        ]
+      },
+      {
+        h: "Solidaridad interna",
+        items: [
+          "Una red se mide por cómo trata a sus miembros más débiles.",
+          "No es filantropía sino condición estratégica: sin ella, la organización se fragmenta cuando aprieta la coyuntura.",
+          "Repartir recursos según necesidad, no según poder acumulado."
+        ]
+      },
+      {
+        h: "Centralización y descentralización",
+        items: [
+          "No es opción binaria: hay funciones centrales (representación, orientación estratégica, recursos comunes) y descentralizadas (ejecución, adaptación al terreno).",
+          "Centralizar demasiado genera cuello de botella; descentralizar sin criterio común, fragmentación.",
+          "El equilibrio es una decisión política sostenida."
+        ]
+      },
+      {
+        h: "Confianza",
+        items: [
+          "Es el capital más difícil de construir y el más fácil de perder.",
+          "No se decreta: se gana con transparencia, palabra cumplida y coherencia."
+        ]
+      },
+      {
+        h: "Control y rendición de cuentas",
+        items: [
+          "Confianza sin control es ingenuidad; control sin confianza es autoritarismo.",
+          "La rendición de cuentas protege a la organización y a sus responsables.",
+          "La opacidad genera sospecha; la sospecha erosiona la confianza; la desconfianza paraliza."
+        ]
+      },
+      {
+        h: "Comunicación interna",
+        items: [
+          "Una organización que no comunica hacia adentro se fragmenta.",
+          "Compartir información es distribuir capacidad de acción.",
+          "Los espacios formales de encuentro son infraestructura estratégica, no gasto administrativo."
+        ]
+      },
+      {
+        h: "Sistemas de relación",
+        items: [
+          "Los vínculos personales de los líderes son frágiles: se van con quien los construyó. La organización debe traducirlos en trama estable.",
+          "Son los espacios, canales, protocolos y rutinas que hacen que los actores trabajen juntos más allá de quién esté a cargo.",
+          "Incluyen lo formal (mesas, encuentros, acuerdos) y lo informal institucionalizado (agendas compartidas, presencias mutuas).",
+          "Se cultivan hacia adentro y hacia afuera. Sin ellos, no hay red sino personas bien conectadas."
+        ]
+      },
+      {
+        h: "Diversidad y unidad",
+        items: [
+          "Las organizaciones plurales son más resistentes y creativas, pero exigen más articulación.",
+          "La unidad no es uniformidad: se construye sobre acuerdos mínimos claros y respeto activo a las diferencias."
+        ]
+      },
+      {
+        h: "Institucionalidad y carisma",
+        items: [
+          "Sin institucionalidad, el carisma se agota con quien lo encarna; sin carisma, la institución se vuelve rutina sin alma.",
+          "Institucionalizar sin ahogar el carisma, renovar el carisma sin destruir la institución."
+        ]
+      },
+      {
+        h: "Formación permanente",
+        items: [
+          "No hay estructura que sobreviva a la falta de cuadros formados.",
+          "Incluye identidad, memoria, espiritualidad y criterios comunes, no solo técnica.",
+          "Su ausencia se paga tarde y caro."
+        ]
+      }
+    ]
+  },
+
+  liderazgo: {
+    number: "05",
+    title: "El Liderazgo",
+    color: "#7B2E3F",
+    sections: [
+      {
+        h: "Liderazgo como factor decisivo",
+        items: [
+          "La mejor estrategia con el liderazgo equivocado fracasa; una estrategia mediana con buen liderazgo se corrige y avanza.",
+          "La red es, en buena medida, la calidad de sus liderazgos."
+        ]
+      },
+      {
+        h: "Función estratégica del liderazgo",
+        items: [
+          "Discernir: leer territorio, tiempo y coyuntura, y traducirlos en decisiones.",
+          "Convocar: reunir a los distintos, sostener el vínculo, generar pertenencia.",
+          "Decidir: asumir el costo de las decisiones difíciles.",
+          "Representar: ser cara visible sin apropiarse del proceso colectivo.",
+          "Cuidar: proteger a los miembros, sobre todo a los más expuestos.",
+          "Suceder: preparar a quienes vendrán.",
+          "Conectar: articular actores diversos en la referencia a los distintos temas."
+        ]
+      },
+      {
+        h: "Riesgos permanentes",
+        items: [
+          "Personalismo: confundir el proyecto con la propia persona.",
+          "Caudillismo: concentrar decisiones, vínculos y recursos.",
+          "Burocratización: refugiarse en la estructura para no conducir.",
+          "Delegación por evasión: descargar en otros lo que exige presencia propia.",
+          "Perpetuación: no soltar a tiempo, bloqueando la renovación."
+        ]
+      },
+      {
+        h: "Autoridad moral",
+        items: [
+          "No viene del cargo sino de la coherencia entre lo que se dice y lo que se hace.",
+          "Se sostiene en el testimonio, especialmente bajo presión.",
+          "Sin ella, el liderazgo se reduce a poder formal, y el poder formal no convoca: obliga."
+        ]
+      },
+      {
+        h: "Capacidad de escucha",
+        items: [
+          "Escuchar de verdad —no esperar el turno para hablar— es el primer trabajo del que conduce.",
+          "Incluye lo que incomoda, lo que contradice, lo que viene de los márgenes.",
+          "Sin escucha, se construye un cinturón de complacientes y se pierde contacto con la realidad."
+        ]
+      },
+      {
+        h: "Capacidad de tejer vínculos",
+        items: [
+          "Confianza cara a cara, presencia en momentos importantes, memoria de las personas concretas.",
+          "Tarea intransferible: no se delega en comunicación ni en administración.",
+          "Exige tiempo dedicado, no residual."
+        ]
+      },
+      {
+        h: "Visión estratégica",
+        items: [
+          "Ver más allá de la coyuntura y traducirlo en decisiones comunicables.",
+          "Sostener el rumbo cuando la coyuntura empuja en contra, y corregirlo cuando la realidad demuestra que estaba equivocado."
+        ]
+      },
+      {
+        h: "Libertad interior",
+        items: [
+          "Independencia frente a poder, dinero, reconocimiento y ambición propia.",
+          "Capacidad de decir que no, incluso a aliados, superiores o amigos.",
+          "Sin ella, el liderazgo se vuelve funcional a quien lo presiona más."
+        ]
+      },
+      {
+        h: "Espiritualidad y hondura",
+        items: [
+          "El liderazgo pastoral se sostiene en una vida interior cuidada; sin ella, se agota, se endurece o se corrompe.",
+          "Es la fuente de sentido, resistencia y horizonte del servicio.",
+          "Incluye silencio, oración, discernimiento y referencia a algo mayor."
+        ]
+      },
+      {
+        h: "Humildad operativa",
+        items: [
+          "Reconocer los propios límites sin dramatizarlos ni ocultarlos.",
+          "Rodearse de gente mejor que uno en lo que uno no sabe.",
+          "Aceptar que la red no depende de uno."
+        ]
+      },
+      {
+        h: "Servicio, no protagonismo",
+        items: [
+          "Se mide por lo que hace crecer a los demás, no por lo que acumula para sí.",
+          "Cede protagonismo, empuja a otros al frente, se corre a un costado sin resentimiento."
+        ]
+      },
+      {
+        h: "Firmeza y ternura",
+        items: [
+          "Firmeza para sostener criterios y decisiones difíciles; ternura para acompañar personas y procesos lentos.",
+          "Faltar a una es autoritarismo; a la otra, blandura."
+        ]
+      },
+      {
+        h: "Capacidad de generar liderazgos",
+        items: [
+          "El mejor indicador no es lo que un líder hace, sino cuántos liderazgos deja formados detrás.",
+          "Exige compartir información, delegar responsabilidades reales, aceptar que hagan las cosas distinto.",
+          "Un líder que no genera otros líderes construye dependencia, no red."
+        ]
+      },
+      {
+        h: "Manejo del conflicto",
+        items: [
+          "Los conflictos son inevitables en toda red viva; evitarlos los deja crecer hasta hacerse ingobernables.",
+          "Enfrentarlos con claridad, sin dramatizar ni personalizar.",
+          "Incluye mediar, reconocer los propios errores y sostener la unidad sin negar las diferencias."
+        ]
+      },
+      {
+        h: "Ecumenismo real",
+        items: [
+          "En redes plurales, el liderazgo debe ser reconocible y respetuoso más allá de la propia tradición.",
+          "Exige conocimiento, aprecio y trato equitativo hacia las otras tradiciones.",
+          "Un liderazgo demasiado marcado por su tradición reduce el alcance de la red."
+        ]
+      }
+    ]
+  }
+};
+
+// ---------- Render logic ----------
+const pentagon = document.getElementById('pentagon');
+const panel = document.getElementById('panel');
+const panelNumber = document.getElementById('panel-number');
+const panelTitle = document.getElementById('panel-title');
+const panelBody = document.getElementById('panel-body');
+const hint = document.getElementById('hint');
+
+let currentSelection = null;
+
+function renderContent(key) {
+  const data = content[key];
+  if (!data) return;
+
+  const html = data.sections.map(section => `
+    <div class="panel-section">
+      <h3>${section.h}</h3>
+      <ul>
+        ${section.items.map(item => `<li>${item}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+
+  panelNumber.textContent = data.number;
+  panelTitle.textContent = data.title;
+  panelBody.innerHTML = html;
+
+  // Update the active color used by border, bullet accents, etc.
+  document.documentElement.style.setProperty('--active-color', data.color);
+}
+
+// Rotation targets for each wedge (degrees CW).
+// Each value is the SVG rotation needed to bring that wedge's outer edge to the top,
+// so its label — parallel to the edge — lands horizontally in the reading direction.
+const wedgeTargets = {
+  doctrina:     0,
+  territorio:  -72,
+  tiempo:     -144,
+  organizacion: 144,
+  liderazgo:    72
+};
+
+const rotator = document.getElementById('pentagon-rotator');
+const backButton = document.getElementById('back-button');
+let currentRotation = 0;
+
+function applyRotation(target) {
+  // Choose the equivalent angle (target ± 360°·n) closest to the current
+  // rotation, so the pentagon always takes the shortest path.
+  let t = target;
+  while (t - currentRotation > 180) t -= 360;
+  while (t - currentRotation < -180) t += 360;
+  currentRotation = t;
+  rotator.style.transform = `rotate(${t}deg)`;
+}
+
+function selectElement(key) {
+  if (!content[key]) return;
+
+  // Rotate pentagon to bring wedge to top
+  applyRotation(wedgeTargets[key]);
+
+  // Update pentagon state
+  pentagon.classList.add('has-selection');
+  document.querySelectorAll('.wedge').forEach(w => {
+    w.classList.toggle('active', w.dataset.element === key);
+  });
+
+  // Hide hint
+  hint.classList.add('hidden');
+
+  const isSameElement = (currentSelection === key);
+  const wasOpen = panel.classList.contains('open');
+
+  if (!wasOpen) {
+    renderContent(key);
+    requestAnimationFrame(() => {
+      panel.classList.add('open');
+      setTimeout(() => {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 350);
+    });
+  } else if (!isSameElement) {
+    panelBody.classList.add('fading');
+    setTimeout(() => {
+      renderContent(key);
+      panelBody.classList.remove('fading');
+    }, 220);
+  }
+
+  currentSelection = key;
+}
+
+function resetView() {
+  // Rotate back to 0° via shortest path
+  applyRotation(0);
+
+  // Close panel and clear active state
+  panel.classList.remove('open');
+  pentagon.classList.remove('has-selection');
+  document.querySelectorAll('.wedge').forEach(w => w.classList.remove('active'));
+  hint.classList.remove('hidden');
+  currentSelection = null;
+
+  // Reset the active color so panel border returns to neutral
+  document.documentElement.style.removeProperty('--active-color');
+
+  // Bring the pentagon back into view
+  document.querySelector('.pentagon-stage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Wedge click / keyboard handlers
+document.querySelectorAll('.wedge').forEach(wedge => {
+  wedge.addEventListener('click', () => {
+    selectElement(wedge.dataset.element);
+  });
+  wedge.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      selectElement(wedge.dataset.element);
+    }
+  });
+});
+
+// Back button
+backButton.addEventListener('click', resetView);
+
+// Esc key closes the panel
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && currentSelection !== null) {
+    resetView();
+  }
+});
+
+</script>
+</body>
+</html>
