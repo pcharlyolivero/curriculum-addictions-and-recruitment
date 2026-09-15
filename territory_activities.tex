@@ -1,0 +1,385 @@
+% =====================================================================
+%  Territory as a set of permanent factors
+%  Three circle-work activities
+%
+%  Addictions and recruitment curriculum for faith leaders — PLAPA
+%
+%  Compile with pdflatex (tested with TeX Live 2024 / MiKTeX 24).
+%    pdflatex territory_activities.tex
+%    pdflatex territory_activities.tex   % 2nd pass for hyperref/toc
+% =====================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% -------- Encoding and language --------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% -------- Typography: Palatino with ligatures --------
+\usepackage{mathpazo}
+\linespread{1.08}
+\usepackage{microtype}
+
+% -------- Page geometry --------
+\usepackage[a4paper, top=2.6cm, bottom=2.6cm, left=2.6cm, right=2.6cm]{geometry}
+
+% -------- Utilities --------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+% -------- Palette (coherent with the strategy pentagon) --------
+\definecolor{territorioTierra}{HTML}{B04A26}
+\definecolor{parch}{HTML}{F6EFDD}
+\definecolor{tinte}{HTML}{2B1F17}
+\definecolor{tenue}{HTML}{6B5D4E}
+\definecolor{regla}{HTML}{C9BFA8}
+
+% -------- Paragraph settings --------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% -------- Hyperref (metadata + colors) --------
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = territorioTierra,
+  urlcolor     = territorioTierra,
+  citecolor    = territorioTierra,
+  pdftitle     = {Territory as a set of permanent factors},
+  pdfsubject   = {Three circle-work activities},
+  pdfauthor    = {PLAPA -- Addictions and recruitment curriculum for faith leaders},
+  pdfkeywords  = {territory, permanent factors, ecclesial culture, historical wounds, theology, activities, circle, PLAPA}
+}
+
+% -------- Custom titling --------
+\titleformat{\section}[block]
+  {\vspace{0.4em}\color{territorioTierra}\Large\scshape}
+  {}{0em}{}
+  [\vspace{-0.2em}{\color{regla}\rule{\linewidth}{0.4pt}}]
+
+\titleformat{\subsection}[block]
+  {\color{tinte}\large\bfseries}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.35em}
+
+% -------- Lists --------
+\setlist[itemize]{leftmargin=1.4em, itemsep=0.15em, topsep=0.25em,
+                  label={\textcolor{tenue}{\textendash}}}
+\setlist[enumerate]{leftmargin=1.7em, itemsep=0.15em, topsep=0.25em}
+
+% -------- Header / footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{tenue}\scshape\small Territory as permanent factors}
+\fancyhead[R]{\color{tenue}\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% -------- Activity box --------
+\newtcolorbox{actividad}{
+  enhanced,
+  breakable,
+  colback   = parch,
+  colframe  = territorioTierra,
+  boxrule   = 0pt,
+  toprule   = 3pt,
+  arc       = 2pt,
+  outer arc = 2pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt,
+  parbox    = false,
+  after skip= 1em
+}
+
+% -------- Operational info box (metadata) --------
+\newtcolorbox{ficha}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = regla,
+  boxrule   = 0.4pt,
+  arc       = 1pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.9em
+}
+
+% -------- Convenience commands --------
+\newcommand{\etiqueta}[1]{\textcolor{territorioTierra}{\scshape #1}}
+\newcommand{\tituloActividad}[2]{%
+  {\color{tenue}\scshape\normalsize Activity #1}\par
+  \vspace{0.15em}
+  {\color{territorioTierra}\LARGE\bfseries #2}\par
+  \vspace{0.3em}
+  {\color{regla}\rule{\linewidth}{0.4pt}}\par
+  \vspace{0.5em}
+}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------- Cover / heading ------------------------------------------
+\thispagestyle{plain}
+\begin{center}
+  \vspace*{1.5em}
+  {\color{tenue}\scshape\small PLAPA \ \textbullet\ \ Addictions and recruitment curriculum}\\
+  \vspace{2em}
+  {\color{territorioTierra}\Huge Territory}\\[0.35em]
+  {\color{tinte}\LARGE\itshape as a set of permanent factors}\\
+  \vspace{1.4em}
+  {\color{tenue}\large Three activities for circle work}\\
+  \vspace{0.6em}
+  {\color{regla}\rule{0.35\linewidth}{0.5pt}}
+\end{center}
+
+\vspace{2em}
+
+% ---------- Introduction ---------------------------------------------
+\section*{Introduction}
+
+This booklet proposes three activities for working the theme of \emph{territory} within the strategy pentagon, with a specific emphasis: territory as the set of \textbf{permanent factors} that must be considered to reach the pastoral objective. The ecclesial culture of each country, the historical wounds that keep operating, the theology that effectively prevails in each local church, the collective memory that precedes the pastoral agent and will keep being there when they leave. All of this is the territory.
+
+The emphasis on the permanent distinguishes this session from the one on \emph{time}, which works the changing factors (conjunctures, cycles, windows of opportunity). We recommend doing territory first, and time afterward, in separate sessions. Reading time without having read the territory is the most frequent pastoral mistake.
+
+\subsection*{Three misunderstandings the activities work with}
+
+When it is claimed that ``one must know the territory,'' one of these three reflexes tends to appear in the room. The activities are designed to unsettle them in practice:
+
+\begin{enumerate}[label={\color{territorioTierra}\arabic*.}]
+  \item \emph{``I know my territory.''} \\
+        Almost never. What we know is our own cropping of the territory. What we do not visit, what does not speak to us, what resists us is also territory, and it is usually the most determinant.
+  \item \emph{``Territory is where I work.''} \\
+        Insufficient. Territory includes the whole local church with its biography, the confessional traditions that are not one's own, the dominant theological currents, the historical wounds that operate even when no one names them.
+  \item \emph{``Territory can be summarized in a paragraph.''} \\
+        Superficial. When it is summarized in a paragraph, it has been lost. It is known slowly and in parts, with the feet before with Google.
+\end{enumerate}
+
+Any activity that works must make visible, in real time, these three things: that the territory precedes the agent and exceeds them, that it is stratified and plural, and that it is known through respect for its concrete signs.
+
+\vspace{1.5em}
+
+% =====================================================================
+%  Activity 1
+% =====================================================================
+\begin{actividad}
+\tituloActividad{1}{The biography of my local church and the wounds that still operate}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To make visible that each local church has its own biography (foundational, theological, conflictual) that precedes every pastoral agent and shapes what it can receive today as a proposal. To identify the historical wounds that keep operating even when they are not named. \\[0.35em]
+  \etiqueta{format}     & Two stages. Group work by country or ecclesial region + silent gallery + plenary presentation with silence and one-word round. \\[0.35em]
+  \etiqueta{time}       & 120--150 minutes. \\[0.35em]
+  \etiqueta{materials}  & Long butcher paper (or A2 sheets taped in line), colored markers, tape to hang on the wall; spatial arrangement with free walls for the gallery. \\[0.35em]
+  \etiqueta{groups}     & 4--6 people from the same ecclesial ground (country or region).
+\end{tabular}
+\end{ficha}
+
+\subsection*{Prompt for the first stage}
+\emph{``Draw a timeline of the local church of your country, spanning the last 80 or 100 years. Mark: founding moments, historical wounds (divisions, persecutions, ruptures), martyr or prophetic figures who left a mark, internal conflicts that keep operating, theological currents that dominated in each period, closed or pending processes of reconciliation.''}
+
+\subsection*{Prompt for the second stage}
+\emph{``From all the wounds marked on your timeline, choose one to present in plenary. The one you believe most shapes today the possibility of working pastorally in the face of addictions and recruitment.''}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item Group formation by country or ecclesial region (Southern Cone, Andean, Central America and the Caribbean, Brazil, etc., if the group is multinational).
+  \item Group work for the first stage: 40--50 minutes. Each group produces its timeline on the paper.
+  \item Hang the timelines on the wall. Silent gallery: all participants walk looking at the timelines of the other countries, without speaking to each other. 10--15 minutes.
+  \item Return to the original groups for the second stage. Selection of one wound to present. 15 minutes.
+  \item Presentation by each group in plenary: no more than 3 minutes per wound. Without opening debate.
+  \item Deliberate silence of 2 minutes at the end of all presentations.
+  \item Round with a talking piece: each participant says \textbf{one} word that resonated from the presentations. Nothing more. Without explanations.
+\end{enumerate}
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item What of another local church's biography that was not my own surprised me?
+  \item What does the set of wounds presented show about the Latin American church as a whole?
+  \item What do I need to take seriously as a continental team so as not to repeat those wounds in our shared work?
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+This is the most demanding activity of the territory block and also the most formative. It requires care of rhythm and discipline of silence. Some criteria:
+
+\begin{itemize}
+  \item The rule of silence in the gallery and in the final round is what sustains the seriousness of the exercise. Without it, it disperses.
+  \item If a group gets stuck in the wounds phase because it does not want to name, offer scaffolding questions without insisting: what division marked your church in the last 50 years? what martyrs are not recognized in the calendar of saints but the people do remember them? what broken alliance still weighs? what complicit silence of the hierarchy left open wounds?
+  \item If the group is multinational and there is only one participant from a country, group them with a wider ecclesial region. Do not leave them alone.
+  \item The facilitator does not intervene during the presentations nor during the one-word round. Only keeps the timing.
+  \item Reserve a personal meeting space after the session for those who have been especially moved.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Activity 2
+% =====================================================================
+\begin{actividad}
+\tituloActividad{2}{The theology my church breathes}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To make visible that the theology that effectively prevails in each local church is not the one of the documents nor the one of the seminaries, but the one that is preached, catechized, and lived in the people's piety. That theological atmosphere is a permanent factor of the territory. \\[0.35em]
+  \etiqueta{format}     & Silent individual writing + round with talking piece. \\[0.35em]
+  \etiqueta{time}       & 40--50 minutes. \\[0.35em]
+  \etiqueta{materials}  & Paper and pens; talking piece; circle seating. \\[0.35em]
+  \etiqueta{group}      & 8 to 20 people. Requires prior trust. Not recommended for a first meeting.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Prompt}
+\emph{``In your local church --- the one that effectively formed the majority of the pastoral agents you work with --- what theology prevails? Not what documents say, nor what seminaries teach. What is effectively preached from the pulpit, catechized in the parish, and lived in the people's piety. How is salvation read? How is sin read? How is the poor person read? How is the woman read? How is the other read (the non-Catholic if you are Catholic, the non-evangelical if you are evangelical)? How is suffering read?''}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item The prompt is read aloud and also handed out in writing. If the group requests, leave the questions visible on a poster during the entire activity.
+  \item Individual writing, 10 minutes, in silence. Each participant writes for themselves, not to read aloud.
+  \item Round with a talking piece: each person shares no more than 2 minutes. No literal reading of what was written. No cross-talk.
+  \item At the close, a brief silence of one minute.
+\end{enumerate}
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item What did you hear about the dominant theology of another local church that you did not expect?
+  \item What of what you said had you named aloud before, and what had you not?
+  \item What does that dominant theology imply for introducing a new pastoral proposal --- for example, the addictions and recruitment curriculum? What of the curriculum will resonate naturally? What will bounce off?
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+\begin{itemize}
+  \item Requires prior trust. If the group barely knows each other, do this in a second or third meeting. Do not open with this activity.
+  \item It is demanding because it asks for a critical naming of one's own church. If the facilitator can, it is helpful to model with a brief intervention at the start, to authorize the tone.
+  \item Do not intervene during the round. Silent listening is part of the exercise and its value.
+  \item Discomfort may arise. Do not rush the debrief: let it settle for two or three days if possible, and pick it up in the following session.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Activity 3
+% =====================================================================
+\begin{actividad}
+\tituloActividad{3}{The dictionary of my church}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To make visible that pastoral language is not shared, even when it appears to be. Shared words carry different weights in each local church: weights of theology, of history, of wounds. Recognizing that is part of reading the territory. \\[0.35em]
+  \etiqueta{format}     & Work in groups by country + plenary. \\[0.35em]
+  \etiqueta{time}       & 60--75 minutes. \\[0.35em]
+  \etiqueta{materials}  & Large sheets or butcher paper, markers; a central board or poster for the plenary. \\[0.35em]
+  \etiqueta{groups}     & 3--5 people per country or ecclesial region.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Prompt}
+\emph{``Build the dictionary of your local church. Ten words. Not technical words: words of everyday use in the church that, if a pastoral agent from another country hears them, they will misunderstand. Words loaded by the particular history of that church. Words that carry a theology or a wound inside. Next to each word, a brief definition --- one line --- of what it means \textbf{there}.''}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item Group formation by country or ecclesial region.
+  \item Group work, 30 minutes.
+  \item Presentation of each dictionary in plenary: the ten words with their ``local'' definition.
+  \item On a central board or poster, the facilitator notes the words that appear in more than one dictionary with different meanings. Those are the ``loaded words'' of the continent.
+  \item Open conversation about those loaded words. In what concrete situations of the network have those different meanings generated disagreements that were actually vocabulary misunderstandings?
+\end{enumerate}
+
+\subsection*{Words that tend to appear}
+As orientation for the facilitator, some words that in different Latin American churches carry very different meanings:
+
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=1.2em]
+  \item official church
+  \item base
+  \item commitment
+  \item option
+  \item charismatic
+  \item traditional
+  \item popular
+  \item hierarchy
+  \item movement
+  \item social pastoral work
+  \item evangelization
+  \item dialogue
+  \item magisterium
+  \item popular piety
+  \item community
+  \item conversion
+\end{itemize}
+\end{multicols}
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item What word did you discover meant something different in another church than you supposed?
+  \item In what concrete dialogues of the network does this explain previous disagreements that were read as differences of opinion and were actually differences of territory?
+  \item What minimum agreement of vocabulary would it be useful to establish before the next continental meeting?
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+\begin{itemize}
+  \item It is the lightest activity of the block. It works as a close after the weight of the first activity, and as operational preparation for continental work.
+  \item The word list is orientative. Each group brings its own. If a group gets stuck, offer two or three words from the list and let them continue.
+  \item Writing on the central board the words that appear in more than one country produces the ``map of continental misunderstanding.'' It is the most valuable material of the exercise, and it is worth photographing the board at the end to preserve it.
+  \item When well done, this activity avoids many false discussions in later meetings. It is worth doing at the beginning of a continental work process, not at the end.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Cross-cutting advice
+% =====================================================================
+\section*{Cross-cutting advice --- Closing round}
+
+Any of the three activities above gains depth if closed with the same \textbf{brief round}, with a talking piece and a single prompt:
+
+\vspace{0.5em}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=territorioTierra, colframe=territorioTierra,
+  boxrule=0pt, arc=3pt,
+  left=18pt, right=18pt, top=16pt, bottom=16pt,
+  width=0.86\linewidth,
+  halign=center
+]
+  {\color{parch}\itshape\large ``What of the permanent in my church and culture do I have to take more seriously so that the pastoral proposal does not bounce off?''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5em}
+
+This question is different from the closing question of the doctrine block. Here what matters is not what was learned: what matters is what commits the participant to look again when they return to their territory. Territory is not learned: it is looked at again. That is the discipline the session must leave installed.
+
+\subsection*{Practical guidelines}
+
+\begin{itemize}
+  \item The facilitator \textbf{does not comment or validate} each contribution during the round. Only holds the rhythm.
+  \item The round admits no explanations or justifications. The decision is said --- what will be taken more seriously --- and the piece is passed. If the answer begins to explain why, the facilitator can calmly recall the prompt.
+  \item Passing is allowed: whoever does not wish to speak passes the piece without justifying. The round may return to that person at the end if they so wish.
+  \item At the close of the round, the facilitator gathers two or three emerging patterns from the group. \textbf{Only two or three.} The discipline of not saying more is part of the care of the space.
+  \item If this session is prologue to the \emph{time} session, do not close entirely. Leave the round as an entry door to the next block.
+\end{itemize}
+
+\vspace{2em}
+
+% -------- Colophon --------
+\begin{center}
+{\color{regla}\rule{0.35\linewidth}{0.5pt}}\\
+\vspace{0.6em}
+{\color{tenue}\itshape\small weavers of the network \ \textbullet\ \ artisans of a response of communion}
+\end{center}
+
+\end{document}

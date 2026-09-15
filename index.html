@@ -403,7 +403,136 @@ footer {
   opacity: 0.7;
 }
 
-/* ---------- Responsive tweaks ---------- */
+/* ---------- Fichas de dinámicas ---------- */
+.fichas-section {
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--rule);
+}
+
+.fichas-header {
+  text-align: center;
+  max-width: 58ch;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+
+.fichas-title {
+  font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 500;
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  color: var(--ink);
+  letter-spacing: -0.018em;
+  line-height: 1.05;
+  margin-bottom: 0.9rem;
+}
+
+.fichas-lead {
+  font-variation-settings: "opsz" 24, "SOFT" 80, "wght" 400;
+  font-style: italic;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.fichas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(1rem, 2vw, 1.4rem);
+}
+
+.ficha-card {
+  --card-color: var(--rule);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  padding: 1.4rem 1.5rem 1.25rem;
+  border-radius: 3px;
+  border-top: 4px solid var(--card-color);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.28s ease;
+  box-shadow: 0 2px 8px rgba(43, 31, 23, 0.06);
+  min-height: 210px;
+}
+
+.ficha-card:hover,
+.ficha-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(43, 31, 23, 0.14);
+  outline: none;
+}
+
+.ficha-number {
+  font-variation-settings: "opsz" 144, "wght" 300;
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  opacity: 0.55;
+  line-height: 1;
+  font-feature-settings: "onum";
+  margin-bottom: 0.45rem;
+}
+
+.ficha-name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "opsz" 144, "wght" 500, "SOFT" 40;
+  font-size: 1.35rem;
+  color: var(--card-color);
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  margin-bottom: 0.35rem;
+}
+
+.ficha-sub {
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "opsz" 24, "SOFT" 80;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: auto;
+}
+
+.ficha-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--rule);
+}
+
+.ficha-count {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "opsz" 14;
+}
+
+.ficha-cta {
+  color: var(--card-color);
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "opsz" 14, "wght" 500;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  letter-spacing: 0.01em;
+}
+
+.ficha-cta svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .fichas-grid { grid-template-columns: 1fr; }
+  .ficha-card { min-height: unset; }
+}
+
 @media (max-width: 640px) {
   .wedge-label { font-size: 14px; letter-spacing: 0.03em; }
   .panel-head {
@@ -527,6 +656,14 @@ footer {
     <div class="panel-body columns" id="panel-body"></div>
   </section>
 
+  <section class="fichas-section" id="fichas-section" aria-labelledby="fichas-title">
+    <div class="fichas-header">
+      <h2 class="fichas-title" id="fichas-title"></h2>
+      <p class="fichas-lead" id="fichas-lead"></p>
+    </div>
+    <div class="fichas-grid" id="fichas-grid"></div>
+  </section>
+
   <footer>weavers of the network · artisans of a response of communion</footer>
 
 </div>
@@ -543,12 +680,18 @@ const translations = {
       backAria: "Back to the pentagon",
       pentagonAria: "Pentagon with the five elements of the strategy",
       footer: "weavers of the network · artisans of a response of communion",
+      fichasTitle: "Facilitator field guides",
+      fichasLead: "Five booklets for facilitators, one for each element of the pentagon. Activities for circle work, restorative practices, and guided meditation.",
+      fichaCount: "activities",
+      fichaCountOne: "activity",
+      fichaLangNote: null,
+      fichaDownload: "Download PDF",
       wedges: {
-        doctrina:     { label: "Doctrine",     aria: "Doctrine" },
-        territorio:   { label: "Territory",    aria: "Territory" },
-        tiempo:       { label: "Time",         aria: "Time" },
-        organizacion: { label: "Organization", aria: "Organization" },
-        liderazgo:    { label: "Leadership",   aria: "Leadership" }
+        doctrina:     { label: "Doctrine",     aria: "Doctrine",     fichaSubtitle: "as principle of unity" },
+        territorio:   { label: "Territory",    aria: "Territory",    fichaSubtitle: "as the set of permanent factors" },
+        tiempo:       { label: "Time",         aria: "Time",         fichaSubtitle: "chronos, kairos and windows of opportunity" },
+        organizacion: { label: "Organization", aria: "Organization", fichaSubtitle: "the body that outlasts time" },
+        liderazgo:    { label: "Leadership",   aria: "Leadership",   fichaSubtitle: "service before power, authority before position" }
       }
     },
     content: {
@@ -998,12 +1141,18 @@ const translations = {
       backAria: "Volver al pentágono",
       pentagonAria: "Pentágono con los cinco elementos de la estrategia",
       footer: "tejedores de la red · artesanos de una respuesta de comunión",
+      fichasTitle: "Fichas de dinámicas",
+      fichasLead: "Cinco cuadernillos para facilitadores, uno por cada elemento del pentágono. Actividades para trabajo en círculo, prácticas restaurativas y meditación guiada.",
+      fichaCount: "dinámicas",
+      fichaCountOne: "dinámica",
+      fichaLangNote: null,
+      fichaDownload: "Descargar PDF",
       wedges: {
-        doctrina:     { label: "Doctrina",     aria: "La Doctrina" },
-        territorio:   { label: "Territorio",   aria: "El Territorio" },
-        tiempo:       { label: "Tiempo",       aria: "El Tiempo" },
-        organizacion: { label: "Organización", aria: "La Organización" },
-        liderazgo:    { label: "Liderazgo",    aria: "El Liderazgo" }
+        doctrina:     { label: "Doctrina",     aria: "La Doctrina",     fichaSubtitle: "como principio de unidad" },
+        territorio:   { label: "Territorio",   aria: "El Territorio",   fichaSubtitle: "como conjunto de factores permanentes" },
+        tiempo:       { label: "Tiempo",       aria: "El Tiempo",       fichaSubtitle: "cronos, kairós y ventanas de oportunidad" },
+        organizacion: { label: "Organización", aria: "La Organización", fichaSubtitle: "el cuerpo que vence al tiempo" },
+        liderazgo:    { label: "Liderazgo",    aria: "El Liderazgo",    fichaSubtitle: "servicio antes que poder, autoridad antes que cargo" }
       }
     },
     content: {
@@ -1475,6 +1624,81 @@ function renderContent(key) {
   document.documentElement.style.setProperty('--active-color', data.color);
 }
 
+// ---------- Fichas de dinámicas (facilitator field guides) ----------
+// Nombres de los archivos PDF, organizados por idioma.
+// Cuando estén listas las versiones en inglés, reemplazá los nombres
+// del bloque `en:` por los archivos traducidos. Por ahora, ambos idiomas
+// apuntan a los mismos PDF en español y la card en modo EN muestra el
+// aviso "in Spanish".
+const fichaFiles = {
+  es: {
+    doctrina:     'actividades doctrina.pdf',
+    territorio:   'territorio actividades.pdf',
+    tiempo:       'tiempo actividades.pdf',
+    organizacion: 'organización actividades.pdf',
+    liderazgo:    'liderazgo actividades.pdf'
+  },
+  en: {
+    doctrina:     'activities_doctrine.pdf',
+    territorio:   'territory_activities.pdf',
+    tiempo:       'time_activities.pdf',
+    organizacion: 'organization_activities.pdf',
+    liderazgo:    'leadership_activities.pdf'
+  }
+};
+
+const fichaActivityCounts = {
+  doctrina: 3,
+  territorio: 3,
+  tiempo: 2,
+  organizacion: 3,
+  liderazgo: 2
+};
+
+const fichasOrder = ['doctrina', 'territorio', 'tiempo', 'organizacion', 'liderazgo'];
+
+const downloadIconSvg =
+  '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+  '<path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" ' +
+  'stroke="currentColor" fill="none" stroke-width="2" ' +
+  'stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+function renderFichas() {
+  const grid = document.getElementById('fichas-grid');
+  const title = document.getElementById('fichas-title');
+  const lead = document.getElementById('fichas-lead');
+  if (!grid || !title || !lead) return;
+
+  const ui = translations[currentLang].ui;
+  title.textContent = ui.fichasTitle;
+  lead.textContent = ui.fichasLead;
+
+  grid.innerHTML = fichasOrder.map(key => {
+    const data = content[key];
+    const wedge = ui.wedges[key];
+    const count = fichaActivityCounts[key];
+    const filename = fichaFiles[currentLang][key];
+    // encodeURI codifica espacios y acentos (ñ, ó, etc.) preservando barras.
+    const href = encodeURI(filename);
+    const countLabel = count === 1 ? ui.fichaCountOne : ui.fichaCount;
+    const langNote = ui.fichaLangNote ? ` · ${ui.fichaLangNote}` : '';
+
+    return `
+      <a class="ficha-card" style="--card-color: ${data.color}"
+         href="${href}" download
+         aria-label="${wedge.label} — ${ui.fichaDownload}">
+        <div class="ficha-number">${data.number}</div>
+        <h3 class="ficha-name">${wedge.label}</h3>
+        <p class="ficha-sub">${wedge.fichaSubtitle}</p>
+        <div class="ficha-meta">
+          <span class="ficha-count">${count} ${countLabel}${langNote}</span>
+          <span class="ficha-cta">${downloadIconSvg}${ui.fichaDownload}</span>
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
 // Rotation targets for each wedge (degrees CW).
 // Each value is the SVG rotation needed to bring that wedge's outer edge to the top,
 // so its label — parallel to the edge — lands horizontally in the reading direction.
@@ -1626,6 +1850,9 @@ function setLanguage(lang) {
   if (currentSelection && panel.classList.contains('open')) {
     renderContent(currentSelection);
   }
+
+  // Re-render the fichas cards with the new language strings
+  renderFichas();
 
   // Persist choice
   try { localStorage.setItem('strategy-lang', lang); } catch (e) { /* ignore */ }

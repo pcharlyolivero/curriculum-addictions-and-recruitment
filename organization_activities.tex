@@ -1,0 +1,434 @@
+% =====================================================================
+%  Organization — the body that outlasts time
+%  Three circle-work activities
+%
+%  Addictions and recruitment curriculum for faith leaders — PLAPA
+%
+%  Compile with pdflatex (tested with TeX Live 2024 / MiKTeX 24).
+%    pdflatex organization_activities.tex
+%    pdflatex organization_activities.tex   % 2nd pass for hyperref/toc
+% =====================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% -------- Encoding and language --------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% -------- Typography: Palatino with ligatures --------
+\usepackage{mathpazo}
+\linespread{1.08}
+\usepackage{microtype}
+
+% -------- Page geometry --------
+\usepackage[a4paper, top=2.6cm, bottom=2.6cm, left=2.6cm, right=2.6cm]{geometry}
+
+% -------- Utilities --------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+% -------- Palette (coherent with the strategy pentagon) --------
+\definecolor{organizacionVerde}{HTML}{3E6647}
+\definecolor{parch}{HTML}{F6EFDD}
+\definecolor{tinte}{HTML}{2B1F17}
+\definecolor{tenue}{HTML}{6B5D4E}
+\definecolor{regla}{HTML}{C9BFA8}
+
+% -------- Paragraph settings --------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% -------- Hyperref (metadata + colors) --------
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = organizacionVerde,
+  urlcolor     = organizacionVerde,
+  citecolor    = organizacionVerde,
+  pdftitle     = {Organization -- the body that outlasts time},
+  pdfsubject   = {Three circle-work activities},
+  pdfauthor    = {PLAPA -- Addictions and recruitment curriculum for faith leaders},
+  pdfkeywords  = {organization, sustainability, centralization, decentralization, institutionalization, network, activities, PLAPA}
+}
+
+% -------- Custom titling --------
+\titleformat{\section}[block]
+  {\vspace{0.4em}\color{organizacionVerde}\Large\scshape}
+  {}{0em}{}
+  [\vspace{-0.2em}{\color{regla}\rule{\linewidth}{0.4pt}}]
+
+\titleformat{\subsection}[block]
+  {\color{tinte}\large\bfseries}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.35em}
+
+% -------- Lists --------
+\setlist[itemize]{leftmargin=1.4em, itemsep=0.15em, topsep=0.25em,
+                  label={\textcolor{tenue}{\textendash}}}
+\setlist[enumerate]{leftmargin=1.7em, itemsep=0.15em, topsep=0.25em}
+
+% -------- Header / footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{tenue}\scshape\small Organization -- the body that outlasts time}
+\fancyhead[R]{\color{tenue}\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% -------- Activity box --------
+\newtcolorbox{actividad}{
+  enhanced,
+  breakable,
+  colback   = parch,
+  colframe  = organizacionVerde,
+  boxrule   = 0pt,
+  toprule   = 3pt,
+  arc       = 2pt,
+  outer arc = 2pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt,
+  parbox    = false,
+  after skip= 1em
+}
+
+% -------- Operational info box (metadata) --------
+\newtcolorbox{ficha}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = regla,
+  boxrule   = 0.4pt,
+  arc       = 1pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.9em
+}
+
+% -------- Convenience commands --------
+\newcommand{\etiqueta}[1]{\textcolor{organizacionVerde}{\scshape #1}}
+\newcommand{\tituloActividad}[2]{%
+  {\color{tenue}\scshape\normalsize Activity #1}\par
+  \vspace{0.15em}
+  {\color{organizacionVerde}\LARGE\bfseries #2}\par
+  \vspace{0.3em}
+  {\color{regla}\rule{\linewidth}{0.4pt}}\par
+  \vspace{0.5em}
+}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------- Cover / heading ------------------------------------------
+\thispagestyle{plain}
+\begin{center}
+  \vspace*{1.5em}
+  {\color{tenue}\scshape\small PLAPA \ \textbullet\ \ Addictions and recruitment curriculum}\\
+  \vspace{2em}
+  {\color{organizacionVerde}\Huge Organization}\\[0.35em]
+  {\color{tinte}\LARGE\itshape the body that outlasts time}\\
+  \vspace{1.4em}
+  {\color{tenue}\large Three activities for circle work}\\
+  \vspace{0.6em}
+  {\color{regla}\rule{0.35\linewidth}{0.5pt}}
+\end{center}
+
+\vspace{2em}
+
+% ---------- Introduction ---------------------------------------------
+\section*{Introduction}
+
+This booklet proposes three activities for working the theme of \emph{organization} within the strategy pentagon, with a specific emphasis: \textbf{sustainability} understood from the logic that organization outlasts time.
+
+It is designed for a small group (8 to 12 people) of diverse Christian traditions, who do not yet form a network but find themselves at the moment of deciding whether to form one and what kind of network it will be. That moment is pedagogically rare and very valuable: the architecture can be designed in cold blood, before the organizational crystallizations set in, instead of having to dismantle them years later.
+
+\subsection*{The four senses of ``organization outlasts time''}
+
+The phrase has at least four intertwined senses. The activities work on the four corresponding threats and on the disciplines each one demands:
+
+\begin{itemize}
+  \item \textbf{It outlasts the leader's time.} The project outlives the one who started it. If it depends on one person it is not organization: it is personal agenda, and it dies with the one who carries it.
+  \item \textbf{It outlasts the government's time.} Political and ecclesial cycles are short. A serious pastoral network must operate on horizons that cross three, four, five civil and ecclesial administrations.
+  \item \textbf{It outlasts the time of enthusiasm.} Initial fervor is short. Organization is what sustains when vocation is no longer enough, when the lukewarm months arrive and one has to lean on structures that function without novelty energy.
+  \item \textbf{It outlasts the time of individual memory.} Organization holds what heads forget: agreements, criteria, procedures, the network's history. Without that externalized memory, each change of leadership reinvents the same wheel.
+\end{itemize}
+
+The disciplines these four threats demand are four: \emph{succession}, \emph{long horizon}, \emph{sustaining routines}, \emph{externalized memory}.
+
+\subsection*{Three misunderstandings the activities work with}
+
+\begin{enumerate}[label={\color{organizacionVerde}\arabic*.}]
+  \item \emph{``We are a network, not an organization.''} \\
+        Romantic trap. Networks that last are flexible organizations, not the absence of organization. Without structure, the network falls with the first crisis or with the retirement of its reference person.
+  \item \emph{``Structure suffocates charism.''} \\
+        False as an absolute opposition. Without structure, charism runs out with the person who embodies it. Without charism, structure becomes soulless bureaucracy. Both are needed.
+  \item \emph{``When I am no longer there, they'll figure it out.''} \\
+        Late personalism. The organization a leader leaves built is the best testimony of real leadership. What they did not leave built, they did not do: they had it, they used it, they took it with them.
+\end{enumerate}
+
+\subsection*{The sequence of the three activities}
+
+They are designed to be done \textbf{in order}, ideally in the same long session (a full afternoon, or morning + afternoon). Each one prepares the next:
+
+\begin{itemize}
+  \item The first --- \emph{The day after} --- makes the sustainability problem conscious and frees the disposition to decide.
+  \item The second --- \emph{The continuum, not the binary} --- delivers the architectural criterion: the answer to centralization--decentralization is not a single position but a map differentiated by function.
+  \item The third --- \emph{The five agreements that survive} --- grounds it all in a formal, signed document that stands as the founding framework of the network before it exists.
+\end{itemize}
+
+If there is only half a day, do 1 and 3. The second is important, but if one has to be sacrificed, sacrifice that one. The first poses the problem, the third produces the agreement. That minimum pair is already a serious training on organization.
+
+\vspace{1.5em}
+
+% =====================================================================
+%  Activity 1
+% =====================================================================
+\begin{actividad}
+\tituloActividad{1}{The day after}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To make visible that organization is measured by what \emph{does not depend} on the current leader. To produce the concrete commitment to design the network from the start so that it outlives each of its founders. \\[0.35em]
+  \etiqueta{format}     & Silent personal writing + round with a talking piece, with concrete commitments. \\[0.35em]
+  \etiqueta{time}       & 90--105 minutes. \\[0.35em]
+  \etiqueta{materials}  & Notebook and pen; talking piece; closed-circle seating. \\[0.35em]
+  \etiqueta{group}      & 8 to 12 people. Designed for a small group in a single circle.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Prompt for the first stage (personal writing)}
+\emph{``Imagine that the ten people here at this training accept to form the network. We work together for two years building it. And at the end of those two years, for whatever reason, you have to leave it ---you are called to another task, you fall ill, you leave the country---. Without handover, without transition, without time. Write three lists: what of what you left built survives intact without you; what survives but damaged; what disappears with you.''}
+
+\subsection*{Prompt for the second stage (round)}
+\emph{``Name a single thing from the `disappears with you' column ---the one that hurts most to acknowledge--- and one concrete architectural decision you commit to propose to the group so that that thing does not depend on any single person in the network we are about to form.''}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item Introduction of the activity. Clarify at the start: this is not an accusatory exercise nor a negative projection. It is design in cold blood, done before the organization exists, so that it can be designed well.
+  \item First writing stage, 20 minutes, in silence. Each participant works the three columns in their notebook.
+  \item Second stage in a circle with a talking piece. One participant speaks at a time, about 5 minutes per person. Each one names their ``single thing'' and their architectural proposal. No cross-talk.
+  \item Deliberate silence of one minute at the end of the round, for it to settle.
+  \item The facilitator notes on a visible poster the concrete architectural proposals that came up. That poster stands as input for activity 3.
+\end{enumerate}
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item What patterns appear in the things that ``disappear with us''? Are there common axes (memory, bonds, decisions, resources, succession) or did each of us see something different?
+  \item What architectural proposals sound most urgent when hearing the whole?
+  \item What does this commit for the initial design of the network we are about to form?
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+\begin{itemize}
+  \item It is an activity that is uncomfortable by design. Nobody wants to ask themselves this question. It is worth doing it in a protected space and with a clear framing at the start.
+  \item If someone is especially moved during the round, do not force deepening in the moment. Offer a separate conversation afterward.
+  \item The concrete commitment in the second part is essential. If a participant stays only at diagnosis (names the thing that disappears but proposes no architecture), the facilitator can calmly reformulate: \emph{``what do you propose today so that this does not depend on a single person in the network we are about to form?''}
+  \item Noting the concrete commitments on a visible poster is essential. Without record, the activity remains in the feeling and does not reach activity 3.
+  \item If the session ends here and activity 3 is not done on the same day, save the poster and bring it to the next session.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Activity 2
+% =====================================================================
+\begin{actividad}
+\tituloActividad{2}{The continuum, not the binary}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To make visible that the answer to the centralization--decentralization tension is not a single position for the whole network, but a map differentiated by function. To produce a first sketch of that map for the network being formed. \\[0.35em]
+  \etiqueta{format}     & Physical activity with bodily movement along a line on the floor + debrief in a circle. \\[0.35em]
+  \etiqueta{time}       & 90 minutes. \\[0.35em]
+  \etiqueta{materials}  & Wide tape or long strip of butcher paper taped in line on the floor (3--4 meters); markers to label the ends with visible signs; a sheet for the facilitator with the list of functions. \\[0.35em]
+  \etiqueta{group}      & 8 to 12 people. Works very well at this size; with more people the movements become slow and the activity loses rhythm.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Prompt}
+\emph{``On the floor there is a line that represents a continuum. One end says `fully centralized': everything goes through the center, single decisions, shared resources managed from one place, one public voice. The other end says `fully decentralized': each node autonomous, local decisions, no shared coordination, each one speaks for themselves. I will name aloud, one at a time, concrete functions of the network we are about to form. After each one, you physically stand on the line, at the point where you believe that function should operate in our network.''}
+
+\subsection*{List of functions}
+Ten concrete functions, in this approximate order (the facilitator may adapt the list to the group):
+
+\begin{multicols}{2}
+\begin{enumerate}[label={\arabic*.}]
+  \item The public voice of the network before civil or ecclesial authorities.
+  \item The handling of shared economic resources.
+  \item The formation of agents in each country.
+  \item The response to a local pastoral crisis (a case, an emergency).
+  \item The agenda of continental gatherings.
+  \item Representation before international bodies.
+  \item The relationship with local bishops and pastors of each country.
+  \item The production of materials and documents.
+  \item The decision on incorporating new churches or traditions into the network.
+  \item Everyday external communication.
+\end{enumerate}
+\end{multicols}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item Preparation of the space: the line on the floor, the ends marked with visible signs. Group standing around the line.
+  \item Presentation of the prompt and the continuum. Clarify that today's positions are a first approximation, not definitive agreements.
+  \item For each function:
+    \begin{enumerate}[label={\alph*.}]
+      \item The facilitator names it aloud.
+      \item The participants physically position themselves on the line, at the point they consider appropriate.
+      \item Brief conversation of 2--3 minutes: a few speak (not all, so as not to break the rhythm), saying why they stood here and not there.
+      \item The facilitator notes on a poster the majority position for that function (centralized, decentralized, dispersed without agreement).
+    \end{enumerate}
+  \item At the end of the ten functions, debrief in a circle.
+\end{enumerate}
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item Which functions ended up near the center? Which near the periphery?
+  \item Which dispersed without agreement, with positions very different among participants?
+  \item What architectural principle emerges from the exercise? What seems shared and what is still to be decided?
+  \item How does this map relate to what appeared in the previous activity?
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+\begin{itemize}
+  \item It is the most active activity of the block: it changes the bodily register and breaks the contemplative rhythm of the others. That is precisely why it is worth doing: it puts the conversation into the body, not only into the head.
+  \item Physical movement is part of the exercise. Gently insist that each person stand \emph{on} the line, not near it. Standing on the continuum is different from looking at it.
+  \item Do not force agreement on each function. If the group disperses widely on some, that is the finding. Note the dispersion as data: these are the functions where design requires longer conversation.
+  \item The record on the poster is crucial. Without record, the exercise remains in the feeling and does not feed activity 3.
+  \item With a small group, individual position weighs heavily. It is worth making explicit: \emph{``these are first approximations; definitive agreements we will draft in the next activity.''} That removes pressure and allows exploration.
+  \item Reserve the last 10 minutes of the debrief for a bridge question toward activity 3: \emph{``which five functions do you believe need to be formally institutionalized from the start?''} The answers are already direct input for the next activity.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Activity 3
+% =====================================================================
+\begin{actividad}
+\tituloActividad{3}{The five agreements that survive}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To produce as a group a brief and signed document ---five institutionalized processes--- that stands as the founding framework of the network before it exists formally. To convert the conversation of the two previous activities into a written agreement with names, deadlines, and those responsible. \\[0.35em]
+  \etiqueta{format}     & Individual writing + collective clustering + shared drafting + symbolic signing. It is the most operational activity of the block and produces a concrete document. \\[0.35em]
+  \etiqueta{time}       & 120--150 minutes. \\[0.35em]
+  \etiqueta{materials}  & Cards (post-its or small cardstock), markers, a large sheet or poster for clustering, a sheet or page for the final document, pens. If possible, someone typing the drafting on a computer to have the digitized document at the close. \\[0.35em]
+  \etiqueta{group}      & 8 to 12 people.
+\end{tabular}
+\end{ficha}
+
+\subsection*{General prompt}
+\emph{``Together, in two hours, we will produce a brief document ---five agreements, no more than one page total--- that answers this question: what five processes must be institutionalized from the start so that the network can survive any of us?''}
+
+\subsection*{Procedure}
+The activity is done in four stages, with clear transitions between one and the next.
+
+\subsubsection*{First stage --- Individual brainstorm (15 minutes)}
+Silent writing. Each participant writes on cards the processes they believe should be institutionalized. One idea per card. No limit. No self-censorship: first write everything, selection will come later.
+
+\subsubsection*{Second stage --- Collective clustering (30--40 minutes)}
+Stick all the cards on the wall. Together, group them by related themes. Without discarding yet. Clusters like these tend to appear:
+
+\begin{multicols}{2}
+\begin{itemize}
+  \item \textbf{Decisions}: how decisions are made and who decides what.
+  \item \textbf{Succession}: how leadership rotates or renews.
+  \item \textbf{Resources}: how accountability of what is rendered.
+  \item \textbf{Memory}: how what is done is kept.
+  \item \textbf{Internal communication}: with what frequency and in what format the network talks.
+  \item \textbf{Conflict}: how it is handled when it appears.
+  \item \textbf{Incorporation}: how someone new enters.
+\end{itemize}
+\end{multicols}
+
+\subsubsection*{Third stage --- Selecting five (20 minutes)}
+The group chooses together \textbf{five} processes ---only five--- that will remain institutionalized in the document. Open discussion but with limited time. The processes left out can go into an annex of the document as \emph{``next steps''}; they are not discarded.
+
+\subsubsection*{Fourth stage --- Operational drafting (40--50 minutes)}
+For each of the five processes, a minimal operational agreement is drafted. \textbf{Not abstract principles}: concrete agreements with frequencies, rotating responsible parties, deadlines, and criteria for review. Example:
+
+\begin{quote}
+\textit{Coordination meeting on the first Monday of every month, rotating secretariat every semester, public minutes within 48 hours, criterion of annual review at the June assembly.}
+\end{quote}
+
+That is the kind of drafting that institutionalizes. Any more abstract agreement is not institutionalization: it is enunciation.
+
+\subsubsection*{Close --- Symbolic signing (10--15 minutes)}
+Each person signs the document with their name, their church or confessional tradition, and a short sentence saying what they personally commit to caring for so that that agreement will be kept. The signature is not a formality: it is what turns the document into an \emph{agreement} instead of a \emph{proposal}.
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item Which cluster was the hardest to agree on? Which emerged with the most natural consensus?
+  \item What process was left out of the five that you would have wanted to include? Why was it left out?
+  \item What personal commitment does each one take away beyond what was signed?
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+\begin{itemize}
+  \item It is the most operational activity of the pentagon. The product is concrete and signed, not an abstract reflection. It is worth keeping the timing firmly.
+  \item The temptation is to lengthen the clustering and be left without time for concrete drafting. The drafting is where the exercise effectively institutionalizes. If something must be sacrificed, sacrifice the length of the clustering, not the drafting.
+  \item If more than five processes appear that the group believes essential, leave them in an annex of the document as \emph{``next steps.''} Do not discard them: you will need them within six months.
+  \item The symbolic signing is essential. Without it, the document reads as a proposal. With it, it reads as an agreement.
+  \item Keep the document in several copies, digitized, and bring it visibly present to the next meeting. Without that concrete continuity, the exercise dissolves into forgetting.
+  \item If the poster of commitments from activity 1 is available, integrate it as additional material to the final document. It is its first externalized memory.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Cross-cutting advice
+% =====================================================================
+\section*{Cross-cutting advice --- Closing round}
+
+Any of the three activities above, and especially the full sequence of the three, gains depth if closed with the same \textbf{brief round}, with a talking piece and a single prompt:
+
+\vspace{0.5em}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=organizacionVerde, colframe=organizacionVerde,
+  boxrule=0pt, arc=3pt,
+  left=18pt, right=18pt, top=16pt, bottom=16pt,
+  width=0.88\linewidth,
+  halign=center
+]
+  {\color{parch}\itshape\large ``What of what we decided today will I defend when, two years from now, someone ---perhaps I myself--- wants to skip it out of fatigue, urgency, or convenience?''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5em}
+
+It is the most committing question of the pentagon. It asks each one to acknowledge three hard things: that institutional decisions break from within, not from outside; that whoever will attack them two years from now is probably someone in the current group ---or oneself, on a bad day---; and that the only way they survive is if each one has chosen, in cold blood and in advance, which one they will protect.
+
+\subsection*{Practical guidelines}
+
+\begin{itemize}
+  \item The facilitator \textbf{does not comment or validate} each contribution during the round. Only holds the rhythm.
+  \item The round admits no explanations or justifications. The concrete commitment ---what will be defended--- is said, and the piece is passed. If the answer begins to explain why, the facilitator can calmly recall the prompt.
+  \item Passing is allowed: whoever does not wish to speak passes the piece without justifying. The round may return to that person at the end if they so wish.
+  \item At the close of the round, the facilitator notes the personal commitments on a poster that stays with the document of activity 3. That poster must be \textbf{visible at the next meeting} of the network. It is its first externalized memory.
+  \item If this session is prologue to the \emph{leadership} block, do not close entirely. Leave the five signed agreements and the personal commitments as an entry door to the next block.
+\end{itemize}
+
+\vspace{2em}
+
+% -------- Colophon --------
+\begin{center}
+{\color{regla}\rule{0.35\linewidth}{0.5pt}}\\
+\vspace{0.6em}
+{\color{tenue}\itshape\small weavers of the network \ \textbullet\ \ artisans of a response of communion}
+\end{center}
+
+\end{document}

@@ -1,0 +1,323 @@
+% =====================================================================
+%  Time — chronos, kairos, and windows of opportunity
+%  Two circle-work activities
+%
+%  Addictions and recruitment curriculum for faith leaders — PLAPA
+%
+%  Compile with pdflatex (tested with TeX Live 2024 / MiKTeX 24).
+%    pdflatex time_activities.tex
+%    pdflatex time_activities.tex   % 2nd pass for hyperref/toc
+% =====================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% -------- Encoding and language --------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% -------- Typography: Palatino with ligatures --------
+\usepackage{mathpazo}
+\linespread{1.08}
+\usepackage{microtype}
+
+% -------- Page geometry --------
+\usepackage[a4paper, top=2.6cm, bottom=2.6cm, left=2.6cm, right=2.6cm]{geometry}
+
+% -------- Utilities --------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+% -------- Palette (coherent with the strategy pentagon) --------
+\definecolor{tiempoAmbar}{HTML}{C08A2C}
+\definecolor{parch}{HTML}{F6EFDD}
+\definecolor{tinte}{HTML}{2B1F17}
+\definecolor{tenue}{HTML}{6B5D4E}
+\definecolor{regla}{HTML}{C9BFA8}
+
+% -------- Paragraph settings --------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% -------- Hyperref (metadata + colors) --------
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = tiempoAmbar,
+  urlcolor     = tiempoAmbar,
+  citecolor    = tiempoAmbar,
+  pdftitle     = {Time -- chronos, kairos, and windows of opportunity},
+  pdfsubject   = {Two circle-work activities},
+  pdfauthor    = {PLAPA -- Addictions and recruitment curriculum for faith leaders},
+  pdfkeywords  = {time, chronos, kairos, windows of opportunity, signs of the times, activities, PLAPA}
+}
+
+% -------- Custom titling --------
+\titleformat{\section}[block]
+  {\vspace{0.4em}\color{tiempoAmbar}\Large\scshape}
+  {}{0em}{}
+  [\vspace{-0.2em}{\color{regla}\rule{\linewidth}{0.4pt}}]
+
+\titleformat{\subsection}[block]
+  {\color{tinte}\large\bfseries}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.35em}
+
+% -------- Lists --------
+\setlist[itemize]{leftmargin=1.4em, itemsep=0.15em, topsep=0.25em,
+                  label={\textcolor{tenue}{\textendash}}}
+\setlist[enumerate]{leftmargin=1.7em, itemsep=0.15em, topsep=0.25em}
+
+% -------- Header / footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{tenue}\scshape\small Time -- chronos, kairos, and windows}
+\fancyhead[R]{\color{tenue}\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% -------- Activity box --------
+\newtcolorbox{actividad}{
+  enhanced,
+  breakable,
+  colback   = parch,
+  colframe  = tiempoAmbar,
+  boxrule   = 0pt,
+  toprule   = 3pt,
+  arc       = 2pt,
+  outer arc = 2pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt,
+  parbox    = false,
+  after skip= 1em
+}
+
+% -------- Operational info box (metadata) --------
+\newtcolorbox{ficha}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = regla,
+  boxrule   = 0.4pt,
+  arc       = 1pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.9em
+}
+
+% -------- Convenience commands --------
+\newcommand{\etiqueta}[1]{\textcolor{tiempoAmbar}{\scshape #1}}
+\newcommand{\tituloActividad}[2]{%
+  {\color{tenue}\scshape\normalsize Activity #1}\par
+  \vspace{0.15em}
+  {\color{tiempoAmbar}\LARGE\bfseries #2}\par
+  \vspace{0.3em}
+  {\color{regla}\rule{\linewidth}{0.4pt}}\par
+  \vspace{0.5em}
+}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------- Cover / heading ------------------------------------------
+\thispagestyle{plain}
+\begin{center}
+  \vspace*{1.5em}
+  {\color{tenue}\scshape\small PLAPA \ \textbullet\ \ Addictions and recruitment curriculum}\\
+  \vspace{2em}
+  {\color{tiempoAmbar}\Huge Time}\\[0.35em]
+  {\color{tinte}\LARGE\itshape chronos, kairos, and windows of opportunity}\\
+  \vspace{1.4em}
+  {\color{tenue}\large Two activities for circle work}\\
+  \vspace{0.6em}
+  {\color{regla}\rule{0.35\linewidth}{0.5pt}}
+\end{center}
+
+\vspace{2em}
+
+% ---------- Introduction ---------------------------------------------
+\section*{Introduction}
+
+This booklet proposes two activities for working the theme of \emph{time} within the strategy pentagon, with a specific emphasis: the distinction between \textbf{chronos} and \textbf{kairos}, and the pastoral reading that allows one to recognize the \textbf{windows of opportunity} to act.
+
+Unlike doctrine and territory, time is hard to teach because it is \emph{inhabited} more than it is \emph{looked at}. Pastoral agents live plunged into time, rushed or overwhelmed by it, and that is why what they least do is read it. Chronos ---the chronological time of agendas, deadlines, urgencies--- always wins by default and fills all the available air. Kairos ---the opportune time, the one that opens and must be seized--- is silent: when it appears it does not shout, and if the agent is not trained to recognize it, it slips by without notice.
+
+These two activities are designed to train the pastoral gaze to read kairos within chronos. The first works personal memory: which windows opened that we did not seize, and what would have needed to be ready before. The second works present perception: which signs of the times we are seeing today that we would not have named a year ago.
+
+\subsection*{Three misunderstandings the activities work with}
+
+When pastoral time is spoken of, one of these three reflexes tends to appear in the room. The activities are designed to unsettle them in practice:
+
+\begin{enumerate}[label={\color{tiempoAmbar}\arabic*.}]
+  \item \emph{``I don't have time.''} \\
+        Almost always false as diagnosis. What you don't have is a criterion for choosing. There is time, but it is occupied by chronos you did not choose.
+  \item \emph{``The window is open, we have to seize it now.''} \\
+        A trap. Many windows of opportunity require prior preparation. If you begin to prepare when the window is already open, you arrive late. Kairos is received with the table already set, or it is not received.
+  \item \emph{``Kairos is evident when it happens.''} \\
+        Almost never. It is recognized as kairos afterward. In the moment it looks like noise, distraction, a side issue. The discipline of the pastoral agent is learning to look twice before dismissing.
+\end{enumerate}
+
+Any activity that works must make visible, in real time, these three things: that chronos has to be put in its place in order to discern, that windows are prepared before they open, and that kairos demands a trained gaze.
+
+\vspace{1.5em}
+
+% =====================================================================
+%  Activity 1
+% =====================================================================
+\begin{actividad}
+\tituloActividad{1}{The memory of missed windows}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To train pastoral memory. To recognize, in one's own trajectory of the last ten years, windows of opportunity that opened and were not seized, and to produce the map of what would have needed to be ready beforehand. To convert that memory into preparation for the next windows. \\[0.35em]
+  \etiqueta{format}     & Personal, individual work. Silent writing. Individual cases are not shared during the activity; only, if desired, one learning at the close. \\[0.35em]
+  \etiqueta{time}       & 60--75 minutes. \\[0.35em]
+  \etiqueta{materials}  & Personal notebook or folder, pen; spatial arrangement that allows silence (separated tables or wide circle). Optional: soft instrumental background music, very low.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Prompt for the first writing stage}
+\emph{``Review the last ten years of your pastoral trajectory. Write in your notebook all the windows of opportunity that today, from a distance, you recognize opened and you did not seize. They may be political conjunctures, ecclesial moments, social crises, changes in authorities, media cycles, opportunities for alliance, meetings you did not manage to promote, proposals you were unable to make in time. You need not rank them, and they need not be big. Write those that come up, in the order they come up. Without justifying, without asking forgiveness. Only honest memory.''}
+
+\subsection*{Prompt for the second writing stage}
+\emph{``Now go back over your list, and for each window write, alongside or below, a short answer: what would have needed to be ready beforehand for that window not to be missed? Not what would have needed to be done in the moment --- what would have needed to be already prepared. Cadres, documents, alliances, presence, formation, bonds. Be concrete.''}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item Introduction of the activity and the two prompts. Explain clearly that this is a personal exercise, not one of sharing each case.
+  \item First writing stage, 25 minutes, in silence.
+  \item Brief pause (water, stretching, no conversation).
+  \item Second writing stage, 20 minutes, in silence.
+  \item At the end of writing, invite participants to look at the full list and answer for themselves in the notebook three synthesis questions: \emph{What patterns do I see? What was systematically missing? What does this memory ask of me for the next windows?}
+  \item Close in a circle: brief round with a talking piece. Cases are not shared. Each person says, in no more than one minute, \textbf{one} thing: either a learning about themselves, or a concrete commitment they take away. No explanations.
+\end{enumerate}
+
+\subsection*{Notes for the facilitator}
+\begin{itemize}
+  \item It is the most contemplative activity of the block. The environment matters: soft light, real silence, no external interruption. It is worth notifying the logistics team and hanging a sign on the door.
+  \item The ten-year horizon is deliberate. It forces one to remember things that are no longer operationally in the head, and those tend to be the most formative.
+  \item This is not a guilt exercise. It is memory and learning. If someone starts to move toward personal reproach, the facilitator can calmly recall the prompt: \emph{``honest memory, without asking forgiveness.''}
+  \item If someone says they do not find missed windows, offer a sideways question: \emph{``What moments in the church or in the country did you know were going to happen and you did not prepare for?''} Rarely does anyone fail to find something after that rephrasing.
+  \item Do not force sharing in the closing round. Passing is allowed. The discipline of not explaining is part of the care of the space.
+  \item At the close, the facilitator \textbf{does not} comment or synthesize. Let it settle. If appropriate, pick it up in the following session with a brief question: \emph{``what stayed with me from yesterday's memory?''}
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Activity 2
+% =====================================================================
+\begin{actividad}
+\tituloActividad{2}{The signs I did not read}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To educate the pastoral gaze to perceive silent shifts before they become explicit crises or opportunities. To make visible the changes that today seem obvious but a year ago would not have been named. \\[0.35em]
+  \etiqueta{format}     & Brief individual writing + round with talking piece + collective debrief. \\[0.35em]
+  \etiqueta{time}       & 45--55 minutes. \\[0.35em]
+  \etiqueta{materials}  & Personal notebook, pen; talking piece; circle seating. \\[0.35em]
+  \etiqueta{group}      & 8 to 20 people.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Prompt}
+\emph{``Write in your notebook three signs of the times in your pastoral territory that today you see as obvious, but that a year ago you would not have named. Changes of social mood, of language, of expectations, of media agenda, of generational composition, of religious practice, of relationship with faith. Not the three most important ones: the three that today seem obvious to you and a year ago were not.''}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item The prompt is read aloud and also handed out in writing or projected.
+  \item Individual writing, 10 minutes, in silence.
+  \item Round with a talking piece: each person names their three signs, without explanations or cross-talk. Only names them.
+  \item At the end of the round, deliberate silence of one minute for it to settle.
+  \item Brief round of collective debrief with the question: \emph{``What pattern emerges from the whole that was not in each individual contribution?''} The facilitator may write on a board or poster the silent shifts that appear shared across several countries or territories.
+\end{enumerate}
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item What sign did you hear in the round that you had not seen and that now seems obvious to you?
+  \item What patterns appear among the signs named by participants from different contexts?
+  \item What window of opportunity ---or what coming crisis--- are those signs announcing?
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+\begin{itemize}
+  \item It is a contemplative and quite brief activity. It can be combined with the previous one (the memory of missed windows) in a single session: first the memory, then the present signs. The sequence works well because it is memory \emph{and then} present perception.
+  \item The restriction in the wording ---\emph{``the three that today seem obvious to you and a year ago were not''}--- is what makes the activity formative. Without that restriction it becomes a discussion of important signs in general, which already happens in any pastoral meeting.
+  \item In the round, do not allow explanations. Only the signs are named. Explaining each sign fills the room with chronos and drowns the listening for patterns.
+  \item The collective debrief is where the central learning happens. The facilitator can mark on the board: the signs that appear in more than one contribution are ``continental shifts,'' and they are what the network should watch with special attention.
+  \item If any sign named is dramatic or carries emotional weight for the one who named it, the facilitator does not deepen it in the round but can return to it in a subsequent conversation with that person.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Cross-cutting advice
+% =====================================================================
+\section*{Cross-cutting advice --- Closing round}
+
+Either of the two activities above, or the full sequence of both, gains depth if closed with the same \textbf{brief round}, with a talking piece and a single prompt:
+
+\vspace{0.5em}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=tiempoAmbar, colframe=tiempoAmbar,
+  boxrule=0pt, arc=3pt,
+  left=18pt, right=18pt, top=16pt, bottom=16pt,
+  width=0.86\linewidth,
+  halign=center
+]
+  {\color{parch}\itshape\large ``What window of opportunity, small or large, do I have to prepare today, even though it has not yet opened?''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5em}
+
+This question is the most operational of the pentagon's closings. It does not ask for reflection, does not ask for learning: it asks for \textbf{anticipation}. And anticipation is the specific discipline of the time block. Each participant names a concrete window they commit to start preparing before it opens.
+
+An important detail if this session comes after the \emph{territory} block: it is worth opening the round with an explicit link between the two blocks.
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=white, colframe=tiempoAmbar,
+  boxrule=0.8pt, arc=2pt,
+  left=14pt, right=14pt, top=10pt, bottom=10pt,
+  width=0.9\linewidth,
+]
+  {\color{tinte}\itshape ``Now that you have the territory more clearly, what window are you seeing today that you would not have seen a week ago?''}
+\end{tcolorbox}
+\end{center}
+
+That link is exactly what makes the work of the pentagon pastorally solid: territory first (to know where from), time afterward (to know when).
+
+\subsection*{Practical guidelines}
+
+\begin{itemize}
+  \item The facilitator \textbf{does not comment or validate} each contribution during the round. Only holds the rhythm.
+  \item The round admits no explanations or justifications. The concrete window is said ---the one that will be started to be prepared--- and the piece is passed. If the answer begins to explain why, the facilitator can calmly recall the prompt.
+  \item Passing is allowed: whoever does not wish to speak passes the piece without justifying. The round may return to that person at the end if they so wish.
+  \item At the close of the round, the facilitator gathers two or three emerging patterns from the group. \textbf{Only two or three.} The discipline of not saying more is part of the care of the space.
+  \item Writing the set of named windows on a board or poster is useful as working material for the network's next meeting: it is a collective map of what is being prepared and helps coordinate efforts.
+\end{itemize}
+
+\vspace{2em}
+
+% -------- Colophon --------
+\begin{center}
+{\color{regla}\rule{0.35\linewidth}{0.5pt}}\\
+\vspace{0.6em}
+{\color{tenue}\itshape\small weavers of the network \ \textbullet\ \ artisans of a response of communion}
+\end{center}
+
+\end{document}

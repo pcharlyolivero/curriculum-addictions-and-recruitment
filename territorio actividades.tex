@@ -1,0 +1,385 @@
+% =====================================================================
+%  El Territorio como conjunto de factores permanentes
+%  Propuesta de tres dinámicas para trabajo en círculo
+%
+%  Curriculum de adicciones y reclutamiento para líderes en la fe – PLAPA
+%
+%  Compila con pdflatex (probado con TeX Live 2024 / MiKTeX 24).
+%    pdflatex territorio_permanencia_dinamicas.tex
+%    pdflatex territorio_permanencia_dinamicas.tex   % 2ª pasada por hyperref/toc
+% =====================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% -------- Codificación e idioma --------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% -------- Tipografía: Palatino con ligaduras --------
+\usepackage{mathpazo}
+\linespread{1.08}
+\usepackage{microtype}
+
+% -------- Geometría de página --------
+\usepackage[a4paper, top=2.6cm, bottom=2.6cm, left=2.6cm, right=2.6cm]{geometry}
+
+% -------- Utilidades --------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+% -------- Paleta (coherente con el pentágono de la estrategia) --------
+\definecolor{territorioTierra}{HTML}{B04A26}
+\definecolor{parch}{HTML}{F6EFDD}
+\definecolor{tinte}{HTML}{2B1F17}
+\definecolor{tenue}{HTML}{6B5D4E}
+\definecolor{regla}{HTML}{C9BFA8}
+
+% -------- Configuración de párrafo --------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% -------- Hyperref (metadata + colores) --------
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = territorioTierra,
+  urlcolor     = territorioTierra,
+  citecolor    = territorioTierra,
+  pdftitle     = {El Territorio como conjunto de factores permanentes},
+  pdfsubject   = {Propuesta de dinámicas para trabajo en círculo},
+  pdfauthor    = {PLAPA -- Curriculum de adicciones y reclutamiento para líderes en la fe},
+  pdfkeywords  = {territorio, factores permanentes, cultura eclesial, heridas históricas, teología, dinámicas, círculo, PLAPA}
+}
+
+% -------- Titulados personalizados --------
+\titleformat{\section}[block]
+  {\vspace{0.4em}\color{territorioTierra}\Large\scshape}
+  {}{0em}{}
+  [\vspace{-0.2em}{\color{regla}\rule{\linewidth}{0.4pt}}]
+
+\titleformat{\subsection}[block]
+  {\color{tinte}\large\bfseries}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.35em}
+
+% -------- Listas --------
+\setlist[itemize]{leftmargin=1.4em, itemsep=0.15em, topsep=0.25em,
+                  label={\textcolor{tenue}{\textendash}}}
+\setlist[enumerate]{leftmargin=1.7em, itemsep=0.15em, topsep=0.25em}
+
+% -------- Cabecera / pie --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{tenue}\scshape\small El Territorio como factores permanentes}
+\fancyhead[R]{\color{tenue}\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% -------- Caja de actividad --------
+\newtcolorbox{actividad}{
+  enhanced,
+  breakable,
+  colback   = parch,
+  colframe  = territorioTierra,
+  boxrule   = 0pt,
+  toprule   = 3pt,
+  arc       = 2pt,
+  outer arc = 2pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt,
+  parbox    = false,
+  after skip= 1em
+}
+
+% -------- Caja de ficha operativa (metadata) --------
+\newtcolorbox{ficha}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = regla,
+  boxrule   = 0.4pt,
+  arc       = 1pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.9em
+}
+
+% -------- Comandos de comodidad --------
+\newcommand{\etiqueta}[1]{\textcolor{territorioTierra}{\scshape #1}}
+\newcommand{\tituloActividad}[2]{%
+  {\color{tenue}\scshape\normalsize Actividad #1}\par
+  \vspace{0.15em}
+  {\color{territorioTierra}\LARGE\bfseries #2}\par
+  \vspace{0.3em}
+  {\color{regla}\rule{\linewidth}{0.4pt}}\par
+  \vspace{0.5em}
+}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------- Portada / cabecera ---------------------------------------
+\thispagestyle{plain}
+\begin{center}
+  \vspace*{1.5em}
+  {\color{tenue}\scshape\small PLAPA \ \textbullet\ \ Curriculum de adicciones y reclutamiento}\\
+  \vspace{2em}
+  {\color{territorioTierra}\Huge El Territorio}\\[0.35em]
+  {\color{tinte}\LARGE\itshape como conjunto de factores permanentes}\\
+  \vspace{1.4em}
+  {\color{tenue}\large Tres dinámicas para trabajo en círculo}\\
+  \vspace{0.6em}
+  {\color{regla}\rule{0.35\linewidth}{0.5pt}}
+\end{center}
+
+\vspace{2em}
+
+% ---------- Presentación --------------------------------------------
+\section*{Presentación}
+
+Esta ficha propone tres dinámicas para trabajar el tema del \emph{territorio} dentro del pentágono de la estrategia, con un énfasis específico: el territorio como el conjunto de \textbf{factores permanentes} que hay que considerar para lograr el objetivo pastoral. La cultura eclesial de cada país, las heridas históricas que siguen operando, la teología que efectivamente prima en cada iglesia local, la memoria colectiva que precede al agente pastoral y va a seguir estando cuando se vaya. Todo eso es el territorio.
+
+El énfasis en lo permanente distingue esta sesión de la del \emph{tiempo}, que trabaja los factores cambiantes (coyunturas, ciclos, ventanas de oportunidad). Recomendamos hacer territorio primero, y tiempo después, en jornadas separadas. Leer el tiempo sin haber leído el territorio es el error pastoral más frecuente.
+
+\subsection*{Tres malentendidos que las dinámicas trabajan}
+
+Cuando se afirma que ``hay que conocer el territorio'', en el aula suele aparecer alguno de estos tres reflejos que las dinámicas están pensadas para descolocar en la práctica:
+
+\begin{enumerate}[label={\color{territorioTierra}\arabic*.}]
+  \item \emph{``Yo conozco mi territorio.''} \\
+        Casi nunca. Lo que conocemos es nuestro recorte del territorio. Lo que no visitamos, no nos habla, o nos resiste, es también territorio y suele ser el más determinante.
+  \item \emph{``El territorio es donde trabajo.''} \\
+        Insuficiente. El territorio incluye a la iglesia local completa con su biografía, a las tradiciones confesionales que no son la propia, a las corrientes teológicas dominantes, a las heridas históricas que operan aunque nadie las nombre.
+  \item \emph{``El territorio se puede resumir en un párrafo.''} \\
+        Superficial. Cuando se resume en un párrafo, se perdió. Se conoce lentamente y por partes, con los pies antes que con Google.
+\end{enumerate}
+
+Cualquier dinámica que funcione tiene que hacer visible, en vivo, estas tres cosas: que el territorio precede al agente y lo excede, que es estratificado y plural, y que se conoce por respeto a sus signos concretos.
+
+\vspace{1.5em}
+
+% =====================================================================
+%  Actividad 1
+% =====================================================================
+\begin{actividad}
+\tituloActividad{1}{La biografía de mi iglesia local y las heridas que aún operan}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Hacer visible que cada iglesia local tiene una biografía propia (fundacional, teológica, conflictual) que precede a todo agente pastoral y condiciona lo que hoy puede recibir como propuesta. Identificar las heridas históricas que siguen operando aunque no se nombren. \\[0.35em]
+  \etiqueta{formato}    & Dos tiempos. Trabajo en grupos por país o región eclesial + galería silenciosa + presentación en plenario con silencio y ronda de una palabra. \\[0.35em]
+  \etiqueta{tiempo}     & 120--150 minutos. \\[0.35em]
+  \etiqueta{materiales} & Afiches largos (o A2 pegados en línea), fibras de colores, cinta para colgar en pared; disposición espacial con paredes libres para la galería. \\[0.35em]
+  \etiqueta{grupos}     & 4--6 personas del mismo suelo eclesial (país o región).
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna del primer tiempo}
+\emph{``Dibujen una línea del tiempo de la iglesia local de su país, abarcando los últimos 80 o 100 años. Marquen: momentos fundacionales, heridas históricas (divisiones, persecuciones, rupturas), figuras mártires o proféticas que dejaron marca, conflictos internos que siguen operando, corrientes teológicas que dominaron en cada período, procesos de reconciliación cerrados o pendientes.''}
+
+\subsection*{Consigna del segundo tiempo}
+\emph{``De todas las heridas que quedaron marcadas en su línea del tiempo, elijan una para presentar al plenario. La que crean que más condiciona hoy la posibilidad de trabajar pastoralmente frente a las adicciones y el reclutamiento.''}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Formación de grupos por país o región eclesial (Cono Sur, Andina, Centroamérica y Caribe, Brasil, etc. si el grupo es plurinacional).
+  \item Trabajo grupal del primer tiempo: 40--50 minutos. Cada grupo produce su línea sobre el afiche.
+  \item Colgado de las líneas en la pared. Galería silenciosa: todos los participantes caminan mirando las líneas de los otros países, sin conversar entre sí. 10--15 minutos.
+  \item Vuelta a los grupos originales para el segundo tiempo. Selección de una herida para presentar. 15 minutos.
+  \item Presentación de cada grupo en plenario: no más de 3 minutos por herida. Sin apertura de debate.
+  \item Silencio deliberado de 2 minutos al terminar todas las presentaciones.
+  \item Ronda con pieza que habla: cada participante dice \textbf{una} palabra que le quedó resonando de las presentaciones. Nada más. Sin explicaciones.
+\end{enumerate}
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Qué de la biografía de una iglesia local que no era la propia me sorprendió?
+  \item ¿Qué muestra el conjunto de las heridas presentadas sobre la iglesia latinoamericana en su totalidad?
+  \item ¿Qué necesito tomar en serio como equipo continental para no repetir esas heridas en el trabajo común?
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+Esta es la dinámica más exigente del bloque territorio y también la más formativa. Requiere cuidado del ritmo y disciplina del silencio. Algunos criterios:
+
+\begin{itemize}
+  \item La regla del silencio en la galería y en la ronda final es la que sostiene la seriedad del ejercicio. Sin ella se dispersa.
+  \item Si un grupo se traba en la fase de heridas por no querer nombrar, ofrecer preguntas de andamiaje sin insistir: ¿qué división marcó a su iglesia en los últimos 50 años?, ¿qué mártires no están reconocidos en el santoral pero la gente sí los recuerda?, ¿qué alianza rota sigue pesando?, ¿qué silencio cómplice de la jerarquía dejó heridas abiertas?
+  \item Si el grupo es plurinacional y hay un solo participante de un país, se lo agrupa por región eclesial más amplia. No se lo deja solo.
+  \item El facilitador no interviene durante las presentaciones ni durante la ronda de una palabra. Solo cuida los tiempos.
+  \item Reservar un espacio de encuentro personal después de la sesión para quienes hayan quedado especialmente movidos.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Actividad 2
+% =====================================================================
+\begin{actividad}
+\tituloActividad{2}{La teología que respira mi iglesia}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Hacer visible que la teología que efectivamente prima en cada iglesia local no es la de los documentos ni la de los seminarios, sino la que se predica, se catequiza y se vive en la piedad del pueblo. Ese ambiente teológico es un factor permanente del territorio. \\[0.35em]
+  \etiqueta{formato}    & Escritura individual en silencio + ronda con pieza que habla. \\[0.35em]
+  \etiqueta{tiempo}     & 40--50 minutos. \\[0.35em]
+  \etiqueta{materiales} & Hojas y biromes; pieza que habla; disposición en círculo. \\[0.35em]
+  \etiqueta{grupo}      & De 8 a 20 personas. Requiere confianza previa. No recomendable para primer encuentro.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna}
+\emph{``En tu iglesia local --- la que efectivamente formó a la mayoría de los agentes pastorales con los que trabajás --- ¿qué teología prima? No lo que dicen los documentos, ni lo que enseñan los seminarios. Lo que efectivamente se predica desde el púlpito, se catequiza en la parroquia, y se vive en la piedad del pueblo. ¿Cómo se lee la salvación? ¿Cómo se lee el pecado? ¿Cómo se lee al pobre? ¿Cómo se lee a la mujer? ¿Cómo se lee al otro (no católico si sos católico, no evangélico si sos evangélico)? ¿Cómo se lee el sufrimiento?''}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Consigna leída en voz alta y también entregada por escrito. Si el grupo lo pide, dejar las preguntas visibles en un afiche durante toda la dinámica.
+  \item Escritura individual, 10 minutos, en silencio. Cada participante escribe para sí mismo, no para leer.
+  \item Ronda con pieza que habla: cada persona comparte no más de 2 minutos. Sin lectura literal de lo escrito. Sin comentarios cruzados.
+  \item Al cierre, silencio breve de un minuto.
+\end{enumerate}
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Qué escuchaste sobre la teología dominante en otra iglesia local que no esperabas?
+  \item ¿Qué de lo que dijiste vos habías nombrado antes en voz alta, y qué no?
+  \item ¿Qué implica esa teología dominante para introducir una propuesta pastoral nueva --- por ejemplo, la del curriculum de adicciones y reclutamiento? ¿Qué del curriculum va a resonar naturalmente? ¿Qué va a rebotar?
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+\begin{itemize}
+  \item Requiere confianza previa. Si el grupo se conoce poco, hacerla en un segundo o tercer encuentro. No abrir con esta dinámica.
+  \item Es exigente porque pide nombrar críticamente a la propia iglesia. Si el facilitador puede, conviene que modele con una intervención breve al inicio, para autorizar el tono.
+  \item No intervenir durante la ronda. La escucha silenciosa es parte del ejercicio y su valor.
+  \item Puede aparecer incomodidad. No apurar el procesamiento: dejar que decanten dos o tres días si es posible, y retomar en la sesión siguiente.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Actividad 3
+% =====================================================================
+\begin{actividad}
+\tituloActividad{3}{El diccionario de mi iglesia}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Hacer visible que el idioma pastoral no es común aunque parezca. Las palabras compartidas llevan cargas distintas en cada iglesia local: cargas de teología, de historia, de heridas. Reconocer eso es parte de la lectura del territorio. \\[0.35em]
+  \etiqueta{formato}    & Trabajo en grupos por país + plenario. \\[0.35em]
+  \etiqueta{tiempo}     & 60--75 minutos. \\[0.35em]
+  \etiqueta{materiales} & Hojas grandes o afiches, fibras; pizarrón o afiche común para el plenario. \\[0.35em]
+  \etiqueta{grupos}     & 3--5 personas por país o región eclesial.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna}
+\emph{``Armen el diccionario de su iglesia local. Diez palabras. No palabras técnicas: palabras de uso cotidiano en la iglesia que, si un agente pastoral de otro país las escucha, va a entender mal. Palabras cargadas por la historia particular de esa iglesia. Palabras que llevan una teología o una herida adentro. Al lado de cada palabra, una definición breve --- una línea --- de lo que significa \textbf{allá}.''}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Formación de grupos por país o región eclesial.
+  \item Trabajo grupal, 30 minutos.
+  \item Presentación de cada diccionario en plenario: las diez palabras con su definición ``local''.
+  \item Sobre un pizarrón o afiche central, el facilitador anota las palabras que aparecen en más de un diccionario con sentidos distintos. Esas son las ``palabras cargadas'' del continente.
+  \item Conversación abierta sobre esas palabras cargadas. ¿En qué situaciones concretas de la red esos sentidos distintos han generado desacuerdos que en realidad eran malentendidos de vocabulario?
+\end{enumerate}
+
+\subsection*{Palabras que suelen aparecer}
+Como orientación para el facilitador, algunas palabras que en distintas iglesias latinoamericanas se cargan con sentidos muy distintos:
+
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=1.2em]
+  \item iglesia oficial
+  \item base
+  \item compromiso
+  \item opción
+  \item carismático
+  \item tradicional
+  \item popular
+  \item jerarquía
+  \item movimiento
+  \item pastoral social
+  \item evangelización
+  \item diálogo
+  \item magisterio
+  \item piedad popular
+  \item comunidad
+  \item conversión
+\end{itemize}
+\end{multicols}
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Qué palabra descubrieron que en otra iglesia significaba algo distinto de lo que suponían?
+  \item ¿En qué diálogos concretos de la red esto explica desacuerdos previos que se leyeron como diferencias de opinión y en realidad eran diferencias de territorio?
+  \item ¿Qué acuerdo mínimo de vocabulario nos conviene dejar establecido antes del próximo encuentro continental?
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+\begin{itemize}
+  \item Es la dinámica más liviana del bloque. Sirve como cierre después del peso de la primera actividad, y como preparación operativa para trabajo continental.
+  \item La lista de palabras es orientativa. Cada grupo trae las suyas. Si un grupo se traba, ofrecer dos o tres palabras del listado y dejar que el grupo lo continúe.
+  \item Escribir en el pizarrón central las palabras que aparecen en más de un país es lo que produce el ``mapa del malentendido continental''. Es la materia más valiosa del ejercicio y conviene fotografiar el pizarrón al final para conservarla.
+  \item Bien hecha, esta dinámica evita muchas discusiones falsas en encuentros posteriores. Vale la pena hacerla al principio de un proceso de trabajo continental, no al final.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Consejo transversal
+% =====================================================================
+\section*{Consejo transversal --- Ronda de cierre}
+
+Cualquiera de las tres dinámicas anteriores gana en profundidad si se cierra con una misma \textbf{ronda breve}, en pieza que habla, con una consigna única:
+
+\vspace{0.5em}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=territorioTierra, colframe=territorioTierra,
+  boxrule=0pt, arc=3pt,
+  left=18pt, right=18pt, top=16pt, bottom=16pt,
+  width=0.86\linewidth,
+  halign=center
+]
+  {\color{parch}\itshape\large ``¿Qué de lo permanente de mi iglesia y mi cultura tengo que tomar más en serio para que la propuesta pastoral no rebote?''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5em}
+
+Esta pregunta es distinta de la pregunta de cierre del bloque doctrina. Acá no interesa qué se aprendió: interesa qué compromete al participante a mirar de nuevo cuando vuelva a su territorio. El territorio no se aprende: se vuelve a mirar. Esa es la disciplina que la sesión tiene que dejar instalada.
+
+\subsection*{Indicaciones prácticas}
+
+\begin{itemize}
+  \item El facilitador \textbf{no comenta ni valida} cada aporte durante la ronda. Solo cuida el ritmo.
+  \item La ronda no admite explicaciones ni justificaciones. Se dice la decisión --- lo que se va a tomar más en serio --- y se pasa la pieza. Si la respuesta empieza a explicar el porqué, el facilitador puede recordar la consigna con calma.
+  \item Se admite el ``paso'': quien no quiera hablar pasa la pieza sin justificarse. La ronda puede volver a esa persona al final si así lo desea.
+  \item Al cierre de la ronda, el facilitador recoge dos o tres patrones emergentes del grupo. \textbf{Solo dos o tres.} La disciplina de no decir más es parte del cuidado del espacio.
+  \item Si esta sesión es prólogo de la sesión de \emph{tiempo}, no cerrar del todo. Dejar la ronda como puerta de entrada al bloque siguiente.
+\end{itemize}
+
+\vspace{2em}
+
+% -------- Colofón --------
+\begin{center}
+{\color{regla}\rule{0.35\linewidth}{0.5pt}}\\
+\vspace{0.6em}
+{\color{tenue}\itshape\small tejedores de la red \ \textbullet\ \ artesanos de una respuesta de comunión}
+\end{center}
+
+\end{document}

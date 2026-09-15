@@ -1,0 +1,371 @@
+% =====================================================================
+%  La Doctrina como principio de unidad
+%  Propuesta de tres dinámicas para trabajo en círculo
+%
+%  Curriculum de adicciones y reclutamiento para líderes en la fe – PLAPA
+%
+%  Compila con pdflatex (probado con TeX Live 2024 / MiKTeX 24).
+%    pdflatex doctrina_unidad_dinamicas.tex
+%    pdflatex doctrina_unidad_dinamicas.tex   % 2ª pasada por hyperref/toc
+% =====================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% -------- Codificación e idioma --------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% -------- Tipografía: Palatino con ligaduras --------
+\usepackage{mathpazo}
+\linespread{1.08}
+\usepackage{microtype}
+
+% -------- Geometría de página --------
+\usepackage[a4paper, top=2.6cm, bottom=2.6cm, left=2.6cm, right=2.6cm]{geometry}
+
+% -------- Utilidades --------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+% -------- Paleta (coherente con el pentágono de la estrategia) --------
+\definecolor{doctrinaAzul}{HTML}{2E4E6F}
+\definecolor{parch}{HTML}{F6EFDD}
+\definecolor{tinte}{HTML}{2B1F17}
+\definecolor{tenue}{HTML}{6B5D4E}
+\definecolor{regla}{HTML}{C9BFA8}
+
+% -------- Configuración de párrafo --------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% -------- Hyperref (metadata + colores) --------
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = doctrinaAzul,
+  urlcolor     = doctrinaAzul,
+  citecolor    = doctrinaAzul,
+  pdftitle     = {La Doctrina como principio de unidad},
+  pdfsubject   = {Propuesta de dinámicas para trabajo en círculo},
+  pdfauthor    = {PLAPA -- Curriculum de adicciones y reclutamiento para líderes en la fe},
+  pdfkeywords  = {doctrina, unidad, ecumenismo, dinámicas, círculo, prácticas restaurativas, PLAPA}
+}
+
+% -------- Titulados personalizados --------
+\titleformat{\section}[block]
+  {\vspace{0.4em}\color{doctrinaAzul}\Large\scshape}
+  {}{0em}{}
+  [\vspace{-0.2em}{\color{regla}\rule{\linewidth}{0.4pt}}]
+
+\titleformat{\subsection}[block]
+  {\color{tinte}\large\bfseries}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.35em}
+
+% -------- Listas --------
+\setlist[itemize]{leftmargin=1.4em, itemsep=0.15em, topsep=0.25em,
+                  label={\textcolor{tenue}{\textendash}}}
+\setlist[enumerate]{leftmargin=1.7em, itemsep=0.15em, topsep=0.25em}
+
+% -------- Cabecera / pie --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{tenue}\scshape\small La Doctrina como principio de unidad}
+\fancyhead[R]{\color{tenue}\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% -------- Caja de actividad --------
+\newtcolorbox{actividad}{
+  enhanced,
+  breakable,
+  colback   = parch,
+  colframe  = doctrinaAzul,
+  boxrule   = 0pt,
+  toprule   = 3pt,
+  arc       = 2pt,
+  outer arc = 2pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt,
+  parbox    = false,
+  after skip= 1em
+}
+
+% -------- Caja de ficha operativa (metadata) --------
+\newtcolorbox{ficha}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = regla,
+  boxrule   = 0.4pt,
+  arc       = 1pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.9em
+}
+
+% -------- Comandos de comodidad --------
+\newcommand{\etiqueta}[1]{\textcolor{doctrinaAzul}{\scshape #1}}
+\newcommand{\tituloActividad}[2]{%
+  {\color{tenue}\scshape\normalsize Actividad #1}\par
+  \vspace{0.15em}
+  {\color{doctrinaAzul}\LARGE\bfseries #2}\par
+  \vspace{0.3em}
+  {\color{regla}\rule{\linewidth}{0.4pt}}\par
+  \vspace{0.5em}
+}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------- Portada / cabecera ---------------------------------------
+\thispagestyle{plain}
+\begin{center}
+  \vspace*{1.5em}
+  {\color{tenue}\scshape\small PLAPA \ \textbullet\ \ Curriculum de adicciones y reclutamiento}\\
+  \vspace{2em}
+  {\color{doctrinaAzul}\Huge La Doctrina}\\[0.35em]
+  {\color{tinte}\LARGE\itshape como principio de unidad}\\
+  \vspace{1.4em}
+  {\color{tenue}\large Tres dinámicas para trabajo en círculo}\\
+  \vspace{0.6em}
+  {\color{regla}\rule{0.35\linewidth}{0.5pt}}
+\end{center}
+
+\vspace{2em}
+
+% ---------- Presentación --------------------------------------------
+\section*{Presentación}
+
+Esta ficha propone tres dinámicas para trabajar el tema de \emph{la doctrina} dentro del pentágono de la estrategia, con un énfasis específico: la doctrina como aquello que \textbf{permite y sostiene la unidad} entre quienes trabajan pastoralmente frente a las adicciones y al reclutamiento.
+
+Las tres dinámicas son distintas y complementarias. Cada una puede usarse por separado; la secuencia completa se recomienda cuando se dispone de al menos media jornada (tres horas y media aproximadamente).
+
+\subsection*{Tres malentendidos que las dinámicas trabajan}
+
+Cuando se afirma que ``la doctrina nos une'', en el aula suele aparecer alguno de estos tres reflejos que las dinámicas están pensadas para descolocar en la práctica:
+
+\begin{enumerate}[label={\color{doctrinaAzul}\arabic*.}]
+  \item \emph{``La doctrina une porque todos pensamos igual.''} \\
+        Falso. Une porque nos da un piso común desde el cual pensar distinto. La uniformidad no es unidad.
+  \item \emph{``La doctrina une a los de mi tradición.''} \\
+        Insuficiente. En clave ecuménica, la doctrina une justamente en lo que hay de común entre tradiciones: lo compartido está antes y es más grande que lo propio de cada una.
+  \item \emph{``La doctrina une porque la firmamos todos.''} \\
+        Superficial. Une cuando se practica, no cuando se aprueba.
+\end{enumerate}
+
+Cualquier dinámica que funcione tiene que hacer visible, en vivo, estas tres cosas: que la unidad no es uniformidad, que es más ancha que la tradición propia, y que se juega en la práctica.
+
+\vspace{1.5em}
+
+% =====================================================================
+%  Actividad 1
+% =====================================================================
+\begin{actividad}
+\tituloActividad{1}{El círculo de las divergencias fértiles}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Mostrar que la doctrina une a pesar de las divergencias internas. La unidad no es uniformidad. \\[0.35em]
+  \etiqueta{formato}    & Círculo con pieza que habla. Sin diálogo cruzado durante la ronda. \\[0.35em]
+  \etiqueta{tiempo}     & 30--40 minutos (ronda + procesamiento). \\[0.35em]
+  \etiqueta{materiales} & Pieza que habla; disposición en círculo. \\[0.35em]
+  \etiqueta{grupo}      & De 8 a 25 personas.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna}
+\emph{``Nombrá una cosa en la que estés en desacuerdo con alguien de tu propia tradición confesional, pero en la que la doctrina te siga uniendo.''}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Explicar la consigna y aclarar la regla del círculo: durante la ronda no hay diálogo cruzado ni respuestas. Cada persona habla mientras sostiene la pieza; las demás escuchan.
+  \item Ronda completa. El facilitador puede participar o no, según su lectura del grupo.
+  \item Al cierre de la ronda, breve silencio de asimilación (uno o dos minutos).
+\end{enumerate}
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Qué escuchaste que no esperabas?
+  \item ¿Qué revela lo que dijimos sobre la naturaleza de la unidad doctrinal?
+  \item ¿Dónde aparece la doctrina como aquello que sostiene sin uniformar?
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+El aprendizaje que la dinámica hace visible es doble: hay más divergencia \emph{interna} de la que solemos reconocer, y hay más unidad de \emph{fondo} de la que solemos suponer. La doctrina se muestra como aquello que aguanta la diferencia sin romperse.
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Actividad 2
+% =====================================================================
+\begin{actividad}
+\tituloActividad{2}{Los tres cestos}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Hacer visible el peso relativo entre lo compartido, lo propio de cada tradición y lo distintivo. Evidenciar que compartimos más de lo que suponemos. \\[0.35em]
+  \etiqueta{formato}    & Trabajo individual en silencio + plenario. \\[0.35em]
+  \etiqueta{tiempo}     & 45--60 minutos. \\[0.35em]
+  \etiqueta{materiales} & Tres cestos rotulados; juegos de tarjetas con afirmaciones doctrinales; espacio de suelo o mesa larga. \\[0.35em]
+  \etiqueta{grupo}      & De 8 a 25 personas.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Rotulación de los cestos}
+\begin{itemize}
+  \item \textbf{Cesto A -- Lo compartido.} Aquello que está presente en las diversas tradiciones cristianas (y, cuando aplica, también en otras tradiciones de fe).
+  \item \textbf{Cesto B -- Lo propio de mi tradición.} Aquello con lo que me identifico como propio de mi confesión, aunque no lo rechace en las demás.
+  \item \textbf{Cesto C -- Lo que me distingue.} Aquello que marca la diferencia específica de mi tradición frente a otras.
+\end{itemize}
+
+\subsection*{Consigna}
+\emph{``Cada uno recibe un juego completo de tarjetas. Sin conversar todavía, colocalas en el cesto que corresponda según tu criterio. Después miramos entre todos qué pasó.''}
+
+\subsection*{Tarjetas sugeridas}
+Estas son propuestas iniciales; el facilitador puede adaptar la lista al perfil del grupo. Se recomienda un juego de entre 12 y 18 tarjetas.
+
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=1.2em]
+  \item Dignidad de toda persona humana
+  \item Bautismo trinitario
+  \item Opción por los pobres
+  \item Autoridad papal
+  \item \emph{Sola scriptura}
+  \item Cuidado de la creación
+  \item Presencia real en la eucaristía
+  \item Salvación por gracia
+  \item Culto a los santos
+  \item Matrimonio como sacramento
+  \item La Trinidad como misterio central
+  \item Destino universal de los bienes
+  \item Resurrección corporal
+  \item Misión evangelizadora
+  \item Autoridad de la Sagrada Escritura
+  \item Reconocimiento del bautismo mutuo entre iglesias
+  \item Sacramento de la reconciliación
+  \item Vocación universal a la santidad
+\end{itemize}
+\end{multicols}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Distribuir los juegos de tarjetas: uno completo por participante.
+  \item Cada persona coloca sus tarjetas en los tres cestos, en silencio, sin observar dónde ponen los demás.
+  \item Al terminar, se abre el plenario. El facilitador saca de a una las tarjetas que hayan quedado ``movidas'' \emph{---} es decir, que distintas personas colocaron en cestos distintos.
+  \item Se conversa por qué. No se busca acuerdo, se busca ver el mapa.
+  \item Al cierre, se cuenta cuántas tarjetas quedaron mayoritariamente en el \textbf{Cesto A}. Casi siempre son bastantes más de las que cada participante esperaba antes de empezar. Ese hallazgo es la puerta al mensaje central.
+\end{enumerate}
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Qué sorpresas hubo? ¿Qué tarjetas pensaba que iban a un cesto y terminaron en otro?
+  \item ¿Qué muestra el balance visible entre los tres cestos?
+  \item ¿Qué implica para el trabajo pastoral común frente a las adicciones y el reclutamiento?
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+La dinámica funciona mejor cuando el grupo es plural en tradiciones confesionales. Si el grupo es homogéneo, la conversación se desplaza de forma natural hacia la distinción entre lo que es doctrina y lo que es cultura eclesial: casi siempre hay sorpresas cruzadas, y ese desplazamiento también es fértil.
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Actividad 3
+% =====================================================================
+\begin{actividad}
+\tituloActividad{3}{La declaración común}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Producir en vivo una declaración doctrinal compartida frente a un problema concreto. Mostrar que, cuando el foco es aportar al mundo, la doctrina común aparece rápido y con fuerza. \\[0.35em]
+  \etiqueta{formato}    & Grupos pequeños mezclados + plenario. \\[0.35em]
+  \etiqueta{tiempo}     & 45--60 minutos. \\[0.35em]
+  \etiqueta{materiales} & Hojas, biromes; mesas o espacios cómodos para grupos pequeños; un afiche o pizarrón para el plenario. \\[0.35em]
+  \etiqueta{grupos}     & 3 a 4 personas por grupo, mezcladas por tradición confesional.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna}
+\emph{``En 20 minutos, escriban una declaración común \emph{---} no más de cinco líneas \emph{---} sobre por qué las comunidades de fe tienen algo distintivo que aportar frente al problema de las adicciones y el reclutamiento. Solo pueden incluir lo que las tres o cuatro firmarían sin dudar.''}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Formación de grupos. El facilitador cuida activamente que cada grupo tenga tradiciones confesionales distintas. Si el grupo es homogéneo, se organiza por generaciones, países, sensibilidades pastorales, o algún otro eje de diversidad real.
+  \item Trabajo grupal durante 20 minutos.
+  \item Cada grupo lee su declaración en plenario, sin explicarla ni justificarla.
+  \item Sobre el pizarrón o afiche, se identifican las convergencias entre las declaraciones de los distintos grupos.
+  \item \textit{Opcional:} intento de destilar una declaración común de todos los grupos, en dos o tres líneas.
+\end{enumerate}
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Fue más fácil o más difícil de lo que esperabas?
+  \item ¿Qué llegó a la mesa por consenso y qué no llegó?
+  \item ¿Qué revela sobre el aporte específico de las comunidades de fe al problema abordado?
+  \item Introducir aquí, si emerge del grupo, la noción del \emph{ecumenismo del hacer} (Francisco): la unidad se muestra en el aportar juntos, más que en el acordar previamente.
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+Es normal que los primeros 5--7 minutos del trabajo grupal sean lentos: los participantes se están calibrando entre sí. Vale la pena pasar por las mesas y ayudar a destrabar con una pregunta corta cuando alguna se estanca. Lo pastoralmente potente ocurre en los últimos 10 minutos: cuando cada grupo se da cuenta de que \emph{sí puede} escribir una declaración común, y la escribe.
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Consejo transversal
+% =====================================================================
+\section*{Consejo transversal --- Ronda de cierre}
+
+Cualquiera de las tres dinámicas anteriores gana en profundidad si se cierra con una misma \textbf{ronda breve}, en pieza que habla, con una consigna única:
+
+\vspace{0.5em}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=doctrinaAzul, colframe=doctrinaAzul,
+  boxrule=0pt, arc=3pt,
+  left=18pt, right=18pt, top=16pt, bottom=16pt,
+  width=0.86\linewidth,
+  halign=center
+]
+  {\color{parch}\itshape\large ``¿Qué me llevé sobre la doctrina que no sabía cuando entré?''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5em}
+
+Esta pregunta hace visible el aprendizaje individual y, en la mayoría de los grupos, le ofrece al facilitador el material para el resumen final de la sesión.
+
+\subsection*{Indicaciones prácticas}
+
+\begin{itemize}
+  \item El facilitador \textbf{no comenta ni valida} cada aporte durante la ronda. Solo cuida el ritmo.
+  \item La ronda no es lugar para debate ni pregunta cruzada. Cada persona recibe la pieza, dice lo suyo, y la pasa.
+  \item Se admite el ``paso'': quien no quiera hablar pasa la pieza sin justificarse. La ronda puede volver a esa persona al final si así lo desea.
+  \item Al cierre de la ronda, el facilitador recoge dos o tres ejes emergentes del grupo. \textbf{Solo dos o tres.} La disciplina de no decir más es parte del cuidado del espacio.
+  \item Si la ronda es al final de una jornada larga, considerar hacerla de pie, en círculo cerrado, sin sillas. Cambia el registro corporal y ayuda a que las intervenciones sean más breves y más esenciales.
+\end{itemize}
+
+\vspace{2em}
+
+% -------- Colofón --------
+\begin{center}
+{\color{regla}\rule{0.35\linewidth}{0.5pt}}\\
+\vspace{0.6em}
+{\color{tenue}\itshape\small tejedores de la red \ \textbullet\ \ artesanos de una respuesta de comunión}
+\end{center}
+
+\end{document}

@@ -1,0 +1,323 @@
+% =====================================================================
+%  El Tiempo — cronos, kairós y ventanas de oportunidad
+%  Propuesta de dos dinámicas para trabajo en círculo
+%
+%  Curriculum de adicciones y reclutamiento para líderes en la fe – PLAPA
+%
+%  Compila con pdflatex (probado con TeX Live 2024 / MiKTeX 24).
+%    pdflatex tiempo_kairos_dinamicas.tex
+%    pdflatex tiempo_kairos_dinamicas.tex   % 2ª pasada por hyperref/toc
+% =====================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% -------- Codificación e idioma --------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% -------- Tipografía: Palatino con ligaduras --------
+\usepackage{mathpazo}
+\linespread{1.08}
+\usepackage{microtype}
+
+% -------- Geometría de página --------
+\usepackage[a4paper, top=2.6cm, bottom=2.6cm, left=2.6cm, right=2.6cm]{geometry}
+
+% -------- Utilidades --------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+% -------- Paleta (coherente con el pentágono de la estrategia) --------
+\definecolor{tiempoAmbar}{HTML}{C08A2C}
+\definecolor{parch}{HTML}{F6EFDD}
+\definecolor{tinte}{HTML}{2B1F17}
+\definecolor{tenue}{HTML}{6B5D4E}
+\definecolor{regla}{HTML}{C9BFA8}
+
+% -------- Configuración de párrafo --------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% -------- Hyperref (metadata + colores) --------
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = tiempoAmbar,
+  urlcolor     = tiempoAmbar,
+  citecolor    = tiempoAmbar,
+  pdftitle     = {El Tiempo -- cronos, kairós y ventanas de oportunidad},
+  pdfsubject   = {Propuesta de dinámicas para trabajo en círculo},
+  pdfauthor    = {PLAPA -- Curriculum de adicciones y reclutamiento para líderes en la fe},
+  pdfkeywords  = {tiempo, cronos, kairós, ventanas de oportunidad, signos de los tiempos, dinámicas, PLAPA}
+}
+
+% -------- Titulados personalizados --------
+\titleformat{\section}[block]
+  {\vspace{0.4em}\color{tiempoAmbar}\Large\scshape}
+  {}{0em}{}
+  [\vspace{-0.2em}{\color{regla}\rule{\linewidth}{0.4pt}}]
+
+\titleformat{\subsection}[block]
+  {\color{tinte}\large\bfseries}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.35em}
+
+% -------- Listas --------
+\setlist[itemize]{leftmargin=1.4em, itemsep=0.15em, topsep=0.25em,
+                  label={\textcolor{tenue}{\textendash}}}
+\setlist[enumerate]{leftmargin=1.7em, itemsep=0.15em, topsep=0.25em}
+
+% -------- Cabecera / pie --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{tenue}\scshape\small El Tiempo -- cronos, kairós y ventanas}
+\fancyhead[R]{\color{tenue}\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% -------- Caja de actividad --------
+\newtcolorbox{actividad}{
+  enhanced,
+  breakable,
+  colback   = parch,
+  colframe  = tiempoAmbar,
+  boxrule   = 0pt,
+  toprule   = 3pt,
+  arc       = 2pt,
+  outer arc = 2pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt,
+  parbox    = false,
+  after skip= 1em
+}
+
+% -------- Caja de ficha operativa (metadata) --------
+\newtcolorbox{ficha}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = regla,
+  boxrule   = 0.4pt,
+  arc       = 1pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.9em
+}
+
+% -------- Comandos de comodidad --------
+\newcommand{\etiqueta}[1]{\textcolor{tiempoAmbar}{\scshape #1}}
+\newcommand{\tituloActividad}[2]{%
+  {\color{tenue}\scshape\normalsize Actividad #1}\par
+  \vspace{0.15em}
+  {\color{tiempoAmbar}\LARGE\bfseries #2}\par
+  \vspace{0.3em}
+  {\color{regla}\rule{\linewidth}{0.4pt}}\par
+  \vspace{0.5em}
+}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------- Portada / cabecera ---------------------------------------
+\thispagestyle{plain}
+\begin{center}
+  \vspace*{1.5em}
+  {\color{tenue}\scshape\small PLAPA \ \textbullet\ \ Curriculum de adicciones y reclutamiento}\\
+  \vspace{2em}
+  {\color{tiempoAmbar}\Huge El Tiempo}\\[0.35em]
+  {\color{tinte}\LARGE\itshape cronos, kairós y ventanas de oportunidad}\\
+  \vspace{1.4em}
+  {\color{tenue}\large Dos dinámicas para trabajo en círculo}\\
+  \vspace{0.6em}
+  {\color{regla}\rule{0.35\linewidth}{0.5pt}}
+\end{center}
+
+\vspace{2em}
+
+% ---------- Presentación --------------------------------------------
+\section*{Presentación}
+
+Esta ficha propone dos dinámicas para trabajar el tema del \emph{tiempo} dentro del pentágono de la estrategia, con un énfasis específico: la distinción entre \textbf{cronos} y \textbf{kairós}, y la lectura pastoral que permite reconocer las \textbf{ventanas de oportunidad} para actuar.
+
+A diferencia de doctrina y territorio, el tiempo es difícil de enseñar porque se \emph{habita} más que se \emph{mira}. Los agentes pastorales viven metidos en el tiempo, apurados o desbordados por él, y por eso lo que menos hacen es leerlo. Cronos ---el tiempo cronológico de la agenda, los plazos, las urgencias--- gana siempre por default y llena todo el aire disponible. Kairós ---el tiempo oportuno, el que se abre y hay que tomar--- es silencioso: cuando aparece no grita, y si el agente no está entrenado para reconocerlo lo deja pasar sin darse cuenta.
+
+Estas dos dinámicas están pensadas para entrenar la vista pastoral en la lectura del kairós dentro del cronos. La primera trabaja la memoria personal: qué ventanas se abrieron y no aprovechamos, y qué habría hecho falta tener listo antes. La segunda trabaja la percepción presente: qué signos del tiempo estamos viendo hoy que hace un año no habríamos nombrado.
+
+\subsection*{Tres malentendidos que las dinámicas trabajan}
+
+Cuando se habla del tiempo pastoral, en el aula suele aparecer alguno de estos tres reflejos que las dinámicas están pensadas para descolocar en la práctica:
+
+\begin{enumerate}[label={\color{tiempoAmbar}\arabic*.}]
+  \item \emph{``No tengo tiempo.''} \\
+        Casi siempre falso como diagnóstico. Lo que no tenés es criterio para elegir. Tiempo hay, pero está ocupado por cronos que no elegiste.
+  \item \emph{``La ventana se abrió, hay que aprovecharla ya.''} \\
+        Trampa. Muchas ventanas de oportunidad requieren preparación anticipada. Si empezás a preparar cuando la ventana ya se abrió, llegás tarde. El kairós se recibe con la mesa puesta o no se recibe.
+  \item \emph{``El kairós es evidente cuando ocurre.''} \\
+        Casi nunca. Se reconoce como kairós después. En el momento parece ruido, distracción, tema secundario. La disciplina del agente pastoral es aprender a mirar dos veces antes de descartar.
+\end{enumerate}
+
+Cualquier dinámica que funcione tiene que hacer visible, en vivo, estas tres cosas: que el cronos hay que ponerlo en su lugar para poder discernir, que las ventanas se preparan antes de que se abran, y que el kairós exige una vista entrenada.
+
+\vspace{1.5em}
+
+% =====================================================================
+%  Actividad 1
+% =====================================================================
+\begin{actividad}
+\tituloActividad{1}{La memoria de las ventanas perdidas}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Entrenar la memoria pastoral. Reconocer, en la propia trayectoria de los últimos diez años, ventanas de oportunidad que se abrieron y no aprovechamos, y producir el mapa de lo que habría hecho falta tener listo antes. Convertir esa memoria en preparación para las próximas ventanas. \\[0.35em]
+  \etiqueta{formato}    & Trabajo personal e individual. Escritura en silencio. No se comparten los casos particulares durante la dinámica; solo se comparte, si se quiere, un aprendizaje al final. \\[0.35em]
+  \etiqueta{tiempo}     & 60--75 minutos. \\[0.35em]
+  \etiqueta{materiales} & Cuaderno o carpeta personal, birome; disposición espacial que permita silencio (mesas separadas o círculo amplio). Opcional: música instrumental suave de fondo, muy baja.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna del primer tiempo de escritura}
+\emph{``Repasá los últimos diez años de tu trayectoria pastoral. Escribí en tu cuaderno todas las ventanas de oportunidad que hoy, con distancia, reconocés que se abrieron y no aprovechaste. Pueden ser coyunturas políticas, momentos eclesiales, crisis sociales, cambios en las autoridades, ciclos mediáticos, oportunidades de alianza, encuentros que no llegaste a promover, propuestas que no supiste hacer a tiempo. No hace falta que las jerarquices ni que sean grandes. Escribí las que aparezcan, en el orden en que aparezcan. Sin justificar, sin pedir perdón. Solo memoria honesta.''}
+
+\subsection*{Consigna del segundo tiempo de escritura}
+\emph{``Ahora volvé sobre tu lista y para cada ventana escribí, al lado o debajo, una respuesta corta: ¿qué habría hecho falta tener listo antes para que esa ventana no se perdiera? No qué habría hecho falta hacer en el momento --- qué habría hecho falta ya tener preparado. Cuadros, documentos, alianzas, presencia, formación, vínculos. Sé concreto.''}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Introducción de la dinámica y las dos consignas. Explicar con claridad que es un ejercicio personal, no de compartir cada caso.
+  \item Primer tiempo de escritura, 25 minutos, en silencio.
+  \item Breve pausa (agua, estiramiento, sin conversación).
+  \item Segundo tiempo de escritura, 20 minutos, en silencio.
+  \item Al terminar la escritura, invitar a mirar la lista completa y responderse en el cuaderno tres preguntas de síntesis: \emph{¿Qué patrones veo? ¿Qué faltó sistemáticamente? ¿Qué me pide esta memoria para las próximas ventanas?}
+  \item Cierre en círculo: ronda breve con pieza que habla. No se comparten casos. Cada persona dice, en no más de un minuto, \textbf{una} cosa: o un aprendizaje sobre sí mismo, o un compromiso concreto que se lleva. Sin explicaciones.
+\end{enumerate}
+
+\subsection*{Notas para el facilitador}
+\begin{itemize}
+  \item Es la dinámica más contemplativa del bloque. El ambiente importa: luz suave, silencio real, ninguna interrupción externa. Vale la pena avisar al equipo logístico y colgar un cartel en la puerta.
+  \item El horizonte de diez años es deliberado. Obliga a recordar cosas que ya no están operativamente en la cabeza y suelen ser las más formativas.
+  \item Este no es un ejercicio de culpa. Es de memoria y aprendizaje. Si alguien empieza a moverse hacia el reproche personal, el facilitador puede recordar la consigna con calma: \emph{``memoria honesta, sin pedir perdón''}.
+  \item Si alguien dice que no encuentra ventanas perdidas, ofrecer una pregunta lateral: \emph{``¿Qué momentos de la iglesia o del país sabías que iban a pasar y no te preparaste?''}. Rara vez alguien no encuentra nada después de esa reformulación.
+  \item No forzar el compartir en la ronda de cierre. Se admite el paso. La disciplina de no explicar es parte del cuidado del espacio.
+  \item Al cerrar, el facilitador \textbf{no} comenta ni sintetiza. Deja que decante. Si corresponde, retomar en la sesión siguiente con una pregunta breve: \emph{``¿qué me quedó de la memoria de ayer?''}.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Actividad 2
+% =====================================================================
+\begin{actividad}
+\tituloActividad{2}{Los signos que no leí}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Educar la vista pastoral para percibir desplazamientos silenciosos antes de que se vuelvan crisis o oportunidades explícitas. Hacer visibles los cambios que hoy parecen obvios pero que hace un año no habrían sido nombrados. \\[0.35em]
+  \etiqueta{formato}    & Escritura individual breve + ronda con pieza que habla + procesamiento colectivo. \\[0.35em]
+  \etiqueta{tiempo}     & 45--55 minutos. \\[0.35em]
+  \etiqueta{materiales} & Cuaderno personal, birome; pieza que habla; disposición en círculo. \\[0.35em]
+  \etiqueta{grupo}      & De 8 a 20 personas.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna}
+\emph{``Escribí en tu cuaderno tres signos del tiempo en tu territorio pastoral que hoy ves como evidentes, pero que hace un año no habrías nombrado. Cambios de humor social, de lenguaje, de expectativas, de agenda mediática, de composición generacional, de práctica religiosa, de relación con la fe. No los tres más importantes: los tres que hoy te parecen obvios y hace un año no lo eran.''}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Consigna leída en voz alta y también entregada por escrito o proyectada.
+  \item Escritura individual, 10 minutos, en silencio.
+  \item Ronda con pieza que habla: cada persona nombra sus tres signos, sin explicaciones ni comentarios cruzados. Solo los nombra.
+  \item Al terminar la ronda, silencio deliberado de un minuto para que decante.
+  \item Ronda breve de procesamiento colectivo con la pregunta: \emph{``¿Qué patrón emerge del conjunto que no estaba en cada aporte individual?''}. El facilitador puede escribir en un pizarrón o afiche los desplazamientos silenciosos que aparezcan compartidos por varios países o territorios.
+\end{enumerate}
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Qué signo escuchaste en la ronda que no habías visto y que ahora te parece evidente?
+  \item ¿Qué patrones aparecen entre los signos nombrados por participantes de contextos distintos?
+  \item ¿Qué ventana de oportunidad ---o qué crisis por venir--- están anunciando esos signos?
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+\begin{itemize}
+  \item Es una dinámica contemplativa y bastante breve. Puede combinarse con la anterior (memoria de las ventanas perdidas) en una misma jornada: primero la memoria, después los signos presentes. La secuencia funciona bien porque es memoria \emph{y luego} percepción presente.
+  \item La restricción del enunciado ---\emph{``los tres que hoy te parecen obvios y hace un año no lo eran''}--- es lo que hace la dinámica formativa. Sin esa restricción se convierte en una discusión de signos importantes en general, que ya se hace en cualquier reunión pastoral.
+  \item En la ronda, no permitir explicaciones. Solo se nombran los signos. Explicar cada signo llena la sala de cronos y ahoga la escucha de patrones.
+  \item El procesamiento colectivo es donde ocurre el aprendizaje central. El facilitador puede ir marcando en el pizarrón: los signos que aparecen en más de una intervención son ``desplazamientos continentales'' y son los que la red debería mirar con especial atención.
+  \item Si algún signo mencionado es dramático o carga peso emocional para quien lo nombró, el facilitador no lo profundiza en la ronda pero puede volver sobre él en un espacio de conversación posterior con esa persona.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Consejo transversal
+% =====================================================================
+\section*{Consejo transversal --- Ronda de cierre}
+
+Cualquiera de las dos dinámicas anteriores, o la secuencia completa de ambas, gana en profundidad si se cierra con una misma \textbf{ronda breve}, en pieza que habla, con una consigna única:
+
+\vspace{0.5em}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=tiempoAmbar, colframe=tiempoAmbar,
+  boxrule=0pt, arc=3pt,
+  left=18pt, right=18pt, top=16pt, bottom=16pt,
+  width=0.86\linewidth,
+  halign=center
+]
+  {\color{parch}\itshape\large ``¿Qué ventana de oportunidad, chica o grande, tengo hoy que preparar aunque todavía no se haya abierto?''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5em}
+
+Esta pregunta es la más operativa de los cierres del pentágono. No pide reflexionar, no pide aprender: pide \textbf{anticipar}. Y anticipar es la disciplina específica del bloque tiempo. Cada participante nombra una ventana concreta que se compromete a empezar a preparar antes de que se abra.
+
+Un detalle importante si esta sesión viene después del bloque \emph{territorio}: conviene abrir la ronda con un enlace explícito entre los dos bloques.
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=white, colframe=tiempoAmbar,
+  boxrule=0.8pt, arc=2pt,
+  left=14pt, right=14pt, top=10pt, bottom=10pt,
+  width=0.9\linewidth,
+]
+  {\color{tinte}\itshape ``Ahora que tienen el territorio más claro, ¿qué ventana están viendo hoy que hace una semana no habrían visto?''}
+\end{tcolorbox}
+\end{center}
+
+Ese enlace es exactamente lo que hace pastoralmente sólido el trabajo del pentágono: territorio primero (para saber desde dónde), tiempo después (para saber cuándo).
+
+\subsection*{Indicaciones prácticas}
+
+\begin{itemize}
+  \item El facilitador \textbf{no comenta ni valida} cada aporte durante la ronda. Solo cuida el ritmo.
+  \item La ronda no admite explicaciones ni justificaciones. Se dice la ventana concreta ---la que se va a empezar a preparar--- y se pasa la pieza. Si la respuesta empieza a explicar el porqué, el facilitador puede recordar la consigna con calma.
+  \item Se admite el ``paso'': quien no quiera hablar pasa la pieza sin justificarse. La ronda puede volver a esa persona al final si así lo desea.
+  \item Al cierre de la ronda, el facilitador recoge dos o tres patrones emergentes del grupo. \textbf{Solo dos o tres.} La disciplina de no decir más es parte del cuidado del espacio.
+  \item Anotar en un pizarrón o afiche el conjunto de ventanas nombradas es útil como material de trabajo para la próxima reunión de la red: es un mapa colectivo de lo que se está preparando y sirve para coordinar esfuerzos.
+\end{itemize}
+
+\vspace{2em}
+
+% -------- Colofón --------
+\begin{center}
+{\color{regla}\rule{0.35\linewidth}{0.5pt}}\\
+\vspace{0.6em}
+{\color{tenue}\itshape\small tejedores de la red \ \textbullet\ \ artesanos de una respuesta de comunión}
+\end{center}
+
+\end{document}

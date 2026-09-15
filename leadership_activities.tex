@@ -1,0 +1,384 @@
+% =====================================================================
+%  Leadership — service before power, authority before position
+%  Two circle-work activities
+%
+%  Addictions and recruitment curriculum for faith leaders — PLAPA
+%
+%  Compile with pdflatex (tested with TeX Live 2024 / MiKTeX 24).
+%    pdflatex leadership_activities.tex
+%    pdflatex leadership_activities.tex   % 2nd pass for hyperref/toc
+% =====================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% -------- Encoding and language --------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% -------- Typography: Palatino with ligatures --------
+\usepackage{mathpazo}
+\linespread{1.08}
+\usepackage{microtype}
+
+% -------- Page geometry --------
+\usepackage[a4paper, top=2.6cm, bottom=2.6cm, left=2.6cm, right=2.6cm]{geometry}
+
+% -------- Utilities --------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+% -------- Palette (coherent with the strategy pentagon) --------
+\definecolor{liderazgoVino}{HTML}{7B2E3F}
+\definecolor{parch}{HTML}{F6EFDD}
+\definecolor{tinte}{HTML}{2B1F17}
+\definecolor{tenue}{HTML}{6B5D4E}
+\definecolor{regla}{HTML}{C9BFA8}
+
+% -------- Paragraph settings --------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% -------- Hyperref (metadata + colors) --------
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = liderazgoVino,
+  urlcolor     = liderazgoVino,
+  citecolor    = liderazgoVino,
+  pdftitle     = {Leadership -- service before power, authority before position},
+  pdfsubject   = {Two circle-work activities},
+  pdfauthor    = {PLAPA -- Addictions and recruitment curriculum for faith leaders},
+  pdfkeywords  = {leadership, service, authority, Spiritual Exercises, Eternal King, kenosis, activities, PLAPA}
+}
+
+% -------- Custom titling --------
+\titleformat{\section}[block]
+  {\vspace{0.4em}\color{liderazgoVino}\Large\scshape}
+  {}{0em}{}
+  [\vspace{-0.2em}{\color{regla}\rule{\linewidth}{0.4pt}}]
+
+\titleformat{\subsection}[block]
+  {\color{tinte}\large\bfseries}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.35em}
+
+% -------- Lists --------
+\setlist[itemize]{leftmargin=1.4em, itemsep=0.15em, topsep=0.25em,
+                  label={\textcolor{tenue}{\textendash}}}
+\setlist[enumerate]{leftmargin=1.7em, itemsep=0.15em, topsep=0.25em}
+
+% -------- Header / footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{tenue}\scshape\small Leadership -- service and authority}
+\fancyhead[R]{\color{tenue}\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% -------- Activity box --------
+\newtcolorbox{actividad}{
+  enhanced,
+  breakable,
+  colback   = parch,
+  colframe  = liderazgoVino,
+  boxrule   = 0pt,
+  toprule   = 3pt,
+  arc       = 2pt,
+  outer arc = 2pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt,
+  parbox    = false,
+  after skip= 1em
+}
+
+% -------- Operational info box (metadata) --------
+\newtcolorbox{ficha}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = regla,
+  boxrule   = 0.4pt,
+  arc       = 1pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.9em
+}
+
+% -------- Meditation box (for contemplative prompts) --------
+\newtcolorbox{meditacion}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = liderazgoVino,
+  boxrule   = 0pt,
+  leftrule  = 2pt,
+  arc       = 0pt,
+  left=14pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.8em,
+  fontupper = \itshape
+}
+
+% -------- Convenience commands --------
+\newcommand{\etiqueta}[1]{\textcolor{liderazgoVino}{\scshape #1}}
+\newcommand{\tituloActividad}[2]{%
+  {\color{tenue}\scshape\normalsize Activity #1}\par
+  \vspace{0.15em}
+  {\color{liderazgoVino}\LARGE\bfseries #2}\par
+  \vspace{0.3em}
+  {\color{regla}\rule{\linewidth}{0.4pt}}\par
+  \vspace{0.5em}
+}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------- Cover / heading ------------------------------------------
+\thispagestyle{plain}
+\begin{center}
+  \vspace*{1.5em}
+  {\color{tenue}\scshape\small PLAPA \ \textbullet\ \ Addictions and recruitment curriculum}\\
+  \vspace{2em}
+  {\color{liderazgoVino}\Huge Leadership}\\[0.35em]
+  {\color{tinte}\LARGE\itshape service before power,}\\[0.15em]
+  {\color{tinte}\LARGE\itshape authority before position}\\
+  \vspace{1.4em}
+  {\color{tenue}\large Two activities for circle work}\\
+  \vspace{0.6em}
+  {\color{regla}\rule{0.35\linewidth}{0.5pt}}
+\end{center}
+
+\vspace{2em}
+
+% ---------- Introduction ---------------------------------------------
+\section*{Introduction}
+
+This booklet proposes two activities for working the theme of \emph{leadership} within the strategy pentagon, with a specific emphasis: pastoral leadership understood as \textbf{service before power}, and authority as something distinct from formal position ---something that neither position guarantees nor the absence of position prevents---.
+
+The leadership block has a particularity the other four do not have. Doctrine, territory, time, and organization are worked at a certain analytical distance: they are looked at, mapped, discussed. Leadership, by contrast, is at stake in what one \emph{is} while doing, not only in what one decides or thinks. That is why the activities in this block operate on the person of the participant, not only on concepts. And that is also why they require a protected space: to speak of one's own power ---or of what was believed to be service and was sliding into power--- is uncomfortable, and without care of the space the conversation closes instead of opening.
+
+\subsection*{The two slippages the activities work with}
+
+When pastoral leadership is posed as service, in practice two very typical slippages appear that the activities are designed to unsettle:
+
+\begin{itemize}
+  \item \textbf{From service to power.} Almost all pastoral leadership begins in the key of service and over time slides into power without the person noticing. The vocabulary remains the same ---``I am at the service of the network,'' ``I work for the others''--- but practice has changed: decisions are made without consulting, bonds are concentrated, handovers are resisted, one's own continuity is confused with the project's. The slippage is slow and therefore hard to detect in oneself.
+  \item \textbf{From position to authority.} Position is given by others; authority is earned. Many pastoral leaders confuse the one with the other and believe that the appointment settles the question. Then they do not understand why people do not really follow them, why the decisions they make are executed reluctantly, why their word does not weigh where it should. They have position but do not have authority, and they do not know it.
+\end{itemize}
+
+\subsection*{Three misunderstandings the activities work with}
+
+\begin{enumerate}[label={\color{liderazgoVino}\arabic*.}]
+  \item \emph{``I am at the service.''} \\
+        Almost always incomplete. The right question is: at the service of what or whom, exactly? how is that verified? Without verifiable criteria, ``service'' is a self-affirmation that commits to nothing.
+  \item \emph{``Authority comes with position.''} \\
+        No. Position gives formal power; authority requires coherence sustained over time, testimony under pressure, the capacity to convene without compelling. One can have position without authority and authority without position. They are different things.
+  \item \emph{``The more service, the less power.''} \\
+        False as a mechanical opposition. Well-understood service generates authority, and authority is a form of power ---but a power that is not used for oneself. The confusion between power and authoritarianism makes many pastoral leaders flee the legitimate power they need in order to serve.
+\end{enumerate}
+
+\subsection*{The sequence of the two activities}
+
+They are designed to be done in order. The first ---\emph{The formator's call}--- is a structured meditation inspired by the \emph{Spiritual Exercises} of Saint Ignatius: it contrasts two figures (the human leader who formed us and Jesus as the reference of authority-service) to bring forth, in each participant, the recognition of their own slippage and the disposition to correct it. The second ---\emph{Authority and position}--- works the conceptualization with biographical material: two real figures from one's own experience (one with position without authority, one with authority without position) allow the group to build the operative distinction between the two.
+
+\vspace{1.5em}
+
+% =====================================================================
+%  Activity 1
+% =====================================================================
+\begin{actividad}
+\tituloActividad{1}{The formator's call}
+{\color{tenue}\small\itshape A meditation in two scenes, inspired by the meditation on the Temporal King and the Eternal King from the \emph{Spiritual Exercises} of Saint Ignatius.}
+
+\vspace{0.8em}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To contrast two figures of leadership ---the human leader who actually formed us, and Jesus as the reference of authority-service--- in order to recognize in one's own biography what kind of leadership we aspire to embody. To work the passage from leadership understood as power to leadership understood as service. \\[0.35em]
+  \etiqueta{format}     & Guided meditation with two compositions + personal writing + round with a talking piece + contemplative closing reading. Sustained contemplative register. \\[0.35em]
+  \etiqueta{time}       & 90--105 minutes. \\[0.35em]
+  \etiqueta{materials}  & Personal notebook and pen; talking piece; circle seating; silent environment. Printed copies of the prompts for each participant or projection in the room. A biblical passage printed or memorized for the closing reading (Philippians 2:5--11 or Mark 10:42--45). \\[0.35em]
+  \etiqueta{group}      & 8 to 12 people. Requires contemplative disposition from the group.
+\end{tabular}
+\end{ficha}
+
+\subsection*{General structure}
+
+The activity freely follows the classical Ignatian structure: \textbf{two compositions} (two scenes placed before the imagination), \textbf{one comparison} between them, and a final \textbf{colloquy} (personal response before Christ). The structure functions equally for participants who recognize the Ignatian reference and for those who do not ---which is why it can be used with ecumenical groups without needing to name it explicitly if the context does not call for it.
+
+\subsection*{First composition --- The leader who formed us}
+
+Prompt read calmly, in meditative tone, after a brief initial silence:
+
+\begin{meditacion}
+``Bring to memory a leader ---woman or man--- who formed you ---not just anyone, but the one whose call you followed with the deepest surrender---. It may be a pastor, a teacher, a religious sister, a companion on the road, a father or mother in the faith. Imagine that person. How they dressed, how they spoke, how they stood among their own. Bring a concrete scene where they summoned you ---with words or without--- to a way of being, to a task, to a commitment.
+
+What were they asking of you? What were they offering you? What kind of authority did they exercise over you: that of position, that of charism, that of testimony, that of the bond?
+
+How did you respond? What did you leave behind? What did you take on? What formed you from that response?''
+\end{meditacion}
+
+Fifteen minutes of personal writing in silence.
+
+\subsection*{Second composition --- Jesus as reference of authority}
+
+After a brief silence of transition, the second prompt is read:
+
+\begin{meditacion}
+``Now, with the same calm, bring to memory Jesus ---not as a theological concept, but as a living figure. Imagine him. His way of being among his own, his way of exercising authority, his way of summoning. Concrete scenes: washing feet, eating with tax collectors, asking `who do you say that I am?', saying `I did not come to be served but to serve.'
+
+This is the ultimate reference of pastoral leadership: the one who exercises authority without demanding it, who gathers without coercing, who gives his life for those he calls.
+
+How does that way of leading compare with the way of the leader you brought first? What do they share? What sets them apart?
+
+To what is Jesus calling you as a pastoral leader today? Not in general, but in the concreteness of your current ministry. What kind of authority is he asking you to embody? What of the power you exercise today is he asking you to let go of or to transform?''
+\end{meditacion}
+
+Twenty minutes of personal writing in silence.
+
+\subsection*{Colloquy --- Round with the talking piece}
+
+Each participant shares, not everything written, but \textbf{three brief things}:
+
+\begin{enumerate}[label={\arabic*.}]
+  \item A quality of the formator you brought in which you recognize something of Jesus's way of leading ---that is, of leadership as service, not as power.
+  \item A concrete situation in which you recognize that your own leadership today resembles more the ``temporal king'' (power, position, control) than the ``Eternal King'' (service, authority, self-giving).
+  \item A concrete step you commit to take in the coming weeks to bring your exercise of leadership closer to the model of service.
+\end{enumerate}
+
+Three to four minutes per person. No cross-talk during the round.
+
+\subsection*{Contemplative closing}
+
+Deliberate silence of three minutes at the end of the round. Then the facilitator reads, without comment, a brief passage. Two very fitting possibilities:
+
+\begin{itemize}
+  \item \textbf{Philippians 2:5--11.} The Christological hymn of the kenosis: ``Christ Jesus, though he was in the form of God, did not regard equality with God as something to be exploited, but emptied himself, taking the form of a slave\ldots''
+  \item \textbf{Mark 10:42--45.} ``It shall not be so among you; whoever wishes to become great among you must be your servant, and whoever wishes to be first among you must be servant of all. For the Son of Man came not to be served but to serve, and to give his life a ransom for many.''
+\end{itemize}
+
+The reading is done slowly, almost liturgically. Without homily, without comment. Only the word placed at the center of the silence, as closing.
+
+\subsection*{Notes for the facilitator}
+\begin{itemize}
+  \item The activity presupposes a group disposed to the contemplative key. If the group is mixed in traditions and some are not familiar with the Ignatian register, the reference does not need to be named: the structure works the same. Present it simply as \emph{``a meditation in two scenes.''}
+  \item Adapt the language to the group if needed. With evangelical or Pentecostal groups it may be better to say \emph{``Jesus as reference of pastoral leadership''} instead of \emph{``the Eternal King.''} With Catholic groups or those close to Ignatian spirituality, the classical terminology works.
+  \item The environment matters: soft light, real silence, no external interruption. It is worth notifying the logistics team and hanging a sign on the door. The quality of silence determines the quality of the meditation.
+  \item The writing times are sacred. Do not rush. If the group asks for more time, give it.
+  \item The colloquy is not a space for sharing results: it is a public act of personal discernment. The facilitator ensures that contributions do not become explanations or debates. Each one says their own, the group listens in silence.
+  \item The closing passage is not commented on or homilized. It is read and it is left. Commentary would dissolve the contemplation.
+  \item If any participant is especially moved, offer a separate conversation afterward. Do not force deepening in the circle.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Activity 2
+% =====================================================================
+\begin{actividad}
+\tituloActividad{2}{Authority and position}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To build in the group, from biographical material, the operative distinction between \emph{position} and \emph{authority}. To recognize that one can have position without authority and authority without position, and what builds one and what builds the other. \\[0.35em]
+  \etiqueta{format}     & Individual writing + brief round + collective construction on a board. \\[0.35em]
+  \etiqueta{time}       & 60--75 minutes. \\[0.35em]
+  \etiqueta{materials}  & Personal notebook and pen; talking piece; board or large sheet for the two columns; markers. \\[0.35em]
+  \etiqueta{group}      & 8 to 12 people.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Prompt for the first writing stage}
+\emph{``Think of a person with position but without real authority in your pastoral experience ---someone appointed to a leadership role whom people do not really follow, even though nobody says it aloud. Write in your notebook three things: what that person lacks; what gestures or decisions made them lose authority; what they would have needed to do differently to have it.''}
+
+\subsection*{Prompt for the second writing stage}
+\emph{``Now think of a person with authority but without formal position ---someone who does not occupy a hierarchical position but whose word weighs, whom people listen to and follow. Write the same three things in reverse: what that person has; what gestures or decisions built that authority for them; what it teaches you about the nature of pastoral authority.''}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item Introduction of the activity. Clarify at the start: concrete persons will not be named in the round, so as not to expose those absent. Each one works with real figures in their notebook, but in the circle they share only learnings, not cases.
+  \item First stage of personal writing, 10 minutes, in silence.
+  \item Second stage of personal writing, 10 minutes, in silence.
+  \item Round with the talking piece. Each person shares, in no more than two minutes, \textbf{one learning} about the difference between position and authority ---not the cases they brought. No cross-talk.
+  \item Collective construction on the board. The facilitator draws two large columns: \emph{what gives position} \ and \ \emph{what gives authority}. Together, the group fills both columns with what appeared in the round and in the personal work. Talk while writing.
+  \item Closing conversation: how are the two columns related? Do they oppose each other? Do they need each other? What pastoral leadership do we want to build from this distinction?
+\end{enumerate}
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item Which gestures appeared most frequently as builders of authority?
+  \item Which gestures appeared most frequently as destroyers of the authority of the one who had position?
+  \item What does this reading ask of me about my own exercise of leadership today? Am I building authority or only administering position?
+  \item What relationship does this activity establish with the meditation of the previous one? Is pastoral authority another way of naming leadership as service?
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+\begin{itemize}
+  \item The rule of not naming concrete persons in the round is essential. Without it, the conversation becomes judgment or catharsis about absent third parties, and loses its formative value.
+  \item If any participant begins to describe cases with recognizable details, the facilitator calmly reminds: \emph{``you share the learning, not the case.''}
+  \item The board with the two columns is a concrete production worth photographing and keeping. It is the operative definition of pastoral authority the group brings. It may become reference material for future conversations.
+  \item It is normal for the \emph{``what gives authority''} column to end up much longer and more nuanced than the \emph{``what gives position''} one. That imbalance is itself the learning: position is described in few words, authority requires many.
+  \item The closing conversation may lead to the recognition that authority, as it appeared in the contributions, resembles closely what in the previous activity was identified as ``leadership as service.'' It is worth making it explicit: well-exercised service \emph{is} what builds genuine pastoral authority.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Cross-cutting advice
+% =====================================================================
+\section*{Cross-cutting advice --- Closing round}
+
+Either of the two activities above, and especially the full sequence of both, gains depth if closed with a \textbf{brief round}, with a talking piece and a single prompt:
+
+\vspace{0.5em}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=liderazgoVino, colframe=liderazgoVino,
+  boxrule=0pt, arc=3pt,
+  left=18pt, right=18pt, top=16pt, bottom=16pt,
+  width=0.90\linewidth,
+  halign=center
+]
+  {\color{parch}\itshape\large ``What of the power I hold today ---whether or not I have formal position--- am I going to start using from now on for the sake of others being able to do what I do?''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5em}
+
+This question is different from those of the other blocks of the pentagon. It does not ask for reflection, does not ask for learning, does not ask for anticipation, does not ask for institutionalization: it asks for \textbf{letting go}. And letting go is the specific discipline of pastoral leadership understood as service.
+
+Each participant names \textbf{one concrete exercise of letting go} to begin in the coming weeks: delegating a decision they currently take alone, sharing information they currently hold, exposing another to a space where they are today the only voice, formally presenting the successor whom nobody yet knows, no longer answering an email another can answer better, keeping silent in a meeting where their word weighs too heavily.
+
+\subsection*{Practical guidelines}
+
+\begin{itemize}
+  \item The facilitator \textbf{does not comment or validate} each contribution during the round. Only holds the rhythm.
+  \item The round admits no explanations. The concrete exercise of letting go is said, and the piece is passed.
+  \item Passing is allowed. Whoever does not wish to speak passes the piece without justifying. The round may return to that person at the end if they so wish.
+  \item At the close, the facilitator notes the personal commitments on a poster that remains as record and memory. The concrete exercises are verifiable: next time the group meets, each one can say whether they kept theirs.
+  \item If this session closes the full work on the five elements of the pentagon ---doctrine, territory, time, organization, leadership---, it is worth saying so explicitly in the final conversation: the decisions made in the four previous elements are ultimately at stake in the concrete leaderships willing to let go of their own power so that the network may live. The circle of the pentagon closes here.
+\end{itemize}
+
+\vspace{2em}
+
+% -------- Colophon --------
+\begin{center}
+{\color{regla}\rule{0.35\linewidth}{0.5pt}}\\
+\vspace{0.6em}
+{\color{tenue}\itshape\small weavers of the network \ \textbullet\ \ artisans of a response of communion}
+\end{center}
+
+\end{document}

@@ -1,0 +1,384 @@
+% =====================================================================
+%  El Liderazgo — servicio antes que poder, autoridad antes que cargo
+%  Propuesta de dos dinámicas para trabajo en círculo
+%
+%  Curriculum de adicciones y reclutamiento para líderes en la fe – PLAPA
+%
+%  Compila con pdflatex (probado con TeX Live 2024 / MiKTeX 24).
+%    pdflatex liderazgo_servicio_dinamicas.tex
+%    pdflatex liderazgo_servicio_dinamicas.tex   % 2ª pasada por hyperref/toc
+% =====================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% -------- Codificación e idioma --------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% -------- Tipografía: Palatino con ligaduras --------
+\usepackage{mathpazo}
+\linespread{1.08}
+\usepackage{microtype}
+
+% -------- Geometría de página --------
+\usepackage[a4paper, top=2.6cm, bottom=2.6cm, left=2.6cm, right=2.6cm]{geometry}
+
+% -------- Utilidades --------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+% -------- Paleta (coherente con el pentágono de la estrategia) --------
+\definecolor{liderazgoVino}{HTML}{7B2E3F}
+\definecolor{parch}{HTML}{F6EFDD}
+\definecolor{tinte}{HTML}{2B1F17}
+\definecolor{tenue}{HTML}{6B5D4E}
+\definecolor{regla}{HTML}{C9BFA8}
+
+% -------- Configuración de párrafo --------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% -------- Hyperref (metadata + colores) --------
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = liderazgoVino,
+  urlcolor     = liderazgoVino,
+  citecolor    = liderazgoVino,
+  pdftitle     = {El Liderazgo -- servicio antes que poder, autoridad antes que cargo},
+  pdfsubject   = {Propuesta de dinámicas para trabajo en círculo},
+  pdfauthor    = {PLAPA -- Curriculum de adicciones y reclutamiento para líderes en la fe},
+  pdfkeywords  = {liderazgo, servicio, autoridad, Ejercicios Ignacianos, Rey Eterno, kenosis, dinámicas, PLAPA}
+}
+
+% -------- Titulados personalizados --------
+\titleformat{\section}[block]
+  {\vspace{0.4em}\color{liderazgoVino}\Large\scshape}
+  {}{0em}{}
+  [\vspace{-0.2em}{\color{regla}\rule{\linewidth}{0.4pt}}]
+
+\titleformat{\subsection}[block]
+  {\color{tinte}\large\bfseries}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.35em}
+
+% -------- Listas --------
+\setlist[itemize]{leftmargin=1.4em, itemsep=0.15em, topsep=0.25em,
+                  label={\textcolor{tenue}{\textendash}}}
+\setlist[enumerate]{leftmargin=1.7em, itemsep=0.15em, topsep=0.25em}
+
+% -------- Cabecera / pie --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{tenue}\scshape\small El Liderazgo -- servicio y autoridad}
+\fancyhead[R]{\color{tenue}\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% -------- Caja de actividad --------
+\newtcolorbox{actividad}{
+  enhanced,
+  breakable,
+  colback   = parch,
+  colframe  = liderazgoVino,
+  boxrule   = 0pt,
+  toprule   = 3pt,
+  arc       = 2pt,
+  outer arc = 2pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt,
+  parbox    = false,
+  after skip= 1em
+}
+
+% -------- Caja de ficha operativa (metadata) --------
+\newtcolorbox{ficha}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = regla,
+  boxrule   = 0.4pt,
+  arc       = 1pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.9em
+}
+
+% -------- Caja de meditación (para consignas contemplativas) --------
+\newtcolorbox{meditacion}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = liderazgoVino,
+  boxrule   = 0pt,
+  leftrule  = 2pt,
+  arc       = 0pt,
+  left=14pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.8em,
+  fontupper = \itshape
+}
+
+% -------- Comandos de comodidad --------
+\newcommand{\etiqueta}[1]{\textcolor{liderazgoVino}{\scshape #1}}
+\newcommand{\tituloActividad}[2]{%
+  {\color{tenue}\scshape\normalsize Actividad #1}\par
+  \vspace{0.15em}
+  {\color{liderazgoVino}\LARGE\bfseries #2}\par
+  \vspace{0.3em}
+  {\color{regla}\rule{\linewidth}{0.4pt}}\par
+  \vspace{0.5em}
+}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------- Portada / cabecera ---------------------------------------
+\thispagestyle{plain}
+\begin{center}
+  \vspace*{1.5em}
+  {\color{tenue}\scshape\small PLAPA \ \textbullet\ \ Curriculum de adicciones y reclutamiento}\\
+  \vspace{2em}
+  {\color{liderazgoVino}\Huge El Liderazgo}\\[0.35em]
+  {\color{tinte}\LARGE\itshape servicio antes que poder,}\\[0.15em]
+  {\color{tinte}\LARGE\itshape autoridad antes que cargo}\\
+  \vspace{1.4em}
+  {\color{tenue}\large Dos dinámicas para trabajo en círculo}\\
+  \vspace{0.6em}
+  {\color{regla}\rule{0.35\linewidth}{0.5pt}}
+\end{center}
+
+\vspace{2em}
+
+% ---------- Presentación --------------------------------------------
+\section*{Presentación}
+
+Esta ficha propone dos dinámicas para trabajar el tema del \emph{liderazgo} dentro del pentágono de la estrategia, con un énfasis específico: el liderazgo pastoral entendido como \textbf{servicio antes que poder}, y la autoridad como algo distinto del cargo formal ---algo que ni el cargo garantiza ni la ausencia de cargo impide---.
+
+El bloque de liderazgo tiene una particularidad que los otros cuatro no tienen. Doctrina, territorio, tiempo y organización se trabajan en cierta distancia analítica: se miran, se mapean, se discuten. Liderazgo, en cambio, se juega en lo que uno \emph{es} mientras hace, no solo en lo que decide o piensa. Por eso las dinámicas de este bloque operan sobre la persona misma del participante y no solo sobre conceptos. Y por eso también requieren un espacio protegido: hablar del propio poder ---o del que se creía servicio y se estaba deslizando a poder--- es incómodo, y sin cuidado del espacio la conversación se cierra en lugar de abrirse.
+
+\subsection*{Los dos deslizamientos que las dinámicas trabajan}
+
+Cuando se plantea el liderazgo pastoral como servicio, en la práctica aparecen dos deslizamientos muy típicos que las dinámicas están pensadas para descolocar:
+
+\begin{itemize}
+  \item \textbf{Del servicio al poder.} Casi todo liderazgo pastoral empieza en clave de servicio y con el tiempo se desliza al poder sin que la persona se dé cuenta. El vocabulario sigue siendo el mismo ---``estoy al servicio de la red'', ``trabajo para los demás''--- pero la práctica cambió: se toman decisiones sin consultar, se concentran vínculos, se resiste el traspaso, se confunde la propia continuidad con la del proyecto. El deslizamiento es lento y por eso difícil de detectar en uno mismo.
+  \item \textbf{Del cargo a la autoridad.} El cargo lo dan otros; la autoridad se gana. Muchos líderes pastorales confunden una cosa con la otra y creen que el nombramiento resuelve la pregunta. Después no entienden por qué la gente no los sigue de verdad, por qué las decisiones que toman se ejecutan con desgano, por qué su palabra no pesa donde debería pesar. Tienen cargo pero no tienen autoridad, y no lo saben.
+\end{itemize}
+
+\subsection*{Tres malentendidos que las dinámicas trabajan}
+
+\begin{enumerate}[label={\color{liderazgoVino}\arabic*.}]
+  \item \emph{``Yo estoy al servicio.''} \\
+        Casi siempre incompleto. La pregunta correcta es: ¿al servicio de qué o de quién exactamente? ¿cómo se verifica? Sin criterios verificables, ``servicio'' es una autoafirmación que no compromete a nada.
+  \item \emph{``La autoridad viene con el cargo.''} \\
+        No. El cargo da poder formal; la autoridad requiere coherencia sostenida en el tiempo, testimonio bajo presión, capacidad de convocar sin obligar. Se puede tener cargo sin autoridad y autoridad sin cargo. Son cosas distintas.
+  \item \emph{``Cuanto más servicio, menos poder.''} \\
+        Falso como oposición mecánica. El servicio bien entendido genera autoridad, y la autoridad es una forma de poder ---pero un poder que no se usa para uno mismo. La confusión entre poder y autoritarismo hace que muchos líderes pastorales huyan del poder legítimo que necesitan para servir.
+\end{enumerate}
+
+\subsection*{La secuencia de las dos dinámicas}
+
+Están pensadas para hacerse en orden. La primera ---\emph{El llamado del formador}--- es una meditación estructurada inspirada en los \emph{Ejercicios Espirituales} de San Ignacio: contrasta dos figuras (el líder humano que nos formó y Jesús como referente de autoridad-servicio) para hacer emerger, en cada participante, el reconocimiento del propio deslizamiento y la disposición a corregirlo. La segunda ---\emph{Autoridad y cargo}--- trabaja la conceptualización con material biográfico: dos figuras reales de la propia experiencia (una con cargo sin autoridad, otra con autoridad sin cargo) permiten construir en grupo la distinción operativa entre ambas.
+
+\vspace{1.5em}
+
+% =====================================================================
+%  Actividad 1
+% =====================================================================
+\begin{actividad}
+\tituloActividad{1}{El llamado del formador}
+{\color{tenue}\small\itshape Una meditación en dos escenas, inspirada en la del Reino Temporal y el Reino Eterno de los \emph{Ejercicios Espirituales} de San Ignacio.}
+
+\vspace{0.8em}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Contrastar dos figuras de liderazgo ---el líder humano que efectivamente nos formó, y Jesús como referente de autoridad-servicio--- para reconocer en la propia biografía qué tipo de liderazgo aspiramos a encarnar. Trabajar el paso del liderazgo entendido como poder al liderazgo entendido como servicio. \\[0.35em]
+  \etiqueta{formato}    & Meditación guiada con dos composiciones + escritura personal + ronda con pieza que habla + lectura contemplativa de cierre. Registro contemplativo sostenido. \\[0.35em]
+  \etiqueta{tiempo}     & 90--105 minutos. \\[0.35em]
+  \etiqueta{materiales} & Cuaderno personal y birome; pieza que habla; disposición en círculo; ambiente silencioso. Copias impresas de las consignas para cada participante o proyección en la sala. Un pasaje bíblico impreso o memorizado para la lectura de cierre (Filipenses 2, 5--11 o Marcos 10, 42--45). \\[0.35em]
+  \etiqueta{grupo}      & 8 a 12 personas. Requiere disposición contemplativa del grupo.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Estructura general}
+
+La dinámica sigue libremente la estructura ignaciana clásica: \textbf{dos composiciones} (dos escenas puestas a la imaginación), \textbf{una comparación} entre ambas, y un \textbf{coloquio} final (respuesta personal ante Cristo). La estructura funciona igual para participantes que reconocen la referencia ignaciana y para quienes no ---por eso puede usarse con grupos ecuménicos sin necesidad de nombrarla explícitamente si el contexto no lo pide.
+
+\subsection*{Primera composición --- El líder o lidereza que nos formó}
+
+Consigna leída con calma, en tono meditativo, después de un breve silencio inicial:
+
+\begin{meditacion}
+``Traé a la memoria a un líder o lidereza que te formó ---no cualquiera, sino aquel o aquella cuya llamada seguiste con más entrega---. Puede ser un pastor, una maestra, una religiosa, un compañero de camino, un padre o madre en la fe. Imaginátelo. Cómo vestía, cómo hablaba, cómo estaba entre los suyos. Traé una escena concreta donde te haya convocado ---con palabras o sin palabras--- a un modo de ser, a una tarea, a un compromiso.
+
+¿Qué te pedía? ¿Qué te ofrecía? ¿Qué tipo de autoridad ejercía sobre vos: la del cargo, la del carisma, la del testimonio, la del vínculo?
+
+¿Cómo respondiste vos? ¿Qué dejaste? ¿Qué asumiste? ¿Qué te formó de esa respuesta?''
+\end{meditacion}
+
+Quince minutos de escritura personal en silencio.
+
+\subsection*{Segunda composición --- Jesús como referente de autoridad}
+
+Después de un breve silencio de transición, se lee la segunda consigna:
+
+\begin{meditacion}
+``Ahora, con la misma calma, traé a la memoria a Jesús ---no como concepto teológico, sino como figura viva. Imaginátelo. Su modo de estar entre los suyos, su modo de ejercer autoridad, su modo de convocar. Escenas concretas: lavando los pies, comiendo con publicanos, preguntando `¿quién soy yo para ustedes?', diciendo `no vine a ser servido sino a servir'.
+
+Este es el referente último del liderazgo pastoral: aquel que ejerce autoridad sin pedirla, que reúne sin coaccionar, que da su vida por los que llama.
+
+¿Cómo se compara ese modo de liderar con el modo del líder o lidereza que trajiste primero? ¿Qué comparten? ¿Qué los distingue?
+
+¿A qué te llama Jesús como líder pastoral hoy? No en general, sino en lo concreto de tu ministerio actual. ¿Qué tipo de autoridad te está pidiendo que encarnes? ¿Qué del poder que hoy ejercés te está pidiendo que sueltes o que transformes?''
+\end{meditacion}
+
+Veinte minutos de escritura personal en silencio.
+
+\subsection*{Coloquio --- Ronda con pieza que habla}
+
+Cada participante comparte, no todo lo escrito, sino \textbf{tres cosas breves}:
+
+\begin{enumerate}[label={\arabic*.}]
+  \item Una cualidad del formador o formadora que trajiste, en la que reconocés algo del modo de liderar de Jesús ---o sea, del liderazgo como servicio, no como poder.
+  \item Una situación concreta en la que reconocés que tu propio liderazgo hoy se parece más al del ``rey temporal'' (poder, cargo, control) que al del ``Rey eterno'' (servicio, autoridad, entrega).
+  \item Un paso concreto que te comprometés a dar en las próximas semanas para acercar tu ejercicio del liderazgo al modelo del servicio.
+\end{enumerate}
+
+Tres a cuatro minutos por persona. Sin diálogo cruzado durante la ronda.
+
+\subsection*{Cierre contemplativo}
+
+Silencio deliberado de tres minutos al terminar la ronda. Después el facilitador lee, sin comentario, un pasaje breve. Dos posibilidades muy adecuadas:
+
+\begin{itemize}
+  \item \textbf{Filipenses 2, 5--11.} El himno cristológico de la kénosis: ``Cristo, siendo de condición divina, no consideró como presa codiciable el ser igual a Dios; sino que se despojó de sí mismo tomando la condición de siervo\ldots''.
+  \item \textbf{Marcos 10, 42--45.} ``No ha de ser así entre ustedes; el que quiera ser grande, sea servidor de los demás; y el que quiera ser el primero, sea servidor de todos. Porque el Hijo del Hombre no vino a ser servido, sino a servir y a dar su vida como rescate por muchos''.
+\end{itemize}
+
+La lectura se hace lenta, casi litúrgica. Sin homilía, sin comentario. Solo la palabra puesta en el centro del silencio, como cierre.
+
+\subsection*{Notas para el facilitador}
+\begin{itemize}
+  \item La dinámica supone un grupo dispuesto a la clave contemplativa. Si el grupo es mixto en tradiciones y algunos no están familiarizados con el registro ignaciano, no hace falta nombrar la referencia: la estructura funciona igual. Presentarla simplemente como \emph{``una meditación en dos escenas''}.
+  \item Adaptar el lenguaje al grupo si es necesario. Con grupos evangélicos o pentecostales puede ser mejor decir \emph{``Jesús como referente de liderazgo pastoral''} en lugar de \emph{``el Rey eterno''}. Con grupos católicos o afines a la espiritualidad ignaciana, la terminología clásica funciona.
+  \item El ambiente importa: luz suave, silencio real, ninguna interrupción externa. Vale la pena avisar al equipo logístico y colgar cartel en la puerta. La calidad del silencio determina la calidad de la meditación.
+  \item Los tiempos de escritura son sagrados. No apurar. Si el grupo pide más tiempo, dárselo.
+  \item El coloquio no es un espacio de compartir resultados: es un acto público de discernimiento personal. El facilitador cuida que las intervenciones no se transformen en explicaciones ni en debates. Cada uno dice lo suyo, el grupo escucha en silencio.
+  \item El pasaje de cierre no se comenta ni se homiletiza. Se lee y se deja. El comentario disolvería la contemplación.
+  \item Si algún participante queda especialmente movido, ofrecer conversación posterior por separado. No forzar la profundización en el círculo.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Actividad 2
+% =====================================================================
+\begin{actividad}
+\tituloActividad{2}{Autoridad y cargo}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Construir en grupo, a partir de material biográfico, la distinción operativa entre \emph{cargo} y \emph{autoridad}. Reconocer que se puede tener cargo sin autoridad y autoridad sin cargo, y qué construye una y qué construye la otra. \\[0.35em]
+  \etiqueta{formato}    & Escritura individual + ronda breve + construcción colectiva en pizarrón. \\[0.35em]
+  \etiqueta{tiempo}     & 60--75 minutos. \\[0.35em]
+  \etiqueta{materiales} & Cuaderno personal y birome; pieza que habla; pizarrón o afiche grande para las dos columnas; fibrones. \\[0.35em]
+  \etiqueta{grupo}      & 8 a 12 personas.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna del primer tiempo de escritura}
+\emph{``Pensá en una persona con cargo pero sin autoridad real en tu experiencia pastoral ---alguien nombrado en un rol de conducción a quien la gente no sigue de verdad, aunque nadie lo diga en voz alta. Escribí en tu cuaderno tres cosas: qué le falta a esa persona; qué gestos o decisiones hicieron que perdiera la autoridad; qué habría necesitado hacer distinto para tenerla.''}
+
+\subsection*{Consigna del segundo tiempo de escritura}
+\emph{``Ahora pensá en una persona con autoridad pero sin cargo formal ---alguien que no ocupa una posición jerárquica pero cuya palabra pesa, a quien la gente escucha y sigue---. Escribí las mismas tres cosas al revés: qué tiene esa persona; qué gestos o decisiones le construyeron esa autoridad; qué te enseña sobre la naturaleza de la autoridad pastoral.''}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Introducción de la dinámica. Aclarar al inicio: no se van a nombrar personas concretas en la ronda para no exponer a los ausentes. Cada uno trabaja con figuras reales en su cuaderno, pero en el círculo comparte solo aprendizajes, no casos.
+  \item Primer tiempo de escritura personal, 10 minutos, en silencio.
+  \item Segundo tiempo de escritura personal, 10 minutos, en silencio.
+  \item Ronda con pieza que habla. Cada persona comparte, en no más de dos minutos, \textbf{un aprendizaje} sobre la diferencia entre cargo y autoridad ---no los casos que trajo. Sin diálogo cruzado.
+  \item Construcción colectiva en el pizarrón. El facilitador dibuja dos columnas grandes: \emph{lo que da cargo} \ y \  \emph{lo que da autoridad}. Entre todos, el grupo va llenando ambas columnas con lo aparecido en la ronda y en el trabajo personal. Se conversa mientras se escribe.
+  \item Conversación de cierre: ¿cómo se relacionan las dos columnas? ¿Se oponen? ¿Se necesitan? ¿Qué liderazgo pastoral queremos construir a partir de esta distinción?
+\end{enumerate}
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Qué gestos aparecieron con más frecuencia como constructores de autoridad?
+  \item ¿Qué gestos aparecieron con más frecuencia como destructores de la autoridad de quien tenía cargo?
+  \item ¿Qué me pide esta lectura sobre mi propio ejercicio de liderazgo hoy? ¿Estoy construyendo autoridad o solo administrando cargo?
+  \item ¿Qué relación establece esta dinámica con la meditación de la actividad anterior? ¿Es la autoridad pastoral otra manera de nombrar el liderazgo como servicio?
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+\begin{itemize}
+  \item La regla de no nombrar personas concretas en la ronda es esencial. Sin ella, la conversación se convierte en juicio o en catarsis sobre terceros ausentes, y pierde su valor formativo.
+  \item Si algún participante empieza a describir casos con detalles reconocibles, el facilitador recuerda con calma: \emph{``compartís el aprendizaje, no el caso''}.
+  \item El pizarrón con las dos columnas es una producción concreta que vale la pena fotografiar y guardar. Es la definición operativa de autoridad pastoral que trae el grupo. Puede volverse material de referencia para conversaciones futuras.
+  \item Es normal que la columna \emph{``lo que da autoridad''} termine mucho más larga y más matizada que la de \emph{``lo que da cargo''}. Ese desbalance es en sí mismo el aprendizaje: el cargo se describe en pocas palabras, la autoridad requiere muchas.
+  \item La conversación de cierre puede llevar al reconocimiento de que la autoridad, tal como aparece en las intervenciones, se parece mucho a lo que en la actividad anterior se identificó como ``liderazgo como servicio''. Vale la pena hacerlo explícito: el servicio bien ejercido \emph{es} lo que construye autoridad pastoral genuina.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Consejo transversal
+% =====================================================================
+\section*{Consejo transversal --- Ronda de cierre}
+
+Cualquiera de las dos dinámicas anteriores, y especialmente la secuencia completa de ambas, gana en profundidad si se cierra con una \textbf{ronda breve}, en pieza que habla, con una consigna única:
+
+\vspace{0.5em}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=liderazgoVino, colframe=liderazgoVino,
+  boxrule=0pt, arc=3pt,
+  left=18pt, right=18pt, top=16pt, bottom=16pt,
+  width=0.90\linewidth,
+  halign=center
+]
+  {\color{parch}\itshape\large ``¿Qué del poder que tengo hoy ---tenga o no cargo formal--- voy a empezar a usar desde ahora al servicio de que otros puedan hacer lo que yo hago?''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5em}
+
+Esta pregunta es distinta de las de los otros bloques del pentágono. No pide reflexionar, no pide aprender, no pide anticipar, no pide institucionalizar: pide \textbf{desapropiarse}. Y la desapropiación es la disciplina específica del liderazgo pastoral entendido como servicio.
+
+Cada participante nombra \textbf{un ejercicio concreto de desapropiación} que va a empezar en las próximas semanas: delegar una decisión que hoy toma solo, compartir una información que hoy concentra, exponer a otro a un espacio donde hoy es la única voz, presentar formalmente al sucesor que todavía nadie conoce, dejar de responder un mail que otro puede responder mejor, callar en una reunión donde su palabra pesa demasiado.
+
+\subsection*{Indicaciones prácticas}
+
+\begin{itemize}
+  \item El facilitador \textbf{no comenta ni valida} cada aporte durante la ronda. Solo cuida el ritmo.
+  \item La ronda no admite explicaciones. Se dice el ejercicio concreto de desapropiación y se pasa la pieza.
+  \item Se admite el ``paso''. Quien no quiera hablar pasa la pieza sin justificarse. La ronda puede volver a esa persona al final si así lo desea.
+  \item Al cierre, el facilitador anota los compromisos personales en un afiche que queda como registro y memoria. Los ejercicios concretos son verificables: la próxima vez que el grupo se reúna, cada uno puede contar si cumplió con lo suyo.
+  \item Si esta sesión cierra el trabajo completo sobre los cinco elementos del pentágono ---doctrina, territorio, tiempo, organización, liderazgo---, vale la pena decirlo explícitamente en la conversación final: las decisiones tomadas en los cuatro elementos anteriores se juegan finalmente en los liderazgos concretos que estén dispuestos a desapropiarse de su propio poder para que la red viva. El círculo del pentágono se cierra acá.
+\end{itemize}
+
+\vspace{2em}
+
+% -------- Colofón --------
+\begin{center}
+{\color{regla}\rule{0.35\linewidth}{0.5pt}}\\
+\vspace{0.6em}
+{\color{tenue}\itshape\small tejedores de la red \ \textbullet\ \ artesanos de una respuesta de comunión}
+\end{center}
+
+\end{document}

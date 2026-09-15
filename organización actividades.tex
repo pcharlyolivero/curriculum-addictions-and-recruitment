@@ -1,0 +1,434 @@
+% =====================================================================
+%  La Organización — el cuerpo que vence al tiempo
+%  Propuesta de tres dinámicas para trabajo en círculo
+%
+%  Curriculum de adicciones y reclutamiento para líderes en la fe – PLAPA
+%
+%  Compila con pdflatex (probado con TeX Live 2024 / MiKTeX 24).
+%    pdflatex organizacion_sustentabilidad_dinamicas.tex
+%    pdflatex organizacion_sustentabilidad_dinamicas.tex   % 2ª pasada por hyperref/toc
+% =====================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% -------- Codificación e idioma --------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% -------- Tipografía: Palatino con ligaduras --------
+\usepackage{mathpazo}
+\linespread{1.08}
+\usepackage{microtype}
+
+% -------- Geometría de página --------
+\usepackage[a4paper, top=2.6cm, bottom=2.6cm, left=2.6cm, right=2.6cm]{geometry}
+
+% -------- Utilidades --------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+% -------- Paleta (coherente con el pentágono de la estrategia) --------
+\definecolor{organizacionVerde}{HTML}{3E6647}
+\definecolor{parch}{HTML}{F6EFDD}
+\definecolor{tinte}{HTML}{2B1F17}
+\definecolor{tenue}{HTML}{6B5D4E}
+\definecolor{regla}{HTML}{C9BFA8}
+
+% -------- Configuración de párrafo --------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% -------- Hyperref (metadata + colores) --------
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = organizacionVerde,
+  urlcolor     = organizacionVerde,
+  citecolor    = organizacionVerde,
+  pdftitle     = {La Organización -- el cuerpo que vence al tiempo},
+  pdfsubject   = {Propuesta de dinámicas para trabajo en círculo},
+  pdfauthor    = {PLAPA -- Curriculum de adicciones y reclutamiento para líderes en la fe},
+  pdfkeywords  = {organización, sustentabilidad, centralización, descentralización, institucionalización, red, dinámicas, PLAPA}
+}
+
+% -------- Titulados personalizados --------
+\titleformat{\section}[block]
+  {\vspace{0.4em}\color{organizacionVerde}\Large\scshape}
+  {}{0em}{}
+  [\vspace{-0.2em}{\color{regla}\rule{\linewidth}{0.4pt}}]
+
+\titleformat{\subsection}[block]
+  {\color{tinte}\large\bfseries}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.35em}
+
+% -------- Listas --------
+\setlist[itemize]{leftmargin=1.4em, itemsep=0.15em, topsep=0.25em,
+                  label={\textcolor{tenue}{\textendash}}}
+\setlist[enumerate]{leftmargin=1.7em, itemsep=0.15em, topsep=0.25em}
+
+% -------- Cabecera / pie --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{tenue}\scshape\small La Organización -- el cuerpo que vence al tiempo}
+\fancyhead[R]{\color{tenue}\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% -------- Caja de actividad --------
+\newtcolorbox{actividad}{
+  enhanced,
+  breakable,
+  colback   = parch,
+  colframe  = organizacionVerde,
+  boxrule   = 0pt,
+  toprule   = 3pt,
+  arc       = 2pt,
+  outer arc = 2pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt,
+  parbox    = false,
+  after skip= 1em
+}
+
+% -------- Caja de ficha operativa (metadata) --------
+\newtcolorbox{ficha}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = regla,
+  boxrule   = 0.4pt,
+  arc       = 1pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.9em
+}
+
+% -------- Comandos de comodidad --------
+\newcommand{\etiqueta}[1]{\textcolor{organizacionVerde}{\scshape #1}}
+\newcommand{\tituloActividad}[2]{%
+  {\color{tenue}\scshape\normalsize Actividad #1}\par
+  \vspace{0.15em}
+  {\color{organizacionVerde}\LARGE\bfseries #2}\par
+  \vspace{0.3em}
+  {\color{regla}\rule{\linewidth}{0.4pt}}\par
+  \vspace{0.5em}
+}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------- Portada / cabecera ---------------------------------------
+\thispagestyle{plain}
+\begin{center}
+  \vspace*{1.5em}
+  {\color{tenue}\scshape\small PLAPA \ \textbullet\ \ Curriculum de adicciones y reclutamiento}\\
+  \vspace{2em}
+  {\color{organizacionVerde}\Huge La Organización}\\[0.35em]
+  {\color{tinte}\LARGE\itshape el cuerpo que vence al tiempo}\\
+  \vspace{1.4em}
+  {\color{tenue}\large Tres dinámicas para trabajo en círculo}\\
+  \vspace{0.6em}
+  {\color{regla}\rule{0.35\linewidth}{0.5pt}}
+\end{center}
+
+\vspace{2em}
+
+% ---------- Presentación --------------------------------------------
+\section*{Presentación}
+
+Esta ficha propone tres dinámicas para trabajar el tema de la \emph{organización} dentro del pentágono de la estrategia, con un énfasis específico: la \textbf{sustentabilidad} entendida a partir de la lógica de que la organización vence al tiempo.
+
+Está pensada para un grupo pequeño (8 a 12 personas) de tradiciones cristianas diversas, que todavía no forma una red pero se encuentra en el momento de decidir si va a formarse y qué tipo de red va a ser. Ese momento es pedagógicamente poco frecuente y muy valioso: se puede diseñar la arquitectura en frío, antes de que las cristalizaciones organizacionales se produzcan, en lugar de tener que desmontarlas años más tarde.
+
+\subsection*{Los cuatro sentidos de ``la organización vence al tiempo''}
+
+La frase tiene por lo menos cuatro sentidos entrelazados. Las dinámicas trabajan sobre las cuatro amenazas correspondientes y sobre las disciplinas que cada una exige:
+
+\begin{itemize}
+  \item \textbf{Vence al tiempo del líder.} El proyecto sobrevive a quien lo empezó. Si depende de una persona no es organización: es agenda personal, y muere con quien la lleva.
+  \item \textbf{Vence al tiempo del gobierno.} Los ciclos políticos y eclesiales son cortos. Una red pastoral seria tiene que operar en horizontes que atraviesen tres, cuatro, cinco gestiones civiles y eclesiales.
+  \item \textbf{Vence al tiempo del entusiasmo.} El fervor inicial es corto. La organización es lo que sostiene cuando la vocación ya no alcanza, cuando llegan los meses tibios y hay que apoyarse en estructuras que funcionen sin energía novedosa.
+  \item \textbf{Vence al tiempo de la memoria individual.} La organización guarda lo que las cabezas olvidan: acuerdos, criterios, procedimientos, historia de la red. Sin esa memoria externalizada, cada cambio de conducción reinventa lo mismo.
+\end{itemize}
+
+Las disciplinas que estas cuatro amenazas exigen son cuatro: \emph{sucesión}, \emph{horizonte largo}, \emph{rutinas de sostén}, \emph{memoria externalizada}.
+
+\subsection*{Tres malentendidos que las dinámicas trabajan}
+
+\begin{enumerate}[label={\color{organizacionVerde}\arabic*.}]
+  \item \emph{``Somos una red, no una organización.''} \\
+        Trampa romántica. Las redes que duran son organizaciones flexibles, no ausencia de organización. Sin estructura, la red se cae con la primera crisis o con el retiro del referente.
+  \item \emph{``La estructura ahoga el carisma.''} \\
+        Falso como oposición absoluta. Sin estructura, el carisma se agota con la persona que lo encarna. Sin carisma, la estructura se vuelve burocracia sin alma. Se necesitan las dos.
+  \item \emph{``Cuando yo no esté, ya verán.''} \\
+        Personalismo tardío. La organización que un líder deja armada es el mejor testimonio del liderazgo real. Lo que no dejó armado no lo hizo: lo tuvo, lo usó, se lo llevó.
+\end{enumerate}
+
+\subsection*{La secuencia de las tres dinámicas}
+
+Están pensadas para hacerse \textbf{en orden}, idealmente en la misma jornada larga (una tarde entera, o mañana + tarde). Cada una prepara la siguiente:
+
+\begin{itemize}
+  \item La primera --- \emph{El día después} --- hace consciente el problema de la sustentabilidad y libera la disposición a decidir.
+  \item La segunda --- \emph{El continuo, no el binario} --- entrega el criterio de arquitectura: la respuesta a centralización--descentralización no es una posición única sino un mapa diferenciado por función.
+  \item La tercera --- \emph{Los cinco acuerdos que sobreviven} --- aterriza todo en un documento formal y firmado que queda como marco fundacional de la red antes de que exista.
+\end{itemize}
+
+Si hay solo media jornada, hacer la 1 y la 3. La 2 es importante pero si hay que sacrificar una, sacrificarla a ella. La 1 pone el problema, la 3 produce el acuerdo. Ese par mínimo ya es una capacitación seria sobre organización.
+
+\vspace{1.5em}
+
+% =====================================================================
+%  Actividad 1
+% =====================================================================
+\begin{actividad}
+\tituloActividad{1}{El día después}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Hacer visible que la organización se mide por lo que \emph{no depende} del líder actual. Producir el compromiso concreto de diseñar la red desde el principio para que sobreviva a cada uno de sus fundadores. \\[0.35em]
+  \etiqueta{formato}    & Escritura personal en silencio + ronda con pieza que habla, con compromisos concretos. \\[0.35em]
+  \etiqueta{tiempo}     & 90--105 minutos. \\[0.35em]
+  \etiqueta{materiales} & Cuaderno y birome; pieza que habla; disposición en círculo cerrado. \\[0.35em]
+  \etiqueta{grupo}      & 8 a 12 personas. Diseñada para grupo pequeño en un solo círculo.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna del primer tiempo (escritura personal)}
+\emph{``Imaginate que las diez personas que estamos hoy en esta capacitación aceptamos formar la red. Trabajamos juntos dos años armándola. Y al cabo de esos dos años, por lo que sea, vos tenés que dejarla ---te llaman a otra tarea, te enfermás, te vas del país---. Sin traspaso, sin transición, sin tiempo. Escribí tres listas: qué de lo que dejaste construido sobrevive intacto sin vos; qué sobrevive pero dañado; qué desaparece con vos.''}
+
+\subsection*{Consigna del segundo tiempo (ronda)}
+\emph{``Nombrá una sola cosa de la columna `desaparece con vos' ---la que más te duele reconocer--- y una decisión concreta de arquitectura que te comprometés a proponer al grupo para que esa cosa no dependa de una persona en la red que estamos por formar.''}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Introducción de la dinámica. Aclarar al inicio: no es un ejercicio acusatorio ni de proyección negativa. Es diseño en frío, hecho antes de que la organización exista, para poder diseñarla bien.
+  \item Primer tiempo de escritura, 20 minutos, en silencio. Cada participante trabaja las tres columnas en su cuaderno.
+  \item Segundo tiempo en círculo con pieza que habla. Un participante habla a la vez, 5 minutos por persona aproximadamente. Cada uno nombra su ``una sola cosa'' y su propuesta de arquitectura. Sin diálogo cruzado.
+  \item Silencio deliberado de un minuto al terminar la ronda, para que decante.
+  \item El facilitador anota en un afiche visible las propuestas concretas de arquitectura que fueron surgiendo. Ese afiche queda como insumo para la actividad 3.
+\end{enumerate}
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Qué patrones aparecen en las cosas que ``desaparecen con nosotros''? ¿Hay ejes comunes (memoria, vínculos, decisiones, recursos, sucesión) o cada quien vio algo distinto?
+  \item ¿Qué propuestas de arquitectura suenan más urgentes al escuchar el conjunto?
+  \item ¿Qué de esto compromete el diseño inicial de la red que estamos por formar?
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+\begin{itemize}
+  \item Es una dinámica incómoda por diseño. Nadie quiere hacerse esta pregunta. Vale la pena hacerla en un espacio protegido y con un encuadre claro al comienzo.
+  \item Si alguien queda especialmente movido durante la ronda, no forzar la profundización en el momento. Ofrecer conversación posterior por separado.
+  \item El compromiso concreto en la segunda parte es esencial. Si un participante queda solo en el diagnóstico (nombra la cosa que desaparece pero no propone arquitectura), el facilitador puede reformular con calma: \emph{``¿qué proponés hoy para que eso no dependa de una persona en la red que estamos por formar?''}
+  \item Anotar los compromisos concretos en un afiche visible es esencial. Sin registro, la dinámica queda en la sensación y no llega a la actividad 3.
+  \item Si la sesión termina acá y no se hace la actividad 3 en la misma jornada, guardar el afiche y traerlo a la sesión siguiente.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Actividad 2
+% =====================================================================
+\begin{actividad}
+\tituloActividad{2}{El continuo, no el binario}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Hacer visible que la respuesta a la tensión centralización--descentralización no es una posición única para toda la red, sino un mapa diferenciado por función. Producir un primer bosquejo de ese mapa para la red que se está formando. \\[0.35em]
+  \etiqueta{formato}    & Dinámica física con desplazamiento corporal sobre una línea en el piso + procesamiento en círculo. \\[0.35em]
+  \etiqueta{tiempo}     & 90 minutos. \\[0.35em]
+  \etiqueta{materiales} & Cinta ancha o tira larga de papel afiche pegados en línea sobre el piso (3--4 metros); fibrones para marcar los extremos con carteles visibles; hoja para el facilitador con la lista de funciones. \\[0.35em]
+  \etiqueta{grupo}      & 8 a 12 personas. Funciona muy bien con este tamaño; con más gente los desplazamientos se hacen lentos y la dinámica pierde ritmo.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna}
+\emph{``En el piso hay una línea que representa un continuo. Un extremo dice `totalmente centralizado': todo pasa por el centro, decisiones únicas, recursos comunes gestionados desde un solo lugar, una sola voz pública. El otro extremo dice `totalmente descentralizado': cada nodo autónomo, decisiones locales, sin coordinación común, cada uno habla por sí mismo. Voy a nombrar en voz alta funciones concretas de la red que estamos por formar. Después de cada una, ustedes se paran físicamente sobre la línea, en el punto donde crean que esa función debe operar en nuestra red.''}
+
+\subsection*{Lista de funciones}
+Diez funciones concretas, en este orden aproximado (el facilitador puede adaptar la lista al grupo):
+
+\begin{multicols}{2}
+\begin{enumerate}[label={\arabic*.}]
+  \item La palabra pública de la red frente a autoridades civiles o eclesiales.
+  \item El manejo de recursos económicos comunes.
+  \item La formación de agentes en cada país.
+  \item La respuesta a una crisis pastoral local (un caso, una emergencia).
+  \item La agenda de encuentros continentales.
+  \item La representación ante organismos internacionales.
+  \item El vínculo con obispos y pastores locales de cada país.
+  \item La producción de materiales y documentos.
+  \item La decisión sobre incorporar nuevas iglesias o tradiciones a la red.
+  \item La comunicación externa cotidiana.
+\end{enumerate}
+\end{multicols}
+
+\subsection*{Desarrollo}
+\begin{enumerate}[label={\arabic*.}]
+  \item Preparación del espacio: la línea en el piso, los extremos marcados con carteles visibles. Grupo de pie, alrededor de la línea.
+  \item Presentación de la consigna y del continuo. Aclarar que las posiciones de hoy son primera aproximación, no acuerdos definitivos.
+  \item Por cada función:
+    \begin{enumerate}[label={\alph*.}]
+      \item El facilitador la nombra en voz alta.
+      \item Los participantes se ubican físicamente sobre la línea, en el punto que consideran adecuado.
+      \item Conversación breve de 2--3 minutos: unos pocos hablan (no todos, para no romper el ritmo), diciendo por qué se pararon acá y no allá.
+      \item El facilitador anota en un afiche la posición mayoritaria de esa función (centralizada, descentralizada, dispersa sin acuerdo).
+    \end{enumerate}
+  \item Al terminar las diez funciones, procesamiento en círculo.
+\end{enumerate}
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Qué funciones quedaron cerca del centro? ¿Cuáles cerca de la periferia?
+  \item ¿Cuáles se dispersaron sin acuerdo, con posiciones muy distintas entre los participantes?
+  \item ¿Qué principio de arquitectura emerge del ejercicio? ¿Qué parece compartido y qué está por decidir?
+  \item ¿Cómo se relaciona este mapa con lo que apareció en la actividad anterior?
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+\begin{itemize}
+  \item Es la dinámica más activa del bloque: cambia el registro corporal y rompe el ritmo contemplativo de las otras. Vale la pena por eso: pone la conversación en el cuerpo, no solo en la cabeza.
+  \item El desplazamiento físico es parte del ejercicio. Insistir suavemente en que cada uno se pare \emph{sobre} la línea, no cerca. Estar parado en el continuo es distinto de estar mirándolo.
+  \item No forzar acuerdo en cada función. Si el grupo se dispersa mucho en alguna, ese es el hallazgo. Anotar la dispersión como dato: son las funciones donde el diseño requiere conversación más larga.
+  \item El registro en el afiche es crucial. Sin registro, el ejercicio queda en la sensación y no alimenta la actividad 3.
+  \item Con un grupo pequeño, la posición individual pesa mucho. Vale la pena hacer explícito: \emph{``estas son primeras aproximaciones; los acuerdos definitivos los vamos a redactar en la actividad siguiente''}. Eso quita presión y permite explorar.
+  \item Reservar los últimos 10 minutos del procesamiento para una pregunta de puente hacia la actividad 3: \emph{``¿qué cinco funciones creen que necesitan quedar formalmente institucionalizadas desde el principio?''}. Las respuestas ya son insumo directo para la próxima dinámica.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Actividad 3
+% =====================================================================
+\begin{actividad}
+\tituloActividad{3}{Los cinco acuerdos que sobreviven}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objetivo}   & Producir en grupo un documento breve y firmado ---cinco procesos institucionalizados--- que quede como marco fundacional de la red antes de que exista formalmente. Convertir la conversación de las dos actividades anteriores en un acuerdo escrito con nombres, plazos y responsables. \\[0.35em]
+  \etiqueta{formato}    & Escritura individual + agrupamiento colectivo + redacción compartida + firma simbólica. Es la más operativa del bloque y produce un documento concreto. \\[0.35em]
+  \etiqueta{tiempo}     & 120--150 minutos. \\[0.35em]
+  \etiqueta{materiales} & Tarjetas (post-its o cartulinas pequeñas), fibrones, hoja grande o afiche para agrupar, hoja o carilla para el documento final, biromes. Si es posible, alguien tecleando en computadora la redacción para tener el documento digitalizado al cierre. \\[0.35em]
+  \etiqueta{grupo}      & 8 a 12 personas.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Consigna general}
+\emph{``Vamos a producir juntos, en dos horas, un documento breve ---cinco acuerdos, no más de una carilla en total--- que responda a esta pregunta: ¿qué cinco procesos tienen que quedar institucionalizados desde el principio para que la red pueda sobrevivir a cualquiera de nosotros?''}
+
+\subsection*{Desarrollo}
+La dinámica se hace en cuatro tiempos, con transiciones claras entre uno y otro.
+
+\subsubsection*{Primer tiempo --- Lluvia individual (15 minutos)}
+Escritura en silencio. Cada participante escribe en tarjetas los procesos que cree que deberían institucionalizarse. Una idea por tarjeta. Sin límite de cantidad. Sin autocensura: primero escribir todo, después se seleccionará.
+
+\subsubsection*{Segundo tiempo --- Agrupamiento colectivo (30--40 minutos)}
+Se pegan todas las tarjetas en la pared. Entre todos se van agrupando por temas afines. Sin descartar todavía. Suelen aparecer clusters como:
+
+\begin{multicols}{2}
+\begin{itemize}
+  \item \textbf{Decisiones}: cómo se decide y quién decide qué.
+  \item \textbf{Sucesión}: cómo se rota o renueva la conducción.
+  \item \textbf{Recursos}: cómo se rinde cuenta de qué.
+  \item \textbf{Memoria}: cómo se guarda lo hecho.
+  \item \textbf{Comunicación interna}: con qué frecuencia y en qué formato se habla la red.
+  \item \textbf{Conflicto}: cómo se maneja cuando aparece.
+  \item \textbf{Incorporación}: cómo entra alguien nuevo.
+\end{itemize}
+\end{multicols}
+
+\subsubsection*{Tercer tiempo --- Selección de cinco (20 minutos)}
+El grupo elige entre todos \textbf{cinco} procesos ---solo cinco--- que van a quedar institucionalizados en el documento. Discusión abierta pero con tiempo limitado. Los procesos que quedan afuera pueden ir a un anexo del documento como \emph{``próximos pasos''}; no se descartan.
+
+\subsubsection*{Cuarto tiempo --- Redacción operativa (40--50 minutos)}
+Para cada uno de los cinco procesos, se redacta un acuerdo operativo mínimo. \textbf{No principios abstractos}: acuerdos concretos con frecuencias, responsables rotatorios, plazos y criterios de revisión. Ejemplo:
+
+\begin{quote}
+\textit{Reunión de coordinación cada primer lunes del mes, secretaría rotativa por semestre, minuta pública a las 48 horas, criterio de revisión anual en la asamblea de junio.}
+\end{quote}
+
+Ese es el tipo de redacción que institucionaliza. Cualquier acuerdo más abstracto no es institucionalización: es enunciación.
+
+\subsubsection*{Cierre --- Firma simbólica (10--15 minutos)}
+Cada persona firma el documento con su nombre, su iglesia o tradición confesional, y una frase corta que diga qué se compromete a cuidar personalmente para que ese acuerdo se cumpla. La firma no es un formalismo: es lo que convierte al documento en \emph{acuerdo} en lugar de \emph{propuesta}.
+
+\subsection*{Procesamiento}
+\begin{itemize}
+  \item ¿Qué cluster fue el más difícil de acordar? ¿Cuál emergió con más consenso natural?
+  \item ¿Qué proceso quedó afuera de los cinco que hubieran querido incluir? ¿Por qué se dejó afuera?
+  \item ¿Qué compromiso personal se lleva cada uno más allá de lo firmado?
+\end{itemize}
+
+\subsection*{Notas para el facilitador}
+\begin{itemize}
+  \item Es la actividad más operativa del pentágono. El producto es concreto y firmado, no una reflexión abstracta. Vale la pena cuidar los tiempos con firmeza.
+  \item La tentación es alargar el agrupamiento y quedarse sin tiempo para la redacción concreta. La redacción es donde el ejercicio efectivamente institucionaliza. Si algo se sacrifica, sacrificar la extensión del agrupamiento, no la redacción.
+  \item Si aparecen más de cinco procesos que el grupo cree esenciales, dejarlos en un anexo del documento como \emph{``próximos pasos''}. No los descarte: los va a necesitar dentro de seis meses.
+  \item La firma simbólica es esencial. Sin ella, el documento se lee como propuesta. Con ella, se lee como acuerdo.
+  \item Guardar el documento en varias copias, digitalizado, y llevarlo con presencia visible al próximo encuentro. Sin esa continuidad concreta, el ejercicio se disuelve en el olvido.
+  \item Si el afiche de compromisos de la actividad 1 está disponible, integrarlo como material adicional del documento final. Es su primera memoria externalizada.
+\end{itemize}
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Consejo transversal
+% =====================================================================
+\section*{Consejo transversal --- Ronda de cierre}
+
+Cualquiera de las tres dinámicas anteriores, y especialmente la secuencia completa de las tres, gana en profundidad si se cierra con una misma \textbf{ronda breve}, en pieza que habla, con una consigna única:
+
+\vspace{0.5em}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=organizacionVerde, colframe=organizacionVerde,
+  boxrule=0pt, arc=3pt,
+  left=18pt, right=18pt, top=16pt, bottom=16pt,
+  width=0.88\linewidth,
+  halign=center
+]
+  {\color{parch}\itshape\large ``¿Qué de lo que decidimos hoy voy a defender cuando dentro de dos años alguien ---tal vez yo mismo--- quiera saltárselo por cansancio, por urgencia o por conveniencia?''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5em}
+
+Es la pregunta más comprometedora del pentágono. Le pide a cada uno reconocer tres cosas duras: que las decisiones institucionales se rompen desde adentro, no desde afuera; que quien va a atacarlas dentro de dos años es probablemente alguien del grupo actual ---o uno mismo, en un mal día---; y que la única forma de que sobrevivan es que cada uno haya elegido, en frío y por adelantado, cuál va a proteger.
+
+\subsection*{Indicaciones prácticas}
+
+\begin{itemize}
+  \item El facilitador \textbf{no comenta ni valida} cada aporte durante la ronda. Solo cuida el ritmo.
+  \item La ronda no admite explicaciones ni justificaciones. Se dice el compromiso concreto ---qué se va a defender--- y se pasa la pieza. Si la respuesta empieza a explicar el porqué, el facilitador puede recordar la consigna con calma.
+  \item Se admite el ``paso'': quien no quiera hablar pasa la pieza sin justificarse. La ronda puede volver a esa persona al final si así lo desea.
+  \item Al cierre de la ronda, el facilitador anota los compromisos personales en un afiche que queda con el documento de la actividad 3. Ese afiche debe estar \textbf{visible en el próximo encuentro} de la red. Es su primera memoria externalizada.
+  \item Si esta sesión es prólogo del bloque \emph{liderazgo}, no cerrar del todo. Dejar los cinco acuerdos firmados y los compromisos personales como puerta de entrada al bloque siguiente.
+\end{itemize}
+
+\vspace{2em}
+
+% -------- Colofón --------
+\begin{center}
+{\color{regla}\rule{0.35\linewidth}{0.5pt}}\\
+\vspace{0.6em}
+{\color{tenue}\itshape\small tejedores de la red \ \textbullet\ \ artesanos de una respuesta de comunión}
+\end{center}
+
+\end{document}

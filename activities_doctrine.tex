@@ -1,0 +1,371 @@
+% =====================================================================
+%  Doctrine as principle of unity
+%  Three circle-work activities
+%
+%  Addictions and recruitment curriculum for faith leaders — PLAPA
+%
+%  Compile with pdflatex (tested with TeX Live 2024 / MiKTeX 24).
+%    pdflatex activities_doctrine.tex
+%    pdflatex activities_doctrine.tex   % 2nd pass for hyperref/toc
+% =====================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% -------- Encoding and language --------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% -------- Typography: Palatino with ligatures --------
+\usepackage{mathpazo}
+\linespread{1.08}
+\usepackage{microtype}
+
+% -------- Page geometry --------
+\usepackage[a4paper, top=2.6cm, bottom=2.6cm, left=2.6cm, right=2.6cm]{geometry}
+
+% -------- Utilities --------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+% -------- Palette (coherent with the strategy pentagon) --------
+\definecolor{doctrinaAzul}{HTML}{2E4E6F}
+\definecolor{parch}{HTML}{F6EFDD}
+\definecolor{tinte}{HTML}{2B1F17}
+\definecolor{tenue}{HTML}{6B5D4E}
+\definecolor{regla}{HTML}{C9BFA8}
+
+% -------- Paragraph settings --------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% -------- Hyperref (metadata + colors) --------
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = doctrinaAzul,
+  urlcolor     = doctrinaAzul,
+  citecolor    = doctrinaAzul,
+  pdftitle     = {Doctrine as principle of unity},
+  pdfsubject   = {Three circle-work activities},
+  pdfauthor    = {PLAPA -- Addictions and recruitment curriculum for faith leaders},
+  pdfkeywords  = {doctrine, unity, ecumenism, activities, circle, restorative practices, PLAPA}
+}
+
+% -------- Custom titling --------
+\titleformat{\section}[block]
+  {\vspace{0.4em}\color{doctrinaAzul}\Large\scshape}
+  {}{0em}{}
+  [\vspace{-0.2em}{\color{regla}\rule{\linewidth}{0.4pt}}]
+
+\titleformat{\subsection}[block]
+  {\color{tinte}\large\bfseries}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.35em}
+
+% -------- Lists --------
+\setlist[itemize]{leftmargin=1.4em, itemsep=0.15em, topsep=0.25em,
+                  label={\textcolor{tenue}{\textendash}}}
+\setlist[enumerate]{leftmargin=1.7em, itemsep=0.15em, topsep=0.25em}
+
+% -------- Header / footer --------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{tenue}\scshape\small Doctrine as principle of unity}
+\fancyhead[R]{\color{tenue}\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% -------- Activity box --------
+\newtcolorbox{actividad}{
+  enhanced,
+  breakable,
+  colback   = parch,
+  colframe  = doctrinaAzul,
+  boxrule   = 0pt,
+  toprule   = 3pt,
+  arc       = 2pt,
+  outer arc = 2pt,
+  left=14pt, right=14pt, top=14pt, bottom=14pt,
+  parbox    = false,
+  after skip= 1em
+}
+
+% -------- Operational info box (metadata) --------
+\newtcolorbox{ficha}{
+  enhanced,
+  breakable,
+  colback   = white,
+  colframe  = regla,
+  boxrule   = 0.4pt,
+  arc       = 1pt,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  parbox    = false,
+  after skip= 0.9em
+}
+
+% -------- Convenience commands --------
+\newcommand{\etiqueta}[1]{\textcolor{doctrinaAzul}{\scshape #1}}
+\newcommand{\tituloActividad}[2]{%
+  {\color{tenue}\scshape\normalsize Activity #1}\par
+  \vspace{0.15em}
+  {\color{doctrinaAzul}\LARGE\bfseries #2}\par
+  \vspace{0.3em}
+  {\color{regla}\rule{\linewidth}{0.4pt}}\par
+  \vspace{0.5em}
+}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------- Cover / heading ------------------------------------------
+\thispagestyle{plain}
+\begin{center}
+  \vspace*{1.5em}
+  {\color{tenue}\scshape\small PLAPA \ \textbullet\ \ Addictions and recruitment curriculum}\\
+  \vspace{2em}
+  {\color{doctrinaAzul}\Huge Doctrine}\\[0.35em]
+  {\color{tinte}\LARGE\itshape as principle of unity}\\
+  \vspace{1.4em}
+  {\color{tenue}\large Three activities for circle work}\\
+  \vspace{0.6em}
+  {\color{regla}\rule{0.35\linewidth}{0.5pt}}
+\end{center}
+
+\vspace{2em}
+
+% ---------- Introduction ---------------------------------------------
+\section*{Introduction}
+
+This booklet proposes three activities for working the theme of \emph{doctrine} within the strategy pentagon, with a specific emphasis: doctrine as what \textbf{enables and sustains unity} among those who work pastorally in the face of addictions and recruitment.
+
+The three activities are different and complementary. Each can be used on its own; the full sequence is recommended when at least half a day is available (approximately three and a half hours).
+
+\subsection*{Three misunderstandings the activities work with}
+
+When it is claimed that ``doctrine unites us,'' one of these three reflexes tends to appear in the room. The activities are designed to unsettle them in practice:
+
+\begin{enumerate}[label={\color{doctrinaAzul}\arabic*.}]
+  \item \emph{``Doctrine unites us because we all think the same.''} \\
+        False. It unites because it gives us a common floor from which to think differently. Uniformity is not unity.
+  \item \emph{``Doctrine unites those of my own tradition.''} \\
+        Insufficient. In ecumenical key, doctrine unites precisely in what is common among traditions: the shared is prior to, and larger than, what is proper to each one.
+  \item \emph{``Doctrine unites us because we all sign on to it.''} \\
+        Superficial. It unites when it is practiced, not when it is approved.
+\end{enumerate}
+
+Any activity that works must make visible, in real time, these three things: that unity is not uniformity, that it is wider than one's own tradition, and that it is at stake in practice.
+
+\vspace{1.5em}
+
+% =====================================================================
+%  Activity 1
+% =====================================================================
+\begin{actividad}
+\tituloActividad{1}{The circle of fertile divergences}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To show that doctrine unites despite internal divergences. Unity is not uniformity. \\[0.35em]
+  \etiqueta{format}     & Circle with a talking piece. No cross-talk during the round. \\[0.35em]
+  \etiqueta{time}       & 30--40 minutes (round + debrief). \\[0.35em]
+  \etiqueta{materials}  & Talking piece; circle seating. \\[0.35em]
+  \etiqueta{group}      & 8 to 25 people.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Prompt}
+\emph{``Name one thing on which you disagree with someone from your own confessional tradition, but on which doctrine still unites you.''}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item Explain the prompt and clarify the circle rule: during the round there is no cross-talk and no reply. Each person speaks while holding the talking piece; the others listen.
+  \item Complete round. The facilitator may participate or not, depending on their read of the group.
+  \item At the end of the round, a brief silence of assimilation (one or two minutes).
+\end{enumerate}
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item What did you hear that you weren't expecting?
+  \item What does what we said reveal about the nature of doctrinal unity?
+  \item Where does doctrine appear as what sustains without uniforming?
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+The learning this activity makes visible is twofold: there is more \emph{internal} divergence than we usually recognize, and there is more \emph{underlying} unity than we usually assume. Doctrine shows itself as what withstands difference without breaking.
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Activity 2
+% =====================================================================
+\begin{actividad}
+\tituloActividad{2}{The three baskets}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To make visible the relative weight between what is shared, what is proper to each tradition, and what is distinctive. To show that we share more than we suppose. \\[0.35em]
+  \etiqueta{format}     & Silent individual work + plenary. \\[0.35em]
+  \etiqueta{time}       & 45--60 minutes. \\[0.35em]
+  \etiqueta{materials}  & Three labeled baskets; sets of cards with doctrinal statements; floor or long-table space. \\[0.35em]
+  \etiqueta{group}      & 8 to 25 people.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Labeling of the baskets}
+\begin{itemize}
+  \item \textbf{Basket A -- Shared.} What is present across the various Christian traditions (and, where applicable, across other faith traditions as well).
+  \item \textbf{Basket B -- Proper to my tradition.} What I identify as my confession's own, even though I do not reject it in others.
+  \item \textbf{Basket C -- What distinguishes me.} What marks the specific difference of my tradition from others.
+\end{itemize}
+
+\subsection*{Prompt}
+\emph{``Each person receives a full set of cards. Without conversation for now, place them in the basket you think fits, according to your own criterion. Afterward we will look together at what happened.''}
+
+\subsection*{Suggested cards}
+These are initial suggestions; the facilitator may adapt the list to the group's profile. A set of 12 to 18 cards is recommended.
+
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=1.2em]
+  \item Dignity of every human person
+  \item Trinitarian baptism
+  \item Option for the poor
+  \item Papal authority
+  \item \emph{Sola scriptura}
+  \item Care of creation
+  \item Real presence in the Eucharist
+  \item Salvation by grace
+  \item Veneration of the saints
+  \item Marriage as a sacrament
+  \item The Trinity as central mystery
+  \item Universal destination of goods
+  \item Bodily resurrection
+  \item Evangelizing mission
+  \item Authority of Sacred Scripture
+  \item Mutual recognition of baptism among churches
+  \item Sacrament of reconciliation
+  \item Universal call to holiness
+\end{itemize}
+\end{multicols}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item Distribute the card sets: one complete set per participant.
+  \item Each person places their cards in the three baskets, in silence, without watching where the others place theirs.
+  \item When finished, open the plenary. The facilitator takes out, one at a time, the cards that ended up ``moved'' \emph{---} that is, that different people placed in different baskets.
+  \item Discuss why. The goal is not agreement, but to see the map.
+  \item At the close, count how many cards ended up predominantly in \textbf{Basket A}. Almost always there are considerably more than each participant expected before starting. That finding is the door to the central message.
+\end{enumerate}
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item What surprises came up? Which cards did you think would go to one basket and ended up in another?
+  \item What does the visible balance among the three baskets show?
+  \item What does it imply for shared pastoral work in the face of addictions and recruitment?
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+The activity works best when the group is plural in confessional traditions. If the group is homogeneous, the conversation naturally shifts toward the distinction between what is doctrine and what is ecclesial culture: there are almost always crossed surprises, and that shift is also fertile.
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Activity 3
+% =====================================================================
+\begin{actividad}
+\tituloActividad{3}{The shared declaration}
+
+\begin{ficha}
+\begin{tabular}{@{}p{6em}@{\hspace{1em}}p{\dimexpr\linewidth-7.6em}@{}}
+  \etiqueta{objective}  & To produce, in real time, a shared doctrinal declaration in the face of a concrete problem. To show that when the focus is contributing to the world, common doctrine appears quickly and with force. \\[0.35em]
+  \etiqueta{format}     & Small mixed groups + plenary. \\[0.35em]
+  \etiqueta{time}       & 45--60 minutes. \\[0.35em]
+  \etiqueta{materials}  & Sheets of paper, pens; tables or comfortable spaces for small groups; a large sheet or board for the plenary. \\[0.35em]
+  \etiqueta{groups}     & 3 to 4 people per group, mixed by confessional tradition.
+\end{tabular}
+\end{ficha}
+
+\subsection*{Prompt}
+\emph{``In 20 minutes, write a shared declaration \emph{---} no more than five lines \emph{---} on why faith communities have something distinctive to contribute in the face of the problem of addictions and recruitment. You may include only what the three or four of you would sign without hesitation.''}
+
+\subsection*{Procedure}
+\begin{enumerate}[label={\arabic*.}]
+  \item Group formation. The facilitator actively ensures that each group has different confessional traditions. If the group is homogeneous, organize by generations, countries, pastoral sensibilities, or some other axis of real diversity.
+  \item Group work for 20 minutes.
+  \item Each group reads its declaration in plenary, without explaining or justifying it.
+  \item On the board or sheet, identify the convergences among the different groups' declarations.
+  \item \textit{Optional:} attempt to distill a shared declaration from all the groups, in two or three lines.
+\end{enumerate}
+
+\subsection*{Debrief}
+\begin{itemize}
+  \item Was it easier or harder than you expected?
+  \item What made it to the table by consensus and what did not?
+  \item What does it reveal about the specific contribution of faith communities to the problem addressed?
+  \item Introduce here, if it emerges from the group, the notion of the \emph{ecumenism of doing} (Francis): unity shows itself in contributing together, more than in agreeing beforehand.
+\end{itemize}
+
+\subsection*{Notes for the facilitator}
+It is normal for the first 5--7 minutes of group work to be slow: participants are calibrating with each other. It is worth walking by the tables and helping unstick with a short question when one gets bogged down. What is pastorally powerful happens in the last 10 minutes: when each group realizes that it \emph{can} write a shared declaration, and does.
+
+\end{actividad}
+
+\newpage
+
+% =====================================================================
+%  Cross-cutting advice
+% =====================================================================
+\section*{Cross-cutting advice --- Closing round}
+
+Any of the three activities above gains depth if closed with the same \textbf{brief round}, with a talking piece and a single prompt:
+
+\vspace{0.5em}
+
+\begin{center}
+\begin{tcolorbox}[
+  enhanced, colback=doctrinaAzul, colframe=doctrinaAzul,
+  boxrule=0pt, arc=3pt,
+  left=18pt, right=18pt, top=16pt, bottom=16pt,
+  width=0.86\linewidth,
+  halign=center
+]
+  {\color{parch}\itshape\large ``What did I take away about doctrine that I did not know when I came in?''}
+\end{tcolorbox}
+\end{center}
+
+\vspace{0.5em}
+
+This question makes individual learning visible and, in most groups, gives the facilitator the material for the final summary of the session.
+
+\subsection*{Practical guidelines}
+
+\begin{itemize}
+  \item The facilitator \textbf{does not comment or validate} each contribution during the round. Only holds the rhythm.
+  \item The round is not a place for debate or crossed questions. Each person receives the piece, says their own, and passes it on.
+  \item Passing is allowed: whoever does not wish to speak passes the piece without justifying. The round may return to that person at the end if they so wish.
+  \item At the close of the round, the facilitator gathers two or three emerging threads from the group. \textbf{Only two or three.} The discipline of not saying more is part of the care of the space.
+  \item If the round is at the end of a long day, consider doing it standing, in a closed circle, without chairs. It shifts the bodily register and helps make contributions briefer and more essential.
+\end{itemize}
+
+\vspace{2em}
+
+% -------- Colophon --------
+\begin{center}
+{\color{regla}\rule{0.35\linewidth}{0.5pt}}\\
+\vspace{0.6em}
+{\color{tenue}\itshape\small weavers of the network \ \textbullet\ \ artisans of a response of communion}
+\end{center}
+
+\end{document}
